@@ -6,7 +6,16 @@
 
     <groupId>gameserver</groupId>
     <artifactId>gameserver</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>server-core</module>
+        <module>server-db</module>
+        <module>server-common</module>
+        <module>server-executor</module>
+        <module>server-net</module>
+        <module>server-gamecode</module>
+    </modules>
 
 
 </project>
