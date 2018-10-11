@@ -6,6 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="server-common" />
+        <module name="server-core" />
+        <module name="server-db" />
+        <module name="server-executor" />
+        <module name="server-gamecode" />
+        <module name="server-net" />
         <module name="servercommon" />
         <module name="servercore" />
         <module name="serverdb" />

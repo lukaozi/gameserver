@@ -1,4 +1,4 @@
-package lucas;
+package lucas.net;
 
 /**
  * @author lushengkao vip8
