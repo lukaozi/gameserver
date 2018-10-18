@@ -52,7 +52,6 @@ public class NettyTcpSocketServerService implements IServerService {
         };
     }
 
-    @Override
     public void startServer() {
         ServerBootstrap serverBootstrap = new ServerBootstrap();
         serverBootstrap.group(bossGroup,workerGroup);
@@ -84,7 +83,6 @@ public class NettyTcpSocketServerService implements IServerService {
 
     }
 
-    @Override
     public void stopServer() {
         if (serverChannelFutrue != null) {
             if (bossGroup != null) {

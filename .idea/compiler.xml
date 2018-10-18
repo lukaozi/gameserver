@@ -11,7 +11,6 @@
         <module name="server-db" />
         <module name="server-executor" />
         <module name="server-gamecode" />
-        <module name="server-net" />
         <module name="servercommon" />
         <module name="servercore" />
         <module name="serverdb" />
@@ -20,5 +19,8 @@
         <module name="servernet" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="server-net" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

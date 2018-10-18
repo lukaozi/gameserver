@@ -17,17 +17,14 @@ public class LocalNetService implements IService {
     //tcp服务
     private NettyTcpSocketServerService nettyTcpSocketServerService;
 
-    @Override
     public String getId() {
         return ServiceName.LOCAL_SERVICE;
     }
 
-    @Override
     public void startUp() {
         initNetServices();
     }
 
-    @Override
     public void shutDown() {
 
     }
@@ -35,5 +32,6 @@ public class LocalNetService implements IService {
     private void initNetServices() {
         //这里应该根据配置来决定
         nettyTcpSocketServerService = new NettyTcpSocketServerService();
+        nettyTcpSocketServerService.startServer();
     }
 }

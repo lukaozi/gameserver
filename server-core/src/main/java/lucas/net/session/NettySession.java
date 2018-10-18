@@ -16,22 +16,18 @@ public class NettySession implements ISession {
 
     private volatile Channel channel;
 
-    @Override
     public boolean isConnected() {
         return false;
     }
 
-    @Override
     public void write(INetMessage message) {
 
     }
 
-    @Override
     public void write(byte[] message) {
 
     }
 
-    @Override
     public void close(boolean immediately) {
 
     }

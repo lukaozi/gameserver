@@ -1,8 +1,11 @@
 package lucas.core.bootstarp;
 
+import lucas.common.log.Loggers;
 import lucas.core.bootstarp.manager.GlobalManager;
 import lucas.core.bootstarp.manager.LocalMagager;
 import lucas.net.LocalNetService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -14,12 +17,15 @@ public class GameServer {
 
     private static ClassPathXmlApplicationContext applicationContext;
 
+    final static Logger logger = Loggers.SERVER_LOGGER;
+
     public static void main(String[] args) {
         intiSpring();
         GlobalManager.init();
         initNetService();
         addShutdownHook();
         GameServerRunTime.setOpen(true);
+        logger.info("启动完成");
     }
 
     private static void intiSpring() {
