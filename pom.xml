@@ -15,6 +15,7 @@
         <module>server-common</module>
         <module>server-executor</module>
         <module>server-gamecode</module>
+        <module>client</module>
     </modules>
 
     <dependencies>
