@@ -5,6 +5,8 @@ import lucas.db.entity.IEntity;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.cglib.proxy.Enhancer;
 
+import java.lang.reflect.InvocationTargetException;
+
 
 /**
  * @author lushengkao vip8
@@ -12,17 +14,14 @@ import org.springframework.cglib.proxy.Enhancer;
  */
 public class EntityProxyFactory {
 
-    public <T extends IEntity> AbstractEntity createProxyEntity(T entity) {
-        try {
+    public <T extends IEntity> AbstractEntity createProxyEntity(T entity) throws Exception {
             EntityProxy entityProxy = createProxy(entity);
             AbstractEntity result = createCGLibProxyEntity(entityProxy);
             result.setProxy(entityProxy);
             BeanUtils.copyProperties(result, entity);
             entityProxy.setCollect(true);
             return result;
-        } catch (Exception e) {
-            throw new RuntimeException("创建实例代理对象失败 : " + entity.getClass().getName() + "_id:" + entity.getId());
-        }
+
     }
 
     private <T extends IEntity> T createCGLibProxyEntity(EntityProxy proxy) {
