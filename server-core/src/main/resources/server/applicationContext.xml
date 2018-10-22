@@ -8,6 +8,5 @@
 
     <context:annotation-config/>
     <context:component-scan base-package="lucas"/>
-
-
+    <bean class="lucas.common.util.ApplicationContextUtil"/>
 </beans>
