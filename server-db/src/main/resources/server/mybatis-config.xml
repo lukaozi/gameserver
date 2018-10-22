@@ -38,7 +38,7 @@
     </settings>
 
     <typeAliases>
-        <typeAlias alias="order" type="lucas.db.entity.Player"/>
+        <typeAlias alias="player" type="lucas.db.entity.Player"/>
     </typeAliases>
 
     <mappers>
