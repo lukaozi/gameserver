@@ -134,6 +134,14 @@
             <artifactId>guava</artifactId>
             <version>26.0-jre</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.9.3</version>
+        </dependency>
+
     </dependencies>
 
     <build>

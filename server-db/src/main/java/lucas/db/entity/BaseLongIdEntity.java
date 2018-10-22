@@ -5,7 +5,7 @@ package lucas.db.entity;
  * 以long为主键的实体类型
  * 2018/10/22 15:14
  */
-public class BaseLongIdEntity implements IEntity<Long>{
+public class BaseLongIdEntity extends AbstractEntity<Long>{
 
     private Long userId;
 

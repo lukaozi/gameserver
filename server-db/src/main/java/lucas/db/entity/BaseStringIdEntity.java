@@ -5,7 +5,7 @@ package lucas.db.entity;
  * 以String为主键的实体类型
  * 2018/10/22 15:25
  */
-public class BaseStringIdEntity implements IEntity<String> {
+public class BaseStringIdEntity extends AbstractEntity<String> {
 
     private String userId;
 

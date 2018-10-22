@@ -5,7 +5,7 @@ package lucas.db.entity;
  * 以Integer为主键的实体类型
  * 2018/10/22 15:24
  */
-public class BaseIntegerIdEntity implements IEntity<Integer> {
+public class BaseIntegerIdEntity extends AbstractEntity<Integer> {
 
     private Integer userId;
 
