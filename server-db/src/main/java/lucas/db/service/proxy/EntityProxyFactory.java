@@ -5,11 +5,9 @@ import lucas.db.entity.IEntity;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.cglib.proxy.Enhancer;
 
-import java.lang.reflect.InvocationTargetException;
-
-
 /**
  * @author lushengkao vip8
+ * 实体对象代理生成工厂
  * 2018/10/22 19:32
  */
 public class EntityProxyFactory {

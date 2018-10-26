@@ -15,7 +15,6 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class EntityProxy<T extends IEntity> implements MethodInterceptor {
 
-
     private T subject;
 
     //是否初始化完成
@@ -32,10 +31,8 @@ public class EntityProxy<T extends IEntity> implements MethodInterceptor {
         if (!collect) {
             methodProxy.invokeSuper(getSubject(),objects);
         }
-
         return null;
     }
-
 
     public Map<String, Object> getChangeParamMap() {
         return changeParamMap;
