@@ -38,7 +38,7 @@ public class EventBus {
     private int THREAD_SIZE = 3;
 
     //所有监听者 event--监听者列表
-    private ConcurrentHashMap<Class, List<Subscriber>> subscribersMap = new ConcurrentHashMap<Class, List<Subscriber>>();
+    private ConcurrentHashMap<Class, List<Subscriber>> subscribersMap = new ConcurrentHashMap<>();
 
     private ExecutorService[] executorServices = ThreadPoolUtil.createSingleExecutorServiceArray("event-bus",THREAD_SIZE);
 
@@ -65,7 +65,7 @@ public class EventBus {
 
     private void registerSubscriber0(Object bean, Method method, Class<?> event) {
         Subscriber subscriber = new Subscriber(bean,method);
-        CopyOnWriteArrayList<Subscriber> value = new CopyOnWriteArrayList<Subscriber>();
+        CopyOnWriteArrayList<Subscriber> value = new CopyOnWriteArrayList<>();
         List<Subscriber> subscribers = subscribersMap.putIfAbsent(event, value);
         if (subscribers != null) {
             subscribers.add(subscriber);
@@ -100,11 +100,7 @@ public class EventBus {
             return;
         }
         ExecutorService executorService = selectExecutorService(event);
-        executorService.submit(new Runnable() {
-            public void run() {
-                update(event,subscribers);
-            }
-        });
+        executorService.submit(() -> update(event,subscribers));
     }
 
     private ExecutorService selectExecutorService(IEvent event) {
