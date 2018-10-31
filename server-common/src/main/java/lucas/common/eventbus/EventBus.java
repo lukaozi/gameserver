@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.PostConstruct;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
@@ -21,9 +22,20 @@ import java.util.concurrent.ExecutorService;
 @Component
 public class EventBus {
 
+    private static EventBus instance;
+
+    public static EventBus getInstance() {
+        return instance;
+    }
+
+    @PostConstruct
+    private void init() {
+        instance = this;
+    }
+
     private Logger logger = Loggers.EVENT_BUS;
 
-    private final static int THREAD_SIZE = 3;
+    private int THREAD_SIZE = 3;
 
     //所有监听者 event--监听者列表
     private ConcurrentHashMap<Class, List<Subscriber>> subscribersMap = new ConcurrentHashMap<Class, List<Subscriber>>();
@@ -42,7 +54,7 @@ public class EventBus {
                     throw new IllegalArgumentException("监听者注册失败，应只有一个参数，类名:" + clazz.getName());
                 }
                 Class<?> parameterType = parameterTypes[0];
-                if (!parameterType.isAssignableFrom(IEvent.class)) {
+                if (!IEvent.class.isAssignableFrom(parameterType)) {
                     throw new IllegalArgumentException("监听者注册失败，必须继承IEvent接口，类名:" + clazz.getName());
                 }
                 registerSubscriber0(bean,method, parameterType);

@@ -5,12 +5,14 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.Ordered;
+import org.springframework.stereotype.Component;
 
 /**
  * 前后置处理器 事件注册器
  * @author lushengkao vip8
  * 2018/10/31 14:26
  */
+@Component
 public class SubscribeRegister implements BeanPostProcessor, ApplicationContextAware, Ordered {
 
     private EventBus eventBus;
