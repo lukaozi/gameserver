@@ -18,4 +18,9 @@ public class Test {
     public void t1() {
         EventBus.getInstance().syncSubmit(new HelloEvent());
     }
+
+    @org.junit.Test
+    public void t2() {
+        EventBus.getInstance().asyncSubmit(new HelloEvent());
+    }
 }
