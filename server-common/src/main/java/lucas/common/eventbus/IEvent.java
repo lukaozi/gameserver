@@ -5,8 +5,7 @@ package lucas.common.eventbus;
  */
 public interface IEvent {
 
-    /**
-     * 事件執行
-     */
-    void run();
+    /**根据id取模分配异步执行的线程*/
+    long getId();
+
 }
