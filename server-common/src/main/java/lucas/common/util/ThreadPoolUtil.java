@@ -15,8 +15,9 @@ public class ThreadPoolUtil {
         }
         ExecutorService[] result = new ExecutorService[size];
         NamedThreadFactory namedThreadFactory = new NamedThreadFactory(name);
-        for (ExecutorService service : result) {
-            service = new ScheduledThreadPoolExecutor(1,namedThreadFactory);
+        for (int i = 0; i < result.length; i++) {
+            ScheduledThreadPoolExecutor service = new ScheduledThreadPoolExecutor(1, namedThreadFactory);
+            result[i] = service;
         }
         return result;
     }
