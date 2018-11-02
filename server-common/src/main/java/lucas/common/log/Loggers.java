@@ -11,5 +11,5 @@ public interface Loggers {
 
     Logger REDIS = LoggerFactory.getLogger("redis");
 
-    Logger EVENT_BUS = LoggerFactory.getLogger("event_bus");;
+    Logger EVENT_BUS = LoggerFactory.getLogger("event_bus");
 }

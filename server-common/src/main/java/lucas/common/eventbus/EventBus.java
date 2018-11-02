@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
 
 /**
  * @author lushengkao vip8
@@ -40,7 +41,7 @@ public class EventBus {
     //所有监听者 event--监听者列表
     private ConcurrentHashMap<Class, List<Subscriber>> subscribersMap = new ConcurrentHashMap<>();
 
-    private ExecutorService[] executorServices = ThreadPoolUtil.createSingleExecutorServiceArray("event-bus",THREAD_SIZE);
+    private ScheduledThreadPoolExecutor[] executorServices = ThreadPoolUtil.createSingleExecutorServiceArray("event-bus",THREAD_SIZE);
 
     //注册监听者
     Object registerSubscriber(Object bean) {
