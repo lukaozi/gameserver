@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author lushengkao vip8
  * 2018/11/5 21:25
  */
-public class ProtostuffUtil {
+public class ProtostuffHelper {
 
     private static final Map<Class<?>, Schema<?>> CACHED_SCHEMA = new ConcurrentHashMap<>();
 
