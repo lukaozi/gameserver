@@ -33,7 +33,7 @@ public class LinkedLock {
             throw new RuntimeException("锁对象为空");
         }
         LinkedLock lock = new LinkedLock();
-        lock.locks = new ArrayList<ObjectLock>(objects.length);
+        lock.locks = new ArrayList<>(objects.length);
         for (Object object : objects) {
             lock.locks.add(createLock(object));
         }
