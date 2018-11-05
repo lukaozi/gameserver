@@ -12,7 +12,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class LinkedLock {
 
-    private static final ConcurrentHashMap<Object,ObjectLock> HODLER = new ConcurrentHashMap<Object, ObjectLock>();
+    private static final ConcurrentHashMap<Object,ObjectLock> OBJECT_LOCK_MAP = new ConcurrentHashMap<>();
 
     private ArrayList<ObjectLock> locks;
 
@@ -42,11 +42,11 @@ public class LinkedLock {
     }
 
     private static ObjectLock createLock(Object object) {
-        if (HODLER.containsKey(object)) {
-            return HODLER.get(object);
+        if (OBJECT_LOCK_MAP.containsKey(object)) {
+            return OBJECT_LOCK_MAP.get(object);
         }else {
             ObjectLock lock = new ObjectLock(object,false);
-            ObjectLock oldLock = HODLER.putIfAbsent(object, lock);
+            ObjectLock oldLock = OBJECT_LOCK_MAP.putIfAbsent(object, lock);
             return oldLock == null ? lock : oldLock;
         }
     }
