@@ -35,7 +35,10 @@ public class LinkedLock {
         LinkedLock lock = new LinkedLock();
         lock.locks = new ArrayList<>(objects.length);
         for (Object object : objects) {
-            lock.locks.add(createLock(object));
+            ObjectLock newLock = createLock(object);
+            if (!lock.locks.contains(newLock)) {
+                lock.locks.add(newLock);
+            }
         }
         Collections.sort(lock.locks);
         return lock;

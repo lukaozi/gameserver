@@ -1,5 +1,6 @@
 package lucas.common.util;
 
+import java.util.Objects;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -27,5 +28,18 @@ public class ObjectLock extends ReentrantLock implements Comparable<ObjectLock> 
         }else {
             return Integer.compare(v1,v2);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ObjectLock)) return false;
+        ObjectLock that = (ObjectLock) o;
+        return Objects.equals(getObject(), that.getObject());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getObject());
     }
 }
