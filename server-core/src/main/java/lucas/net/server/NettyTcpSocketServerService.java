@@ -5,6 +5,8 @@ import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.protobuf.ProtobufDecoder;
+import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import lucas.common.log.Loggers;
@@ -47,7 +49,6 @@ public class NettyTcpSocketServerService implements IServerService {
             @Override
             protected void initChannel(Channel channel) {
                 ChannelPipeline pipeline = channel.pipeline();
-                //TODO 添加一下处理器
             }
         };
     }

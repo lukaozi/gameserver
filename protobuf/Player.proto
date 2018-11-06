@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+message Player {
+    int64 playerId=1;
+}

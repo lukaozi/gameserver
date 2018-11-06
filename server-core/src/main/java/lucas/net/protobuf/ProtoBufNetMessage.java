@@ -9,4 +9,5 @@ import lucas.net.message.AbstractNetMessage;
  */
 public class ProtoBufNetMessage extends AbstractNetMessage {
 
+
 }

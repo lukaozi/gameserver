@@ -12,9 +12,10 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author lushengkao vip8
+ * 用于rpc传输
  * 2018/11/5 21:25
  */
-public class ProtostuffHelper {
+public class RPCProtostuffHelper {
 
     private static final Map<Class<?>, Schema<?>> CACHED_SCHEMA = new ConcurrentHashMap<>();
 
