@@ -11,6 +11,7 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import lucas.common.log.Loggers;
 import lucas.common.util.NamedThreadFactory;
+import lucas.net.server.channelhandler.ProtoBufTcpChannelInitializer;
 import org.slf4j.Logger;
 
 
@@ -45,12 +46,7 @@ public class NettyTcpSocketServerService implements IServerService {
         bossGroup = new NioEventLoopGroup(1, bossNamedThreadFactory);
         //这里的0默认cpu core数量的两倍
         workerGroup = new NioEventLoopGroup(0, workerNamedThreadFactory);
-        channelInitializer = new ChannelInitializer() {
-            @Override
-            protected void initChannel(Channel channel) {
-                ChannelPipeline pipeline = channel.pipeline();
-            }
-        };
+        channelInitializer = new ProtoBufTcpChannelInitializer();
     }
 
     public void startServer() {
