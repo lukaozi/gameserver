@@ -1,5 +1,7 @@
 package lucas.core.bootstarp.manager;
 
+import lucas.net.session.NettySessionBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -14,6 +16,8 @@ public class SpringBeanManager {
 
     private static SpringBeanManager instance;
 
+    private NettySessionBuilder nettySessionBuilder;
+
     @PostConstruct
     private void init(){
         instance = this;
@@ -21,5 +25,14 @@ public class SpringBeanManager {
 
     public static SpringBeanManager getInstance() {
         return instance;
+    }
+
+    public NettySessionBuilder getNettySessionBuilder() {
+        return nettySessionBuilder;
+    }
+
+    @Autowired
+    public void setNettySessionBuilder(NettySessionBuilder nettySessionBuilder) {
+        this.nettySessionBuilder = nettySessionBuilder;
     }
 }

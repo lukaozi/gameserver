@@ -2,18 +2,37 @@ package lucas.channelHandler;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
+import lucas.core.bootstarp.manager.SpringBeanManager;
+import lucas.core.bootstarp.manager.SpringServiceManager;
 import lucas.dispatcher.IDispatcher;
-import lucas.net.PacketType;
-import lucas.net.packet.AbstractPacket;
 import lucas.net.protobuf.ProtoBufNetMessage;
-import lucas.net.protobuf.RPCProtostuffHelper;
 import lucas.net.session.NettySession;
+import lucas.net.session.NettySessionBuilder;
+import lucas.net.session.SessionContant;
 
 /**
  * @author lushengkao vip8
  * 2018/11/8 14:57
  */
 public class GamePacketHandler extends DispatcherChannelHandler {
+
+    @Override
+    public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
+        SpringBeanManager springBeanManager = SpringBeanManager.getInstance();
+        NettySessionBuilder nettySessionBuilder = springBeanManager.getNettySessionBuilder();
+        NettySession session = nettySessionBuilder.buildSession(ctx.channel());
+        SpringServiceManager springServiceManager = SpringServiceManager.getInstance();
+        boolean success = springServiceManager.getNettySessionManager().addSession(session);
+        if (success) {
+            //todo 成功
+        }
+        super.channelRegistered(ctx);
+    }
+
+    @Override
+    public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
+        super.channelUnregistered(ctx);
+    }
 
     public GamePacketHandler(IDispatcher dispatcher) {
         super(dispatcher);
@@ -26,17 +45,9 @@ public class GamePacketHandler extends DispatcherChannelHandler {
     }
 
     private NettySession getSession(Channel channel) {
-        return null;
-    }
-
-    @Override
-    public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        super.channelActive(ctx);
-    }
-
-    @Override
-    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        super.channelInactive(ctx);
+        Long sessionId = channel.attr(SessionContant.CHANNEL_SESSION_ID).get();
+        SpringServiceManager springServiceManager = SpringServiceManager.getInstance();
+        return springServiceManager.getNettySessionManager().getSession(sessionId);
     }
 
     @Override
