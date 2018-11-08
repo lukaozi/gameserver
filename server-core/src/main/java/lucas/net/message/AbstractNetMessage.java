@@ -16,6 +16,8 @@ public class AbstractNetMessage implements INetMessage {
     }
 
     public AbstractNetMessage() {
+        this.head = new NetMessageHead();
+        this.body = new NetMessageBody();
     }
 
     public NetMessageHead getHead() {

@@ -5,7 +5,7 @@ package lucas.net.packet;
  * 登陆请求
  * 2018/11/7 16:24
  */
-public class Req_Login {
+public class Req_Login implements AbstractPacket {
 
     private String account;
 
@@ -16,4 +16,5 @@ public class Req_Login {
     public void setAccount(String account) {
         this.account = account;
     }
+
 }

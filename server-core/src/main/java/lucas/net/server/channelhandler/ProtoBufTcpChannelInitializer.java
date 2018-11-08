@@ -5,8 +5,11 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import io.netty.handler.timeout.IdleStateHandler;
-import lucas.net.protobuf.ProtobufMessageDecoder;
-import lucas.net.protobuf.ProtobufMessageEncoder;
+import lucas.channelHandler.GamePacketHandler;
+import lucas.dispatcher.GamePacketDispatcher;
+import lucas.net.protobuf.NetMessageDecoder;
+import lucas.net.protobuf.NetMessageEncoder;
+import lucas.net.protobuf.PacketToMessageEncoder;
 
 /**
  * @author lushengkao vip8
@@ -21,12 +24,13 @@ import lucas.net.protobuf.ProtobufMessageEncoder;
 public class ProtoBufTcpChannelInitializer extends ChannelInitializer {
 
     @Override
-    protected void initChannel(Channel ch) throws Exception {
+    protected void initChannel(Channel ch) {
         ChannelPipeline pipeline = ch.pipeline();
         pipeline.addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE,2,4,0,0))
-                .addLast(new ProtobufMessageEncoder())
-                .addLast(new ProtobufMessageDecoder())
-                .addLast(new IdleStateHandler(60,60,60));
-
+                .addLast(new NetMessageDecoder())
+                .addLast(new PacketToMessageEncoder())
+                .addLast(new NetMessageEncoder())
+                .addLast(new IdleStateHandler(60,60,60))
+                .addLast(new GamePacketHandler(new GamePacketDispatcher()));
     }
 }

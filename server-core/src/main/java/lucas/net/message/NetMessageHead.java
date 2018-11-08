@@ -1,14 +1,13 @@
 package lucas.net.message;
 
+import lucas.GlobalContant;
+
 /**
  * @author lushengkao vip8
  * 消息头
  * 2018/10/11 18:05
  */
 public class NetMessageHead {
-
-    //魔法数字
-    private static final short MAGIC_CODE = 0x2525;
 
     private short head;
     //版本
@@ -18,7 +17,11 @@ public class NetMessageHead {
     //对应请求的序号
     private int serial;
     //对应命令
-    private int commond;
+    private int command;
+
+    public NetMessageHead() {
+        head = GlobalContant.MAGIC_CODE;
+    }
 
     public short getHead() {
         return head;
@@ -52,11 +55,11 @@ public class NetMessageHead {
         this.serial = serial;
     }
 
-    public int getCommond() {
-        return commond;
+    public int getCommand() {
+        return command;
     }
 
-    public void setCommond(int commond) {
-        this.commond = commond;
+    public void setCommand(int command) {
+        this.command = command;
     }
 }
