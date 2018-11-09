@@ -1,4 +1,4 @@
-package lucas.core.packet;
+package lucas.core.packet.packethandler;
 
 /**
  * @author lushengkao vip8

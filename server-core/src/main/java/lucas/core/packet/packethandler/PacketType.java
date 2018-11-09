@@ -1,4 +1,6 @@
-package lucas.core.packet;
+package lucas.core.packet.packethandler;
+
+import lucas.core.packet.Req_Login;
 
 import java.util.concurrent.ConcurrentHashMap;
 

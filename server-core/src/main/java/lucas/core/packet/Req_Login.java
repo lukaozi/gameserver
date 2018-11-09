@@ -1,5 +1,7 @@
 package lucas.core.packet;
 
+import lucas.core.packet.packethandler.AbstractPacket;
+
 /**
  * @author lushengkao vip8
  * 登陆请求

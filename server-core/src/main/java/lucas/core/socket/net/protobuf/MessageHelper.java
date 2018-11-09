@@ -5,10 +5,10 @@ import io.protostuff.ProtostuffIOUtil;
 import io.protostuff.Schema;
 import io.protostuff.runtime.RuntimeSchema;
 import lucas.core.GlobalContant;
-import lucas.core.packet.PacketType;
+import lucas.core.packet.packethandler.PacketType;
 import lucas.core.socket.net.message.AbstractNetMessage;
 import lucas.core.socket.net.message.NetMessageHead;
-import lucas.core.packet.AbstractPacket;
+import lucas.core.packet.packethandler.AbstractPacket;
 import org.springframework.objenesis.Objenesis;
 import org.springframework.objenesis.ObjenesisStd;
 

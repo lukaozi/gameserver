@@ -3,6 +3,7 @@ package lucas.core.game.player.controller;
 import lucas.core.game.anno.GameController;
 import lucas.core.game.anno.GameRequest;
 import lucas.core.packet.Req_Login;
+import lucas.core.socket.net.session.GameSession;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Controller;
 public class PlayerController {
 
     @GameRequest
-    public void Hello(Req_Login req) {
-        System.out.println("Hello");
+    public void Hello(GameSession session,Req_Login req) {
+        System.out.println("Hello " + session.getPlayer().getName());
     }
 }

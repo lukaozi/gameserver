@@ -1,9 +1,9 @@
 package lucas.core.socket.dispatcher;
 
 import lucas.core.socket.executors.ArrayExecutor;
-import lucas.core.packet.PacketType;
+import lucas.core.packet.packethandler.PacketType;
 import lucas.core.socket.net.message.INetMessage;
-import lucas.core.packet.AbstractPacket;
+import lucas.core.packet.packethandler.AbstractPacket;
 import lucas.core.socket.net.protobuf.MessageHelper;
 import lucas.core.socket.net.session.GameSession;
 import lucas.core.socket.task.PlayerIoTask;

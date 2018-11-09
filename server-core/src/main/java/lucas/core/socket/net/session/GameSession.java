@@ -2,6 +2,9 @@ package lucas.core.socket.net.session;
 
 import io.netty.channel.Channel;
 import lucas.common.log.Loggers;
+import lucas.core.game.player.Player;
+import lucas.core.game.player.service.PlayerManager;
+import lucas.core.socket.bootstarp.manager.SpringServiceManager;
 import lucas.core.socket.net.message.MessageException;
 import lucas.core.socket.net.message.AbstractNetMessage;
 import org.slf4j.Logger;
@@ -76,5 +79,10 @@ public class GameSession implements ISession {
 
     public void setPlayerId(long playerId) {
         this.playerId = playerId;
+    }
+
+    public Player getPlayer() {
+        PlayerManager playerManager = SpringServiceManager.getInstance().getPlayerManager();
+        return playerManager.getPlayer(playerId);
     }
 }

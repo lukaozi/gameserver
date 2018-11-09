@@ -1,6 +1,6 @@
 package lucas.core.socket.net.session;
 
-import lucas.core.packet.AbstractPacket;
+import lucas.core.packet.packethandler.AbstractPacket;
 
 /**
  * @author lushengkao vip8
