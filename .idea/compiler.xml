@@ -10,8 +10,6 @@
         <module name="server-common" />
         <module name="server-core" />
         <module name="server-db" />
-        <module name="server-executor" />
-        <module name="server-gamecode" />
         <module name="servercommon" />
         <module name="servercore" />
         <module name="serverdb" />
@@ -21,6 +19,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="server-executor" target="1.8" />
+      <module name="server-gamecode" target="1.8" />
       <module name="server-net" target="1.5" />
     </bytecodeTargetLevel>
   </component>

@@ -12,6 +12,8 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/server-executor/pom.xml" />
+        <option value="$PROJECT_DIR$/server-gamecode/pom.xml" />
         <option value="$PROJECT_DIR$/server-net/pom.xml" />
       </set>
     </option>
