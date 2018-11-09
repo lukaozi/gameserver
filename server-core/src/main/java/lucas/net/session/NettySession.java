@@ -31,7 +31,7 @@ public class NettySession implements ISession {
         return channel.isActive();
     }
 
-    public void write(INetMessage message) {
+    public void write(Object message) {
         if (message == null) {
             throw new MessageException("发送的信息为空");
         }

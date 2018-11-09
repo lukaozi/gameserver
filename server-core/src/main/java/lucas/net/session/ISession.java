@@ -1,7 +1,5 @@
 package lucas.net.session;
 
-import lucas.net.message.INetMessage;
-
 public interface ISession {
 
     /**
@@ -12,9 +10,9 @@ public interface ISession {
 
     /**
      * 写消息
-     * @param message
+     * @param object
      */
-    void write(INetMessage message);
+    void write(Object object);
 
     /**
      * 直接写字节
