@@ -9,7 +9,6 @@ import lucas.channelHandler.GamePacketHandler;
 import lucas.dispatcher.GamePacketDispatcher;
 import lucas.net.protobuf.NetMessageDecoder;
 import lucas.net.protobuf.NetMessageEncoder;
-import lucas.net.protobuf.PacketToMessageEncoder;
 
 /**
  * @author lushengkao vip8
@@ -28,7 +27,6 @@ public class ProtoBufTcpChannelInitializer extends ChannelInitializer {
         ChannelPipeline pipeline = ch.pipeline();
         pipeline.addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE,2,4,0,0))
                 .addLast(new NetMessageDecoder())
-                .addLast(new PacketToMessageEncoder())
                 .addLast(new NetMessageEncoder())
                 .addLast(new IdleStateHandler(60,60,60))
                 .addLast(new GamePacketHandler(new GamePacketDispatcher()));

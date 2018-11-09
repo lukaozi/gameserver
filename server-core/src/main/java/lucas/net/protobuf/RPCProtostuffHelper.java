@@ -4,6 +4,11 @@ import io.protostuff.LinkedBuffer;
 import io.protostuff.ProtostuffIOUtil;
 import io.protostuff.Schema;
 import io.protostuff.runtime.RuntimeSchema;
+import lucas.GlobalContant;
+import lucas.net.PacketType;
+import lucas.net.message.AbstractNetMessage;
+import lucas.net.message.NetMessageHead;
+import lucas.net.packet.AbstractPacket;
 import org.springframework.objenesis.Objenesis;
 import org.springframework.objenesis.ObjenesisStd;
 
@@ -71,5 +76,15 @@ public class RPCProtostuffHelper {
         } catch (Exception e) {
             throw new IllegalStateException(e.getMessage(), e);
         }
+    }
+
+    public AbstractNetMessage createMessage(AbstractPacket packet) {
+        ProtoBufNetMessage protoBufNetMessage = new ProtoBufNetMessage();
+        byte[] serialize = RPCProtostuffHelper.serialize(packet);
+        protoBufNetMessage.getBody().setBytes(serialize);
+        NetMessageHead head = protoBufNetMessage.getHead();
+        head.setVersion(GlobalContant.VERSION);
+        head.setCommand(PacketType.getCommand(packet.getClass()));
+        return protoBufNetMessage;
     }
 }

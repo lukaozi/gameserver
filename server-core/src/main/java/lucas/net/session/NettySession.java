@@ -3,7 +3,7 @@ package lucas.net.session;
 import io.netty.channel.Channel;
 import lucas.common.log.Loggers;
 import lucas.net.MessageException;
-import lucas.net.message.INetMessage;
+import lucas.net.message.AbstractNetMessage;
 import org.slf4j.Logger;
 
 /**
@@ -31,7 +31,7 @@ public class NettySession implements ISession {
         return channel.isActive();
     }
 
-    public void write(Object message) {
+    public void write(AbstractNetMessage message) {
         if (message == null) {
             throw new MessageException("发送的信息为空");
         }
