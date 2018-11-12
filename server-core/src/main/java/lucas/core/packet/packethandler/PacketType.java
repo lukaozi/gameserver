@@ -2,8 +2,6 @@ package lucas.core.packet.packethandler;
 
 import lucas.core.packet.Req_Login;
 
-import java.util.concurrent.ConcurrentHashMap;
-
 
 /**
  * @author lushengkao vip8
@@ -19,23 +17,13 @@ public enum  PacketType {
         this.command = command;
         this.clazz = clazz;
         this.req = req;
-        PacketType.getId2Class().put(command,clazz);
-        PacketType.getClass2id().put(clazz,command);
     }
 
     private int command;
 
-    private Class clazz;
+    private Class<? extends AbstractPacket> clazz;
 
     private boolean req;
-
-    public static int getCommand(Class<? extends AbstractPacket> aClass) {
-        return class2id.get(aClass);
-    }
-
-    public static Class<? extends AbstractPacket> getClazz(int commond) {
-        return id2Class.get(commond);
-    }
 
     public boolean isReq() {
         return req;
@@ -53,23 +41,12 @@ public enum  PacketType {
         this.command = command;
     }
 
-    public Class getClazz() {
+    public Class<? extends AbstractPacket> getClazz() {
         return clazz;
     }
 
-    public void setClazz(Class clazz) {
+    public void setClazz(Class<? extends AbstractPacket> clazz) {
         this.clazz = clazz;
     }
 
-    public static final ConcurrentHashMap<Integer,Class<? extends AbstractPacket>> id2Class = new ConcurrentHashMap<>();
-
-    public static final ConcurrentHashMap<Class<? extends AbstractPacket>,Integer> class2id = new ConcurrentHashMap<>();
-
-    public static ConcurrentHashMap<Integer, Class<? extends AbstractPacket>> getId2Class() {
-        return id2Class;
-    }
-
-    public static ConcurrentHashMap<Class<? extends AbstractPacket>, Integer> getClass2id() {
-        return class2id;
-    }
 }

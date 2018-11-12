@@ -2,7 +2,6 @@ package lucas.core.packet.packethandler;
 
 import lucas.core.game.anno.GameController;
 import lucas.core.game.anno.GameRequest;
-import lucas.core.game.player.Player;
 import lucas.core.socket.net.session.GameSession;
 import org.springframework.stereotype.Service;
 
@@ -44,7 +43,7 @@ public class PacketHandlerService {
             throw new RuntimeException("gameController参数1需为player:" + bean.getClass().getName() + "--:" + method.getName());
         }
         Class<?> packetClass = parameterTypes[1];
-        if (AbstractPacket.class.isAssignableFrom(packetClass)) {
+        if (packetClass.isAssignableFrom(AbstractPacket.class)) {
             throw new RuntimeException("gameController参数2需为AbstractPacket:" + bean.getClass().getName() + "--:" + method.getName());
         }
         PacketHandlerAdapter adapter = new PacketHandlerAdapter(bean,method);
@@ -52,5 +51,9 @@ public class PacketHandlerService {
         if (old != null) {
             throw new RuntimeException("一个协议只能有一个处理方法:" + packetClass.getName());
         }
+    }
+
+    public ConcurrentHashMap<Class, PacketHandlerAdapter> getHandlerAdapters() {
+        return handlerAdapters;
     }
 }

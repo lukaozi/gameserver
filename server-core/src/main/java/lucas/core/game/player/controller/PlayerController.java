@@ -17,6 +17,6 @@ public class PlayerController {
 
     @GameRequest
     public void Hello(GameSession session,Req_Login req) {
-        System.out.println("Hello " + session.getPlayer().getName());
+        System.out.println("Hello ,session " + session.getSessionId() + "_player:" + req.getAccount());
     }
 }

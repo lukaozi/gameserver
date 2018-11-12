@@ -4,7 +4,6 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
-import io.netty.handler.timeout.IdleStateHandler;
 import lucas.core.socket.channelHandler.GamePacketHandler;
 import lucas.core.socket.dispatcher.GamePacketDispatcher;
 import lucas.core.socket.net.protobuf.NetMessageDecoder;
@@ -22,7 +21,6 @@ public class NettyTcpClientHandler extends ChannelInitializer {
         pipeline.addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE,2,4,0,0))
                 .addLast(new NetMessageDecoder())
                 .addLast(new NetMessageEncoder())
-                .addLast(new IdleStateHandler(60,60,60))
                 .addLast(new GamePacketHandler(new GamePacketDispatcher()));
     }
 }

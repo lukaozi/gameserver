@@ -1,5 +1,6 @@
 package lucas.core.socket.bootstarp.manager;
 
+import lucas.core.packet.packethandler.PacketHelper;
 import lucas.core.socket.net.session.NettySessionBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,6 +19,8 @@ public class SpringBeanManager {
 
     private NettySessionBuilder nettySessionBuilder;
 
+    private PacketHelper packetHelper;
+
     @PostConstruct
     private void init(){
         instance = this;
@@ -34,5 +37,14 @@ public class SpringBeanManager {
     @Autowired
     public void setNettySessionBuilder(NettySessionBuilder nettySessionBuilder) {
         this.nettySessionBuilder = nettySessionBuilder;
+    }
+
+    public PacketHelper getPacketHelper() {
+        return packetHelper;
+    }
+
+    @Autowired
+    public void setPacketHelper(PacketHelper packetHelper) {
+        this.packetHelper = packetHelper;
     }
 }

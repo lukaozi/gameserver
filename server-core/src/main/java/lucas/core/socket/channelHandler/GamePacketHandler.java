@@ -5,7 +5,7 @@ import io.netty.channel.ChannelHandlerContext;
 import lucas.core.socket.bootstarp.manager.SpringBeanManager;
 import lucas.core.socket.bootstarp.manager.SpringServiceManager;
 import lucas.core.socket.dispatcher.IDispatcher;
-import lucas.core.socket.net.protobuf.ProtoBufNetMessage;
+import lucas.core.socket.net.message.AbstractNetMessage;
 import lucas.core.socket.net.session.GameSession;
 import lucas.core.socket.net.session.NettySessionBuilder;
 import lucas.core.socket.net.session.SessionContant;
@@ -40,7 +40,7 @@ public class GamePacketHandler extends DispatcherChannelHandler {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) {
-        ProtoBufNetMessage message = (ProtoBufNetMessage) msg;
+        AbstractNetMessage message = (AbstractNetMessage) msg;
         getDispatcher().dispatcher(getSession(ctx.channel()),message);
     }
 

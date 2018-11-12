@@ -20,7 +20,7 @@ import org.slf4j.Logger;
 public class NettyTcpSocketServerService implements IServerService {
 
     //服务端口号 后面应该改为配置形式
-    private static final int SERVER_PORT = 8801;
+    private static final int SERVER_PORT = 8001;
 
     private static final Logger LOGGER = Loggers.SERVER_LOGGER;
     /**

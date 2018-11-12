@@ -25,7 +25,7 @@ public class ProtoBufTcpChannelInitializer extends ChannelInitializer {
     @Override
     protected void initChannel(Channel ch) {
         ChannelPipeline pipeline = ch.pipeline();
-        pipeline.addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE,2,4,0,0))
+        pipeline.addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE,3,4,0,0))
                 .addLast(new NetMessageDecoder())
                 .addLast(new NetMessageEncoder())
                 .addLast(new IdleStateHandler(60,60,60))

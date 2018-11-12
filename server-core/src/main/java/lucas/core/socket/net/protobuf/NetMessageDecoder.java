@@ -4,6 +4,7 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageDecoder;
 import lucas.core.GlobalContant;
+import lucas.core.socket.net.message.AbstractNetMessage;
 import lucas.core.socket.net.message.NetMessageBody;
 import lucas.core.socket.net.message.NetMessageHead;
 
@@ -28,9 +29,10 @@ public class NetMessageDecoder extends MessageToMessageDecoder<ByteBuf> {
             ctx.fireChannelInactive();
             return;
         }
-        ProtoBufNetMessage protoBufNetMessage = new ProtoBufNetMessage();
+        AbstractNetMessage protoBufNetMessage = new AbstractNetMessage();
         NetMessageHead head = protoBufNetMessage.getHead();
         NetMessageBody body = protoBufNetMessage.getBody();
+        head.setVersion(version);
         head.setLength(msg.readInt());
         head.setSerial(msg.readInt());
         head.setCommand(msg.readInt());

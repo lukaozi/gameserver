@@ -45,11 +45,11 @@ public class SpringServiceManager {
         SpringServiceManager.instance = instance;
     }
 
-    @Autowired
     public NettySessionManager getNettySessionManager() {
         return nettySessionManager;
     }
 
+    @Autowired
     public void setNettySessionManager(NettySessionManager nettySessionManager) {
         this.nettySessionManager = nettySessionManager;
     }
