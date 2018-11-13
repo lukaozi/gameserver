@@ -1,5 +1,7 @@
 package lucas.db.entity;
 
+import lucas.db.annnotation.FieldSave;
+
 /**
  * @author lushengkao vip8
  * 以String为主键的实体类型
@@ -7,6 +9,7 @@ package lucas.db.entity;
  */
 public class BaseStringIdEntity extends AbstractEntity<String> {
 
+    @FieldSave
     private String userId;
 
     public String getId() {

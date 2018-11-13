@@ -1,6 +1,7 @@
 package lucas.core.game.player;
 
 
+import lucas.core.game.player.entity.PlayerEntity;
 import lucas.core.socket.net.session.GameSession;
 
 /**
@@ -9,9 +10,9 @@ import lucas.core.socket.net.session.GameSession;
  */
 public class Player {
 
-    private GameSession session;
+    private PlayerEntity entity;
 
-    private String name;
+    private GameSession session;
 
     public long getPlayerId() {
         return session.getPlayerId();
@@ -26,10 +27,14 @@ public class Player {
     }
 
     public String getName() {
-        return name;
+        return entity.getName();
     }
 
     public void setName(String name) {
-        this.name = name;
+        entity.setName(name);
+    }
+
+    public void setEntity(PlayerEntity entity) {
+        this.entity = entity;
     }
 }

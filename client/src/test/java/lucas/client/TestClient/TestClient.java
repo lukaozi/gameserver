@@ -3,7 +3,6 @@ package lucas.client.TestClient;
 import io.netty.channel.Channel;
 import lucas.client.tcp.NettyTcpClient;
 import lucas.core.packet.Req_Login;
-import lucas.core.packet.packethandler.PacketType;
 import lucas.core.socket.net.message.AbstractNetMessage;
 import lucas.core.socket.net.protobuf.MessageHelper;
 import org.junit.Test;
@@ -11,7 +10,6 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.concurrent.CountDownLatch;
 
 /**
  * @author lushengkao vip8

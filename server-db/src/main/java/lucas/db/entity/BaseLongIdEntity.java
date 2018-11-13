@@ -1,5 +1,7 @@
 package lucas.db.entity;
 
+import lucas.db.annnotation.FieldSave;
+
 /**
  * @author lushengkao vip8
  * 以long为主键的实体类型
@@ -7,6 +9,7 @@ package lucas.db.entity;
  */
 public class BaseLongIdEntity extends AbstractEntity<Long>{
 
+    @FieldSave
     private Long userId;
 
     public Long getId() {
