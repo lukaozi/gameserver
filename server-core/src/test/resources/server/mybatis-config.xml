@@ -38,11 +38,10 @@
     </settings>
 
     <typeAliases>
-        <typeAlias alias="player" type="lucas.core.game.player.entity.PlayerEntity"/>
+        <typeAlias alias="player" type="lucas.db.entity.Player"/>
     </typeAliases>
 
     <mappers>
-        <mapper resource="mappers/playerMapper.xml"/>
+        <mapper resource="mybatis3/mappers/orderMapper.xml"/>
     </mappers>
-
 </configuration>

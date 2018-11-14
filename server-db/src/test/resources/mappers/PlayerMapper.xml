@@ -4,5 +4,5 @@
 <mapper namespace="lucas.db.mapper.PlayerMapper">
 
     <!--批量插入-->
-    <insert id="insertEntity" parameterType="player"/>
+    <insert id="insertEntity" parameterType="Player"/>
 </mapper>
