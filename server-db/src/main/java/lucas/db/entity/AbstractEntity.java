@@ -2,6 +2,7 @@ package lucas.db.entity;
 
 import lucas.db.service.proxy.EntityProxy;
 
+import java.beans.Transient;
 import java.io.Serializable;
 
 /**
@@ -13,10 +14,12 @@ public abstract class AbstractEntity<T extends Serializable> implements IEntity<
     //代理对象
     private EntityProxy proxy;
 
+    @Transient
     public EntityProxy getProxy() {
         return proxy;
     }
 
+    @Transient
     public void setProxy(EntityProxy proxy) {
         this.proxy = proxy;
     }

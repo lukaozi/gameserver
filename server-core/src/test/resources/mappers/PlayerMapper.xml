@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="lucas.db.mapper.PlayerMapper">
+<mapper namespace="lucas.core.game.player.entity.PlayerMapper">
 
     <!--批量插入-->
-    <insert id="insertEntity" parameterType="Player"/>
+    <insert id="insertEntity" parameterType="Player">
+        insert into `playerentity` (userid,`name`) values (#{userId},#{name})
+    </insert>
 </mapper>

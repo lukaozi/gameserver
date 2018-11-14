@@ -17,10 +17,11 @@
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dateSource"/>
+        <property name="configLocation" value="classpath:server/mybatis-config.xml"/>
     </bean>
 
     <bean id="dateSource" class="com.alibaba.druid.pool.DruidDataSource">
-        <property name="driver" value="${server_db_driver}"/>
+        <property name="driverClassName" value="${server_db_driver}"/>
         <property name="url" value="${server_jdbc_url}"/>
         <property name="username" value="${server_jdbc_user}"/>
         <property name="password" value="${server_jdbc_password}"/>

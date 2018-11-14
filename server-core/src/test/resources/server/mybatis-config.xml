@@ -16,7 +16,7 @@
         <setting name="useGeneratedKeys" value="false"/>
         <!--指定 MyBatis 应如何自动映射列到字段或属性。
         NONE 表示取消自动映射；PARTIAL 只会自动映射没有定义嵌套结果集映射的结果集。 FULL 会自动映射任意复杂的结果集-->
-        <setting name="autoMappingBehaviors" value="PARTIAL"/>
+        <setting name="autoMappingBehavior" value="PARTIAL"/>
         <!--配置默认的执行器。
         SIMPLE 就是普通的执行器；REUSE 执行器会重用预处理语句 BATCH 执行器将重用语句并执行批量更新-->
         <setting name="defaultExecutorType" value="SIMPLE"/>
@@ -38,10 +38,10 @@
     </settings>
 
     <typeAliases>
-        <typeAlias alias="player" type="lucas.db.entity.Player"/>
+        <typeAlias alias="player" type="lucas.core.game.player.entity.PlayerEntity"/>
     </typeAliases>
 
     <mappers>
-        <mapper resource="mybatis3/mappers/orderMapper.xml"/>
+        <mapper resource="mappers/PlayerMapper.xml"/>
     </mappers>
 </configuration>
