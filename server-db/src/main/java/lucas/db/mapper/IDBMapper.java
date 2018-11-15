@@ -34,4 +34,5 @@ public interface IDBMapper<T extends IEntity> {
     void updateEntityByMap(Map map);
 
     void deleteEntity(T entity);
+
 }
