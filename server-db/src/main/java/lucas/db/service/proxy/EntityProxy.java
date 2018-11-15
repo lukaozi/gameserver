@@ -23,14 +23,15 @@ public class EntityProxy<T extends IEntity> implements MethodInterceptor {
     private Map<String,Object> changeParamMap;
 
     public EntityProxy(T entity) {
-        this.changeParamMap = new ConcurrentHashMap<String, Object>();
+        this.changeParamMap = new ConcurrentHashMap<>();
         this.subject = entity;
     }
 
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         if (!collect) {
-            methodProxy.invokeSuper(getSubject(),objects);
+            return methodProxy.invokeSuper(getSubject(),objects);
         }
+
         return null;
     }
 

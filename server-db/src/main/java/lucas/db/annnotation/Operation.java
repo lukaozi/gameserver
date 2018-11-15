@@ -1,5 +1,7 @@
 package lucas.db.annnotation;
 
+import lucas.db.enums.OperationEnum;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -10,9 +12,10 @@ import java.lang.annotation.Target;
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface MethodSaveProxy {
+public @interface Operation {
     /**
      * @return
      */
-    String proxy();
+    OperationEnum operation();
 }
+

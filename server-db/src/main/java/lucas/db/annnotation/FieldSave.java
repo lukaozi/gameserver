@@ -7,6 +7,7 @@ import java.lang.annotation.Target;
 
 /**
  * create by lushengkao 2018/10/14 23:46
+ * 数据库存储字段
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)

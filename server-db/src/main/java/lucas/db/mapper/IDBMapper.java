@@ -3,6 +3,7 @@ package lucas.db.mapper;
 import lucas.db.entity.IEntity;
 import org.apache.ibatis.session.RowBounds;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
@@ -14,9 +15,9 @@ public interface IDBMapper<T extends IEntity> {
 
     long insertEntity(T entity);
 
-    IEntity getEntity(T entity);
+    IEntity getEntity(Serializable id);
 
-    List<T> getEntityList(T entity);
+    List<T> getEntityList(Serializable key);
 
     List<T> getEntityList(T entity, RowBounds rowBounds);
 

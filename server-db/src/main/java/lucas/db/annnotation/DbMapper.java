@@ -1,5 +1,7 @@
 package lucas.db.annnotation;
 
+import lucas.db.mapper.IDBMapper;
+
 import java.lang.annotation.*;
 
 /**
@@ -10,8 +12,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface DbMapper {
-    /**
-     * @return
-     */
-    Class mapper();
+
+    Class<? extends IDBMapper> mapper();
 }
