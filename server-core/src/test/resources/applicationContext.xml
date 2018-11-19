@@ -9,7 +9,7 @@
 
     <context:property-placeholder location="classpath:server/jdbc.properties"/>
 
-    <bean class="lucas.common.util.ApplicationContextUtil"/>
+    <bean class="lucas.common.util.ApplicationContextUtils"/>
 
     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" scope="prototype">
         <constructor-arg ref="sqlSessionFactory"/>

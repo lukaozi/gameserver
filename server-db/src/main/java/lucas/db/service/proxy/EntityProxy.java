@@ -1,5 +1,7 @@
 package lucas.db.service.proxy;
 
+import lucas.common.util.BeanUtils;
+import lucas.db.annnotation.CacheMethod;
 import lucas.db.entity.IEntity;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
@@ -28,11 +30,21 @@ public class EntityProxy<T extends IEntity> implements MethodInterceptor {
     }
 
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+        Object result = methodProxy.invokeSuper(getSubject(), objects);
         if (!collect) {
-            return methodProxy.invokeSuper(getSubject(),objects);
+            return result;
         }
-
-        return null;
+        CacheMethod annotation = method.getAnnotation(CacheMethod.class);
+        if (annotation == null) {
+            return result;
+        }
+        Object newValue = objects[0];
+        String filedName = annotation.field();
+        Object oldValue = BeanUtils.getFieldValue(subject, filedName);
+        if (!BeanUtils.equalsValue(oldValue,newValue)) {
+            changeParamMap.put(filedName,newValue);
+        }
+        return result;
     }
 
     public Map<String, Object> getChangeParamMap() {

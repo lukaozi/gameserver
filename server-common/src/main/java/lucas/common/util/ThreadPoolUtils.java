@@ -6,7 +6,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
  * @author lushengkao vip8
  * 2018/10/31 16:32
  */
-public class ThreadPoolUtil {
+public class ThreadPoolUtils {
 
     public static ScheduledThreadPoolExecutor[] createSingleExecutorServiceArray(String name,int size) {
         if (size <= 0) {

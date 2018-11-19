@@ -1,7 +1,7 @@
 package lucas.common.eventbus;
 
 import lucas.common.log.Loggers;
-import lucas.common.util.ThreadPoolUtil;
+import lucas.common.util.ThreadPoolUtils;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
@@ -41,7 +41,7 @@ public class EventBus {
     //所有监听者 event--监听者列表
     private ConcurrentHashMap<Class, List<Subscriber>> subscribersMap = new ConcurrentHashMap<>();
 
-    private ScheduledThreadPoolExecutor[] executorServices = ThreadPoolUtil.createSingleExecutorServiceArray("event-bus",THREAD_SIZE);
+    private ScheduledThreadPoolExecutor[] executorServices = ThreadPoolUtils.createSingleExecutorServiceArray("event-bus",THREAD_SIZE);
 
     //注册监听者
     Object registerSubscriber(Object bean) {

@@ -1,6 +1,6 @@
 package lucas.core.db;
 
-import lucas.common.util.ApplicationContextUtil;
+import lucas.common.util.ApplicationContextUtils;
 import lucas.core.game.player.entity.PlayerEntity;
 import lucas.core.game.player.entity.PlayerMapper;
 import org.junit.Test;
@@ -21,7 +21,7 @@ public class MybatisTest {
 
     @Test
     public void t1() {
-        ApplicationContext applicationContext = ApplicationContextUtil.getApplicationContext();
+        ApplicationContext applicationContext = ApplicationContextUtils.getApplicationContext();
         SqlSessionTemplate sqlSessionTemplate = applicationContext.getBean(SqlSessionTemplate.class);
         PlayerEntity playerEntity = new PlayerEntity();
         playerEntity.setId(1L);

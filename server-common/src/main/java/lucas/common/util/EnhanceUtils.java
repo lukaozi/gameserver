@@ -5,5 +5,5 @@ package lucas.common.util;
  * 使用cglib生成增强类
  * 2018/10/31 14:54
  */
-public class EnhanceUtil {
+public class EnhanceUtils {
 }

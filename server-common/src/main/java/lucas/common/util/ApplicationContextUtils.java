@@ -9,12 +9,12 @@ import org.springframework.context.ApplicationContextAware;
  * 对外提供spring的applicationContext
  * 2018/10/22 12:53
  */
-public class ApplicationContextUtil implements ApplicationContextAware {
+public class ApplicationContextUtils implements ApplicationContextAware {
 
     private static ApplicationContext applicationContext;
 
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        ApplicationContextUtil.applicationContext = applicationContext;
+        ApplicationContextUtils.applicationContext = applicationContext;
     }
 
     public static ApplicationContext getApplicationContext() {

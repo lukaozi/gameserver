@@ -1,7 +1,7 @@
 package lucas.core.socket.executors;
 
 
-import lucas.common.util.ThreadPoolUtil;
+import lucas.common.util.ThreadPoolUtils;
 
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 
@@ -18,7 +18,7 @@ public class ArrayExecutor {
 
     private ArrayExecutor(String name, int threadpoolSize) {
         this.threadpoolSize = threadpoolSize;
-        executorServices = ThreadPoolUtil.createSingleExecutorServiceArray(name,threadpoolSize);
+        executorServices = ThreadPoolUtils.createSingleExecutorServiceArray(name,threadpoolSize);
     }
 
     public void submit(Runnable runnable,long key) {
