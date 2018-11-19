@@ -1,6 +1,6 @@
 package lucas.db.entity;
 
-import lucas.db.annnotation.FieldSave;
+import lucas.db.annnotation.CacheField;
 
 /**
  * @author lushengkao vip8
@@ -9,7 +9,7 @@ import lucas.db.annnotation.FieldSave;
  */
 public class BaseStringIdEntity extends AbstractEntity<String> {
 
-    @FieldSave
+    @CacheField
     private String userId;
 
     public String getId() {

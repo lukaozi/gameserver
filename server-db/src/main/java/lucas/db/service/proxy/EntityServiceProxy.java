@@ -24,6 +24,9 @@ public class EntityServiceProxy<T extends IEntityService> implements MethodInter
     }
 
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+        if (!useRedis) {
+            return methodProxy.invokeSuper(o,objects);
+        }
         return null;
     }
 }

@@ -7,11 +7,9 @@ import java.lang.annotation.Target;
 
 /**
  * create by lushengkao 2018/10/14 23:46
- * 操作此方法会更新缓存
+ * 字段加此注解初始化需要缓存的数值
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
-public @interface UpdateCache {
-
-    String cache();
+@Target(ElementType.FIELD)
+public @interface CacheField {
 }

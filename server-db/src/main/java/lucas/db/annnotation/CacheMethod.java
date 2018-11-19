@@ -6,10 +6,13 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * create by lushengkao 2018/10/14 23:46
- * 数据库存储字段
+ * @author lushengkao vip8
+ * 方法加此注解收集更新的数值
+ * 2018/11/19 11:33
  */
+
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.FIELD)
-public @interface FieldSave {
+@Target(ElementType.METHOD)
+public @interface CacheMethod {
+    String field();
 }
