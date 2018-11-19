@@ -22,4 +22,5 @@ public class PlayerManager {
         Player old = playerData.putIfAbsent(player.getPlayerId(), player);
         return old == null;
     }
+
 }

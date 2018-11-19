@@ -3,7 +3,7 @@ package lucas.core.socket.net.protobuf;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageDecoder;
-import lucas.core.GlobalContant;
+import lucas.common.GlobalContant;
 import lucas.core.socket.net.message.AbstractNetMessage;
 import lucas.core.socket.net.message.NetMessageBody;
 import lucas.core.socket.net.message.NetMessageHead;

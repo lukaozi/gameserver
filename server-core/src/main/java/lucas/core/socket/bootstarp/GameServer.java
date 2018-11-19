@@ -28,7 +28,7 @@ public class GameServer {
     }
 
     private static void intiSpring() {
-        applicationContext = new ClassPathXmlApplicationContext("server/*.xml");
+        applicationContext = new ClassPathXmlApplicationContext("server/applicationContext.xml");
         applicationContext.start();
     }
 
@@ -39,14 +39,12 @@ public class GameServer {
     }
 
     private static void addShutdownHook() {
-        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-            public void run() {
-                //断开服务
-                LocalMagager.INSTANCE.getLocalNetService().shutDown();
-                //资源回收
-                GlobalManager.stop();
-                applicationContext.close();
-            }
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            //断开服务
+            LocalMagager.INSTANCE.getLocalNetService().shutDown();
+            //资源回收
+            GlobalManager.stop();
+            applicationContext.close();
         }));
     }
 }

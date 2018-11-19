@@ -9,8 +9,6 @@ import lucas.db.mapper.IDBMapper;
 import lucas.db.service.proxy.EntityProxy;
 import org.apache.commons.collections.MapUtils;
 import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -21,13 +19,14 @@ import java.util.Map;
  * @author lushengkao vip8
  * 2018/11/15 15:18
  */
-@Service
 public class EntityService<T extends AbstractEntity> implements IEntityService<T> {
+
+    private Class<T> entityClass;
 
     private SqlSessionTemplate sqlSessionTemplate;
 
-    @Autowired
-    public void setSqlSessionTemplate(SqlSessionTemplate sqlSessionTemplate) {
+    EntityService(Class<T> entityClass,SqlSessionTemplate sqlSessionTemplate) {
+        this.entityClass = entityClass;
         this.sqlSessionTemplate = sqlSessionTemplate;
     }
 
@@ -40,15 +39,15 @@ public class EntityService<T extends AbstractEntity> implements IEntityService<T
 
     @Override
     @Operation(operation = OperationEnum.query)
-    public IEntity getEntity(Serializable id, Class<T> entityClazz) {
-        IDBMapper<T> mapper = getEntityMapper(entityClazz);
+    public IEntity getEntity(Serializable id) {
+        IDBMapper<T> mapper = getEntityMapper(entityClass);
         return mapper.getEntity(id);
     }
 
     @Override
     @Operation(operation = OperationEnum.queryList)
-    public List<T> getEntityList(Serializable key, Class<T> entityClazz) {
-        return getEntityMapper(entityClazz).getEntityList(key);
+    public List<T> getEntityList(Serializable key) {
+        return getEntityMapper(entityClass).getEntityList(key);
     }
 
     @Override

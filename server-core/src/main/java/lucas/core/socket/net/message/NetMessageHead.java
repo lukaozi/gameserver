@@ -1,6 +1,6 @@
 package lucas.core.socket.net.message;
 
-import lucas.core.GlobalContant;
+import lucas.common.GlobalContant;
 
 /**
  * @author lushengkao vip8

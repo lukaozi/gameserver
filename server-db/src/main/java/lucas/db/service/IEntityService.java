@@ -20,12 +20,12 @@ public interface IEntityService<T extends IEntity> {
     /**
      * 查询实体
      */
-    IEntity getEntity(Serializable id, Class<T> entityClazz);
+    IEntity getEntity(Serializable id);
 
     /**
      * 查询实体列表
      */
-    List<T> getEntityList(Serializable key, Class<T> entityClazz);
+    List<T> getEntityList(Serializable key);
 
     /**
      * 更新实体

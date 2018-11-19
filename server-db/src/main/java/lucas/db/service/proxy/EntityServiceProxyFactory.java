@@ -3,8 +3,11 @@ package lucas.db.service.proxy;
 import lucas.db.redis.service.RedisService;
 import lucas.db.service.EntityService;
 import org.apache.commons.beanutils.BeanUtils;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.proxy.Enhancer;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Service;
 
 
@@ -24,6 +27,7 @@ public class EntityServiceProxyFactory {
     public void setRedisService(RedisService redisService) {
         this.redisService = redisService;
     }
+
     public <T extends EntityService> T creaetEntityServiceProxy(T entityService) throws Exception{
         return createProxy(entityService);
     }
