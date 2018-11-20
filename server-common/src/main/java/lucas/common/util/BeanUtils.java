@@ -18,4 +18,11 @@ public class BeanUtils {
         field.setAccessible(true);
         return ReflectionUtils.getField(field, obj);
     }
+
+    public static boolean equalsValue(Object oldValue, Object newValue) {
+        if (newValue == null) {
+            return oldValue == null;
+        }
+        return newValue.equals(oldValue);
+    }
 }
