@@ -3,7 +3,6 @@ package lucas.core.socket.bootstarp.manager;
 import lucas.core.game.player.service.PlayerManager;
 import lucas.core.packet.packethandler.PacketHandlerService;
 import lucas.core.socket.net.session.NettySessionManager;
-import lucas.db.service.EntityServiceBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
