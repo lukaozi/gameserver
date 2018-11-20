@@ -25,11 +25,6 @@ public class EntityService<T extends AbstractEntity> implements IEntityService<T
 
     private SqlSessionTemplate sqlSessionTemplate;
 
-    public EntityService(Class<T> entityClass,SqlSessionTemplate sqlSessionTemplate) {
-        this.entityClass = entityClass;
-        this.sqlSessionTemplate = sqlSessionTemplate;
-    }
-
     @Override
     @Operation(operation = OperationEnum.insert)
     public long insertEntity(T entity) {

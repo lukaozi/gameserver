@@ -1,7 +1,7 @@
 package lucas.core.game.player.service;
 
 import lucas.core.game.player.Player;
-import org.springframework.beans.factory.annotation.Autowired;
+import lucas.db.annnotation.EntityService;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -13,12 +13,8 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class PlayerManager {
 
+    @EntityService
     private PlayerEntityService playerEntityService;
-
-    @Autowired
-    public void setPlayerEntityService(PlayerEntityService playerEntityService) {
-        this.playerEntityService = playerEntityService;
-    }
 
     private ConcurrentHashMap<Long, Player> playerData = new ConcurrentHashMap<>();
 
