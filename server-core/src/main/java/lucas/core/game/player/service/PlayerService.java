@@ -7,6 +7,6 @@ import org.springframework.stereotype.Service;
  * 2018/11/9 14:20
  */
 @Service
-public class Playerservice {
+public class PlayerService {
 
 }
