@@ -25,7 +25,7 @@ public class EntityServiceProxyFactory {
         this.redisService = redisService;
     }
 
-    public <T extends EntityService> T creaetEntityServiceProxy(T entityService) throws Exception{
+    public <T extends EntityService> T createEntityServiceProxy(T entityService) throws Exception{
         return createProxy(entityService);
     }
 
@@ -42,5 +42,8 @@ public class EntityServiceProxyFactory {
         enhancer.setSuperclass(entityService.getClass());
         enhancer.setCallback(entityServiceProxy);
         return (T) enhancer.create();
+    }
+
+    public void createEntityServiceProxy(Object object) {
     }
 }
