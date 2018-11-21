@@ -30,20 +30,30 @@ public class EntityServiceProxyFactory {
     }
 
     private <T extends EntityService> T createProxy(T entityService) throws Exception {
-        EntityServiceProxy<T> entityServiceProxy = new EntityServiceProxy<>(uesRedis, redisService);
+        EntityServiceProxy entityServiceProxy = new EntityServiceProxy(uesRedis, redisService);
         T proxy = createProxy0(entityService, entityServiceProxy);
         BeanUtils.copyProperties(proxy,entityService);
         return proxy;
     }
 
     @SuppressWarnings("unchecked")
-    private <T extends EntityService> T createProxy0(T entityService, EntityServiceProxy<T> entityServiceProxy) {
+    private <T extends EntityService> T createProxy0(T entityService, EntityServiceProxy entityServiceProxy) {
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(entityService.getClass());
         enhancer.setCallback(entityServiceProxy);
         return (T) enhancer.create();
     }
 
-    public void createEntityServiceProxy(Object object) {
+    public Object createEntityServiceProxy(Object object) throws Exception {
+        if (object instanceof EntityService) {
+            EntityServiceProxy entityServiceProxy = new EntityServiceProxy(uesRedis, redisService);
+            Enhancer enhancer = new Enhancer();
+            enhancer.setSuperclass(object.getClass());
+            enhancer.setCallback(entityServiceProxy);
+            Object proxy = enhancer.create();
+            BeanUtils.copyProperties(proxy,object);
+            return proxy;
+        }
+        throw new RuntimeException("无法生成 entity service");
     }
 }

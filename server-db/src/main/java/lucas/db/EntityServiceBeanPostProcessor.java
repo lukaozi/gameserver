@@ -40,7 +40,7 @@ public class EntityServiceBeanPostProcessor implements BeanPostProcessor {
                     Object entityService = constructor.newInstance(entityClass, sqlSessionTemplate);
                     if (GlobalContant.USE_CACHE) {
                         EntityServiceProxyFactory factory = applicationContext.getBean(EntityServiceProxyFactory.class);
-                        factory.createEntityServiceProxy(entityService);
+                        entityService = factory.createEntityServiceProxy(entityService);
                     }
                     ReflectionUtils.setField(field,bean,entityService);
                 } catch (Exception e) {

@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
  * 实体服务代理对象 同步缓存--数据库模式
  * 2018/10/22 16:42
  */
-public class EntityServiceProxy<T extends IEntityService> implements MethodInterceptor {
+public class EntityServiceProxy implements MethodInterceptor {
 
     private RedisService redisService;
 
