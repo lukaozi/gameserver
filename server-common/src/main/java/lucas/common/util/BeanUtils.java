@@ -25,4 +25,9 @@ public class BeanUtils {
         }
         return newValue.equals(oldValue);
     }
+
+    public static Field getFiledByName(Object object, String fileName) throws NoSuchFieldException {
+        Class<?> clazz = object.getClass();
+        return clazz.getDeclaredField(fileName);
+    }
 }

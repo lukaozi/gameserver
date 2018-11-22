@@ -3,7 +3,9 @@ package lucas.common.util;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
+
 
 /**
  * @author lushengkao vip8
@@ -11,7 +13,7 @@ import org.springframework.stereotype.Component;
  * 2018/10/22 12:53
  */
 @Component
-public class ApplicationContextUtils implements ApplicationContextAware {
+public class ApplicationContextUtils implements ApplicationContextAware, Ordered {
 
     private static ApplicationContext applicationContext;
 
@@ -21,5 +23,10 @@ public class ApplicationContextUtils implements ApplicationContextAware {
 
     public static ApplicationContext getApplicationContext() {
         return applicationContext;
+    }
+
+    @Override
+    public int getOrder() {
+        return Integer.MAX_VALUE;
     }
 }
