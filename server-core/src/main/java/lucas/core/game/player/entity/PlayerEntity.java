@@ -1,5 +1,6 @@
 package lucas.core.game.player.entity;
 
+import lucas.db.annnotation.CacheMethod;
 import lucas.db.annnotation.DbMapper;
 import lucas.db.annnotation.EntitySave;
 import lucas.db.annnotation.CacheField;
@@ -23,6 +24,7 @@ public class PlayerEntity extends BaseLongIdEntity implements RedisInterface {
         return name;
     }
 
+    @CacheMethod("name")
     public void setName(String name) {
         this.name = name;
     }

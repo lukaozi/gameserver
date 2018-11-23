@@ -19,5 +19,6 @@ public class EntityCacheUtils {
     }
 
     public static void insertToRedis(AbstractEntity entity) {
+
     }
 }
