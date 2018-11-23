@@ -1,7 +1,6 @@
 package lucas.db;
 
 import lucas.common.GlobalContant;
-import lucas.common.util.ApplicationContextUtils;
 import lucas.common.util.BeanUtils;
 import lucas.db.annnotation.EntityServiceAnnotation;
 import lucas.db.service.proxy.EntityServiceProxyFactory;
@@ -9,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ReflectionUtils;
@@ -23,7 +23,9 @@ import java.lang.reflect.Type;
  * 2018/11/21 17:57
  */
 @Component
-public class EntityServiceBeanPostProcessor implements BeanPostProcessor {
+public class EntityServiceBeanPostProcessor implements BeanPostProcessor, ApplicationContextAware {
+
+    private ApplicationContext applicationContext;
 
     @Override
     public Object postProcessAfterInitialization(@NonNull Object bean, String beanName) throws BeansException {
@@ -31,6 +33,7 @@ public class EntityServiceBeanPostProcessor implements BeanPostProcessor {
         Field[] declaredFields = beanClass.getDeclaredFields();
         for (Field field : declaredFields) {
             EntityServiceAnnotation annotation = field.getAnnotation(EntityServiceAnnotation.class);
+            field.setAccessible(true);
             if (annotation != null) {
                 Class<?> fieldType = field.getType();
                 Type genericSuperclass = fieldType.getGenericSuperclass();
@@ -39,11 +42,14 @@ public class EntityServiceBeanPostProcessor implements BeanPostProcessor {
                 try {
                     Class<?> entityClass = Class.forName(entityType.getTypeName());
                     Object entityService = fieldType.newInstance();
-                    ApplicationContext applicationContext = ApplicationContextUtils.getApplicationContext();
                     SqlSessionTemplate sqlSessionTemplate = applicationContext.getBean(SqlSessionTemplate.class);
                     Field entityFiled = BeanUtils.getFiledByName(entityService, "entityClass");
+                    assert entityFiled != null;
+                    entityFiled.setAccessible(true);
                     ReflectionUtils.setField(entityFiled,entityService,entityClass);
                     Field sqlTempFile = BeanUtils.getFiledByName(entityService, "sqlSessionTemplate");
+                    assert sqlTempFile != null;
+                    sqlTempFile.setAccessible(true);
                     ReflectionUtils.setField(sqlTempFile,entityService,sqlSessionTemplate);
                     if (GlobalContant.USE_CACHE) {
                         EntityServiceProxyFactory factory = applicationContext.getBean(EntityServiceProxyFactory.class);
@@ -56,5 +62,10 @@ public class EntityServiceBeanPostProcessor implements BeanPostProcessor {
             }
         }
         return bean;
+    }
+
+    @Override
+    public void setApplicationContext(@NonNull ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
     }
 }
