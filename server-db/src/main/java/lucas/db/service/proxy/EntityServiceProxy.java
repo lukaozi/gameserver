@@ -9,7 +9,13 @@ import java.lang.reflect.Method;
 
 /**
  * @author lushengkao vip8
- * 实体服务代理对象 同步缓存--数据库模式
+ * 实体服务代理对象 同步模式
+ * 存储策略：
+ * inster 插入的时候先插入mysql 然后再插入缓存
+ * query 查询的时候先查询缓存，缓存没有命中则查询mysql，再插入缓存
+ * update 先更新mysql 再淘汰缓存（淘汰缓存增加一次cache miss 和 update缓存的代价比较，这里选前者）
+ * delete 先删除mysql 再淘汰缓存 如果先淘汰缓存，会造成cache miss的时候重新更新缓存
+ *
  * 2018/10/22 16:42
  */
 public class EntityServiceProxy implements MethodInterceptor {
