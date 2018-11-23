@@ -27,4 +27,7 @@ public class PlayerManager {
         return old == null;
     }
 
+    public PlayerEntityService getPlayerEntityService() {
+        return playerEntityService;
+    }
 }

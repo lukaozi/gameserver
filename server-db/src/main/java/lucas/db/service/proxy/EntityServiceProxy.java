@@ -25,14 +25,16 @@ public class EntityServiceProxy implements MethodInterceptor {
 
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         Object result = null;
-        if (!GlobalContant.USE_CACHE) {
-            result = methodProxy.invokeSuper(o,objects);
-        }
         CacheOperation cacheOperation = method.getAnnotation(CacheOperation.class);
         if (cacheOperation == null) {
             result = methodProxy.invokeSuper(o,objects);
+            return result;
         }
-        OperationEnum operation = cacheOperation.operation();
+        if (!GlobalContant.USE_CACHE) {
+            result = methodProxy.invokeSuper(o,objects);
+            return result;
+        }
+        OperationEnum operation = cacheOperation.value();
         switch (operation) {
             case insert:
                 result = methodProxy.invokeSuper(o,objects);

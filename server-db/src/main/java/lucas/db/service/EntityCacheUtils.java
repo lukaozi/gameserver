@@ -1,8 +1,19 @@
 package lucas.db.service;
 
+import com.alibaba.druid.support.json.JSONUtils;
+import lucas.common.log.Loggers;
+import lucas.common.util.BeanUtils;
+import lucas.db.annnotation.CacheField;
 import lucas.db.entity.AbstractEntity;
+import lucas.db.redis.RedisInterface;
 import lucas.db.redis.service.RedisService;
+import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
+
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -14,11 +25,41 @@ public class EntityCacheUtils {
 
     private static RedisService redisService;
 
+    private static Logger logger = Loggers.REDIS;
+
     public EntityCacheUtils(RedisService service) {
         redisService = service;
     }
 
     public static void insertToRedis(AbstractEntity entity) {
+        if (!(entity instanceof RedisInterface)) {
+            return;
+        }
+        String redisKey = getRedisKey(entity);
+        Map<String, String> valueMap = getCacheValueMap(entity);
+        redisService.setMap(redisKey,valueMap);
+    }
 
+    private static Map<String, String> getCacheValueMap(AbstractEntity entity) {
+        Map<String, String> result = new HashMap<>();
+        Class<? extends AbstractEntity> entityClass = entity.getClass();
+        List<Field> fields = BeanUtils.getFieldsWithAnnotation(entityClass, CacheField.class);
+        for (Field field : fields) {
+            Object value = null;
+            field.setAccessible(true);
+            try {
+                value = field.get(entity);
+            } catch (IllegalAccessException e) {
+                logger.error("获取值异常 + class:" + entity.getClass().getSimpleName()
+                        + "-id :" + entity.getId() + "-fieldName :" + field.getName());
+            }
+            result.put(field.getName(), JSONUtils.toJSONString(value));
+        }
+        return result;
+    }
+
+    private static String getRedisKey(AbstractEntity entity) {
+        RedisInterface redisEntity = (RedisInterface) entity;
+        return redisEntity.getRedisKey().getKey() + entity.getId();
     }
 }

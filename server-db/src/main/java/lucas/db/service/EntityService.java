@@ -25,28 +25,47 @@ public class EntityService<T extends AbstractEntity> implements IEntityService<T
 
     private SqlSessionTemplate sqlSessionTemplate;
 
+    public Class<T> getEntityClass() {
+        return entityClass;
+    }
+
+    public void setEntityClass(Class<T> entityClass) {
+        this.entityClass = entityClass;
+    }
+
+    public SqlSessionTemplate getSqlSessionTemplate() {
+        return sqlSessionTemplate;
+    }
+
+    public void setSqlSessionTemplate(SqlSessionTemplate sqlSessionTemplate) {
+        this.sqlSessionTemplate = sqlSessionTemplate;
+    }
+
+    public EntityService() {
+    }
+
     @Override
-    @CacheOperation(operation = OperationEnum.insert)
+    @CacheOperation(OperationEnum.insert)
     public long insertEntity(T entity) {
         IDBMapper<T> mapper = getEntityMapper(entity);
         return mapper.insertEntity(entity);
     }
 
     @Override
-    @CacheOperation(operation = OperationEnum.query)
+    @CacheOperation(OperationEnum.query)
     public IEntity getEntity(Serializable id) {
         IDBMapper<T> mapper = getEntityMapper(entityClass);
         return mapper.getEntity(id);
     }
 
     @Override
-    @CacheOperation(operation = OperationEnum.queryList)
+    @CacheOperation(OperationEnum.queryList)
     public List<T> getEntityList(Serializable key) {
         return getEntityMapper(entityClass).getEntityList(key);
     }
 
     @Override
-    @CacheOperation(operation = OperationEnum.update)
+    @CacheOperation(OperationEnum.update)
     @SuppressWarnings("unchecked")
     public void updateEntity(T entity) {
         EntityProxy proxy = entity.getProxy();
@@ -63,27 +82,27 @@ public class EntityService<T extends AbstractEntity> implements IEntityService<T
     }
 
     @Override
-    @CacheOperation(operation = OperationEnum.delete)
+    @CacheOperation(OperationEnum.delete)
     public void deleteEntity(T entity) {
         IDBMapper<T> mapper = getEntityMapper(entity);
         mapper.deleteEntity(entity);
     }
 
     @Override
-    @CacheOperation(operation = OperationEnum.insertBatch)
+    @CacheOperation(OperationEnum.insertBatch)
     public List<Long> insertEntityBatch(List<T> entityList) {
         //TODO
         return null;
     }
 
     @Override
-    @CacheOperation(operation = OperationEnum.updateBatch)
+    @CacheOperation(OperationEnum.updateBatch)
     public void updateEntityBatch(List<T> entityList) {
         //TODO
     }
 
     @Override
-    @CacheOperation(operation = OperationEnum.deleteBatch)
+    @CacheOperation(OperationEnum.deleteBatch)
     public void deleteEntityBatch(List<T> entityList) {
         //TODO
     }

@@ -39,7 +39,7 @@ public class EntityProxy<T extends IEntity> implements MethodInterceptor {
             return result;
         }
         Object newValue = objects[0];
-        String filedName = annotation.field();
+        String filedName = annotation.value();
         Object oldValue = BeanUtils.getFieldValue(subject, filedName);
         if (!BeanUtils.equalsValue(oldValue,newValue)) {
             changeParamMap.put(filedName,newValue);

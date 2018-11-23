@@ -2,7 +2,10 @@ package lucas.common.util;
 
 import org.springframework.util.ReflectionUtils;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author lushengkao vip8
@@ -35,5 +38,19 @@ public class BeanUtils {
             } catch (NoSuchFieldException ignored) {}
         }while ((TmpClazz = clazz.getSuperclass()) != Object.class);
         return null;
+    }
+
+    public static List<Field> getFieldsWithAnnotation(Class<?> clazz, Class<? extends Annotation> annotation) {
+        List<Field> result = new LinkedList<>();
+        Class<?> TmpClazz = clazz;
+        do {
+            Field[] fields = TmpClazz.getDeclaredFields();
+            for (Field field : fields) {
+                if (field.getAnnotation(annotation)  != null) {
+                    result.add(field);
+                }
+            }
+        }while ((TmpClazz = clazz.getSuperclass()) == Object.class);
+        return result;
     }
 }

@@ -15,6 +15,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface CacheOperation {
 
-    OperationEnum operation();
+    OperationEnum value() default OperationEnum.none;
 }
 

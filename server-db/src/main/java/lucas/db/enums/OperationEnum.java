@@ -14,5 +14,5 @@ public enum OperationEnum {
     insertBatch,
     updateBatch,
     deleteBatch,
-    ;
+    none
 }
