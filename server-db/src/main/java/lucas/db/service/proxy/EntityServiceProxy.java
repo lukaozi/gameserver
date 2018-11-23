@@ -1,7 +1,10 @@
 package lucas.db.service.proxy;
 
-import lucas.db.redis.service.RedisService;
-import lucas.db.service.IEntityService;
+import lucas.common.GlobalContant;
+import lucas.db.annnotation.CacheOperation;
+import lucas.db.entity.AbstractEntity;
+import lucas.db.enums.OperationEnum;
+import lucas.db.service.EntityCacheUtils;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
 
@@ -20,19 +23,25 @@ import java.lang.reflect.Method;
  */
 public class EntityServiceProxy implements MethodInterceptor {
 
-    private RedisService redisService;
-
-    private boolean useRedis;
-
-    public EntityServiceProxy(boolean useRedis, RedisService redisService) {
-        this.useRedis = useRedis;
-        this.redisService = redisService;
-    }
-
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-        if (!useRedis) {
-            return methodProxy.invokeSuper(o,objects);
+        Object result = null;
+        if (!GlobalContant.USE_CACHE) {
+            result = methodProxy.invokeSuper(o,objects);
         }
-        return null;
+        CacheOperation cacheOperation = method.getAnnotation(CacheOperation.class);
+        if (cacheOperation == null) {
+            result = methodProxy.invokeSuper(o,objects);
+        }
+        OperationEnum operation = cacheOperation.operation();
+        switch (operation) {
+            case insert:
+                result = methodProxy.invokeSuper(o,objects);
+                AbstractEntity entity = (AbstractEntity) objects[0];
+                EntityCacheUtils.insertToRedis(entity);
+                break;
+            case query:
+                break;
+        }
+        return result;
     }
 }

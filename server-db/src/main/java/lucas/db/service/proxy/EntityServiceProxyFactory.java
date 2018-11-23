@@ -1,9 +1,7 @@
 package lucas.db.service.proxy;
 
-import lucas.db.redis.service.RedisService;
 import lucas.db.service.EntityService;
 import org.apache.commons.beanutils.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.stereotype.Service;
 
@@ -16,21 +14,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class EntityServiceProxyFactory {
 
-    private RedisService redisService;
-
-    private boolean uesRedis;
-
-    @Autowired
-    public void setRedisService(RedisService redisService) {
-        this.redisService = redisService;
-    }
-
     public <T extends EntityService> T createEntityServiceProxy(T entityService) throws Exception{
         return createProxy(entityService);
     }
 
     private <T extends EntityService> T createProxy(T entityService) throws Exception {
-        EntityServiceProxy entityServiceProxy = new EntityServiceProxy(uesRedis, redisService);
+        EntityServiceProxy entityServiceProxy = new EntityServiceProxy();
         T proxy = createProxy0(entityService, entityServiceProxy);
         BeanUtils.copyProperties(proxy,entityService);
         return proxy;
@@ -46,7 +35,7 @@ public class EntityServiceProxyFactory {
 
     public Object createEntityServiceProxy(Object object) throws Exception {
         if (object instanceof EntityService) {
-            EntityServiceProxy entityServiceProxy = new EntityServiceProxy(uesRedis, redisService);
+            EntityServiceProxy entityServiceProxy = new EntityServiceProxy();
             Enhancer enhancer = new Enhancer();
             enhancer.setSuperclass(object.getClass());
             enhancer.setCallback(entityServiceProxy);

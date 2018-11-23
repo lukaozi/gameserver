@@ -9,13 +9,12 @@ import java.lang.annotation.Target;
 
 /**
  * create by lushengkao 2018/10/14 23:46
+ * 对应的curd操作
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface Operation {
-    /**
-     * @return
-     */
+public @interface CacheOperation {
+
     OperationEnum operation();
 }
 

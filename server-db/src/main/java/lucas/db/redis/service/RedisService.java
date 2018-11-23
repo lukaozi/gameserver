@@ -2,8 +2,8 @@ package lucas.db.redis.service;
 
 import lucas.common.log.Loggers;
 import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import redis.clients.jedis.JedisPool;
 
 /**
  * @author lushengkao vip8
@@ -14,6 +14,10 @@ public class RedisService {
 
     private Logger logger = Loggers.REDIS;
 
-    //redis连接池
-    private JedisPool jedisPool;
+    private JedisPoolHelper helper;
+
+    @Autowired
+    public void setJedisPoolHelper(JedisPoolHelper helper) {
+        this.helper = helper;
+    }
 }
