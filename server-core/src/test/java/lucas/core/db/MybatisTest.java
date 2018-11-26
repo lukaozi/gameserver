@@ -28,9 +28,8 @@ public class MybatisTest {
     public void t1() {
         ApplicationContext applicationContext = ApplicationContextUtils.getApplicationContext();
         SqlSessionTemplate sqlSessionTemplate = applicationContext.getBean(SqlSessionTemplate.class);
-        PlayerEntity playerEntity = new PlayerEntity();
-        playerEntity.setId(11L);
-        playerEntity.setName("lushengkao");
+        PlayerEntity playerEntity = new PlayerEntity("lushengkao",11L);
+        playerEntity.setName("lushengkao33");
         PlayerMapper mapper = sqlSessionTemplate.getMapper(PlayerMapper.class);
         mapper.insertEntity(playerEntity);
     }
@@ -38,9 +37,7 @@ public class MybatisTest {
     @Test
     public void t2() {
         ApplicationContext applicationContext = ApplicationContextUtils.getApplicationContext();
-        PlayerEntity playerEntity = new PlayerEntity();
-        playerEntity.setId(342122L);
-        playerEntity.setName("l0002");
+        PlayerEntity playerEntity = new PlayerEntity("kaoshen",341222L);
         PlayerManager playerManager = applicationContext.getBean(PlayerManager.class);
         PlayerEntityService entityService = playerManager.getPlayerEntityService();
         entityService.insertEntity(playerEntity);
