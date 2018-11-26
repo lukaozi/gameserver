@@ -14,6 +14,10 @@ public class Player {
 
     private GameSession session;
 
+    public Player(PlayerEntity playerEntity) {
+        this.entity = playerEntity;
+    }
+
     public long getPlayerId() {
         return session.getPlayerId();
     }
@@ -36,5 +40,9 @@ public class Player {
 
     public void setEntity(PlayerEntity entity) {
         this.entity = entity;
+    }
+
+    public String getAccount() {
+        return entity.getAccount();
     }
 }

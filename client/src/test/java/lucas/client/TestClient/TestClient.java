@@ -41,6 +41,7 @@ public class TestClient {
         Channel channel = client.getClientChannel();
         Req_Login msg = new Req_Login();
         msg.setAccount("lushengkao");
+        msg.setName("考神");
         AbstractNetMessage message = MessageHelper.createMessageFromPacket(msg);
         channel.writeAndFlush(message);
     }

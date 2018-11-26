@@ -11,6 +11,16 @@ public class Req_Login implements AbstractPacket {
 
     private String account;
 
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getAccount() {
         return account;
     }
