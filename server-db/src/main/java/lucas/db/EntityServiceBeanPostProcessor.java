@@ -53,7 +53,7 @@ public class EntityServiceBeanPostProcessor implements BeanPostProcessor, Applic
                     ReflectionUtils.setField(sqlTempFile,entityService,sqlSessionTemplate);
                     if (GlobalContant.USE_CACHE) {
                         EntityServiceProxyFactory factory = applicationContext.getBean(EntityServiceProxyFactory.class);
-                        entityService = factory.createEntityServiceProxy(entityService);
+                        entityService = factory.createEntityServiceProxy(entityService,entityClass);
                     }
                     ReflectionUtils.setField(field,bean,entityService);
                 } catch (Exception e) {

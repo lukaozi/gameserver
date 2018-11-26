@@ -40,6 +40,25 @@ public class EntityCacheUtils {
         redisService.setMap(redisKey,valueMap);
     }
 
+    public static AbstractEntity queryFromRedis(String redisKey,Class<?> clazz) {
+        Map<String, String> map = redisService.getMap(redisKey);
+        Object result = getObjectFromMap(map,clazz);
+        if (result instanceof AbstractEntity) {
+            return (AbstractEntity) result;
+        }
+        return null;
+    }
+
+    private static Object getObjectFromMap(Map<String, String> map, Class<?> clazz) {
+        try {
+            Object result = clazz.newInstance();
+            return BeanUtils.getObjectFromMap(result,map);
+        } catch (Exception e) {
+            logger.error("redis 生成临时对象失败");
+        }
+        return null;
+    }
+
     private static Map<String, String> getCacheValueMap(AbstractEntity entity) {
         Map<String, String> result = new HashMap<>();
         Class<? extends AbstractEntity> entityClass = entity.getClass();

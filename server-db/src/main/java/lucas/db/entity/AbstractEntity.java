@@ -14,6 +14,9 @@ public abstract class AbstractEntity<T extends Serializable> implements IEntity<
     //代理对象
     private EntityProxy proxy;
 
+    public AbstractEntity() {
+    }
+
     @Transient
     public EntityProxy getProxy() {
         return proxy;

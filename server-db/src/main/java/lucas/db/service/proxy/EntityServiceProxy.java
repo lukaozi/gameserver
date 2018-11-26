@@ -4,10 +4,12 @@ import lucas.common.GlobalContant;
 import lucas.db.annnotation.CacheOperation;
 import lucas.db.entity.AbstractEntity;
 import lucas.db.enums.OperationEnum;
+import lucas.db.redis.contant.RedisKey;
 import lucas.db.service.EntityCacheUtils;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
 
+import java.io.Serializable;
 import java.lang.reflect.Method;
 
 /**
@@ -23,16 +25,37 @@ import java.lang.reflect.Method;
  */
 public class EntityServiceProxy implements MethodInterceptor {
 
+    private RedisKey redisKey;
+
+    private Class<?> entityClass;
+
+    public RedisKey getRedisKey() {
+        return redisKey;
+    }
+
+    public void setRedisKey(RedisKey redisKey) {
+        this.redisKey = redisKey;
+    }
+
+    public Class<?> getEntityClass() {
+        return entityClass;
+    }
+
+    public void setEntityClass(Class<?> entityClass) {
+        this.entityClass = entityClass;
+    }
+
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         Object result = null;
         CacheOperation cacheOperation = method.getAnnotation(CacheOperation.class);
         if (cacheOperation == null) {
-            result = methodProxy.invokeSuper(o,objects);
-            return result;
+            return methodProxy.invokeSuper(o,objects);
         }
         if (!GlobalContant.USE_CACHE) {
-            result = methodProxy.invokeSuper(o,objects);
-            return result;
+            return methodProxy.invokeSuper(o,objects);
+        }
+        if (redisKey == null) {
+            return methodProxy.invokeSuper(o,objects);
         }
         OperationEnum operation = cacheOperation.value();
         switch (operation) {
@@ -42,7 +65,15 @@ public class EntityServiceProxy implements MethodInterceptor {
                 EntityCacheUtils.insertToRedis(entity);
                 break;
             case query:
-                break;
+                Serializable id = (Serializable) objects[0];
+                String redisKey = this.redisKey.getKey() + id;
+                AbstractEntity query = EntityCacheUtils.queryFromRedis(redisKey,entityClass);
+                if (query == null) {
+                    result = methodProxy.invokeSuper(o,objects);
+                    EntityCacheUtils.insertToRedis((AbstractEntity) result);
+                }else {
+                    return query;
+                }
         }
         return result;
     }
