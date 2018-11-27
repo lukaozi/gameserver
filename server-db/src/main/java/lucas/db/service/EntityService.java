@@ -1,5 +1,6 @@
 package lucas.db.service;
 
+import lucas.common.util.ApplicationContextUtils;
 import lucas.db.annnotation.DbMapper;
 import lucas.db.annnotation.CacheOperation;
 import lucas.db.entity.AbstractEntity;
@@ -7,8 +8,10 @@ import lucas.db.entity.IEntity;
 import lucas.db.enums.OperationEnum;
 import lucas.db.mapper.IDBMapper;
 import lucas.db.service.proxy.EntityProxy;
+import lucas.db.service.proxy.EntityProxyFactory;
 import org.apache.commons.collections.MapUtils;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.context.ApplicationContext;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -54,8 +57,16 @@ public class EntityService<T extends AbstractEntity> implements IEntityService<T
     @Override
     @CacheOperation(OperationEnum.query)
     public T getEntity(Serializable id) {
-        IDBMapper<T> mapper = getEntityMapper(entityClass);
-        return mapper.getEntity(id);
+        try {
+            IDBMapper<T> mapper = getEntityMapper(entityClass);
+            T entity = mapper.getEntity(id);
+            ApplicationContext context = ApplicationContextUtils.getApplicationContext();
+            EntityProxyFactory factory = context.getBean(EntityProxyFactory.class);
+            return factory.createProxyEntity(entity);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+       throw new IllegalStateException("不存在的数据库id--" + entityClass.getSimpleName() + " :" + id);
     }
 
     @Override

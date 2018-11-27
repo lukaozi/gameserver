@@ -15,27 +15,26 @@ import org.springframework.stereotype.Service;
 public class EntityProxyFactory {
 
 
-    public <T extends IEntity> AbstractEntity createProxyEntity(T entity) throws Exception {
+    public <T extends AbstractEntity> T createProxyEntity(T entity) throws Exception {
             EntityProxy entityProxy = createProxy(entity);
             AbstractEntity result = createCGLibProxyEntity(entityProxy);
             result.setProxy(entityProxy);
             BeanUtils.copyProperties(result, entity);
             entityProxy.setCollect(true);
-            return result;
+            return (T) result;
 
     }
 
     @SuppressWarnings("unchecked")
-    private <T extends IEntity> T createCGLibProxyEntity(EntityProxy proxy) {
+    private <T extends AbstractEntity> T createCGLibProxyEntity(EntityProxy proxy) {
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(proxy.getSubject().getClass());
         enhancer.setCallback(proxy);
-        Object o = enhancer.create();
-        return (T) o;
+        return (T) enhancer.create();
     }
 
     @SuppressWarnings("unchecked")
-    private <T extends IEntity> EntityProxy createProxy(T entity) {
+    private <T extends AbstractEntity> EntityProxy createProxy(T entity) {
         return new EntityProxy(entity);
     }
 }
