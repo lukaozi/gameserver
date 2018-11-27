@@ -44,4 +44,15 @@ public class RedisService {
         }
         return null;
     }
+
+    public boolean deleteKey(String redisKey) {
+        boolean success = false;
+        try (Jedis jedis = helper.getResource()) {
+            jedis.del(redisKey);
+            success = true;
+        } catch (Exception e) {
+            logger.error("淘汰缓存异常，redis key：" + redisKey);
+        }
+        return success;
+    }
 }

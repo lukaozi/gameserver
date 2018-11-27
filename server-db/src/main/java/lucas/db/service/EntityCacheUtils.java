@@ -7,6 +7,8 @@ import lucas.db.annnotation.CacheField;
 import lucas.db.entity.AbstractEntity;
 import lucas.db.redis.RedisInterface;
 import lucas.db.redis.service.RedisService;
+import lucas.db.service.proxy.EntityProxy;
+import org.apache.commons.collections.MapUtils;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 
@@ -80,5 +82,25 @@ public class EntityCacheUtils {
     private static String getRedisKey(AbstractEntity entity) {
         RedisInterface redisEntity = (RedisInterface) entity;
         return redisEntity.getRedisKey().getKey() + entity.getId();
+    }
+
+    public static void deleteEntity(AbstractEntity delEntity) {
+        String redisKey = getRedisKey(delEntity);
+        redisService.deleteKey(redisKey);
+    }
+
+    @SuppressWarnings("unchecked")
+    public static void updateEntity(AbstractEntity updateEntity) {
+        EntityProxy proxy = updateEntity.getProxy();
+        Map<String, Object>  change = proxy.getChangeParamMap();
+        if (MapUtils.isEmpty(change)) {
+            return;
+        }
+        Map<String,String> valueMap = new HashMap<>();
+        for (Map.Entry<String, Object> entry : change.entrySet()) {
+            valueMap.put(entry.getKey(),JSONUtils.toJSONString(entry.getValue()));
+        }
+        String redisKey = getRedisKey(updateEntity);
+        redisService.setMap(redisKey,valueMap);
     }
 }

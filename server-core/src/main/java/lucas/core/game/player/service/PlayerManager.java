@@ -21,7 +21,7 @@ public class PlayerManager {
     private ConcurrentHashMap<String,Long> account2Id = new ConcurrentHashMap<>();
 
     public Player getPlayer(long playerId) {
-        PlayerEntity entity = (PlayerEntity)playerEntityService.getEntity(playerId);
+        PlayerEntity entity = playerEntityService.getEntity(playerId);
         return entity.getPlayer();
     }
 

@@ -30,7 +30,8 @@ public class EntityProxyFactory {
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(proxy.getSubject().getClass());
         enhancer.setCallback(proxy);
-        return (T) enhancer.create();
+        Object o = enhancer.create();
+        return (T) o;
     }
 
     @SuppressWarnings("unchecked")

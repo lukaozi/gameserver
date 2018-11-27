@@ -17,12 +17,10 @@ public abstract class AbstractEntity<T extends Serializable> implements IEntity<
     public AbstractEntity() {
     }
 
-    @Transient
     public EntityProxy getProxy() {
         return proxy;
     }
 
-    @Transient
     public void setProxy(EntityProxy proxy) {
         this.proxy = proxy;
     }

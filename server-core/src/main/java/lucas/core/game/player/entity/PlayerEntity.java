@@ -18,8 +18,6 @@ import lucas.db.redis.contant.RedisKey;
 @DbMapper(mapper = PlayerMapper.class)
 public class PlayerEntity extends BaseLongIdEntity implements RedisInterface {
 
-    private Player player = new Player(this);
-
     public PlayerEntity() {
     }
 
@@ -28,9 +26,7 @@ public class PlayerEntity extends BaseLongIdEntity implements RedisInterface {
         this.setId(id);
     }
 
-    public Player getPlayer() {
-        return player;
-    }
+    private Player player = new Player(this);
 
     @CacheField
     private String account;
@@ -59,5 +55,9 @@ public class PlayerEntity extends BaseLongIdEntity implements RedisInterface {
     @CacheMethod("account")
     public void setAccount(String account) {
         this.account = account;
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }

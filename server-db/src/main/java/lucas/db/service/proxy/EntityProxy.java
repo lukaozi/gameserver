@@ -30,7 +30,7 @@ public class EntityProxy<T extends IEntity> implements MethodInterceptor {
     }
 
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-        Object result = methodProxy.invokeSuper(getSubject(), objects);
+        Object result = methodProxy.invokeSuper(o, objects);
         if (!collect) {
             return result;
         }
