@@ -5,6 +5,8 @@ import lucas.core.game.player.entity.PlayerEntity;
 import lucas.core.game.player.entity.PlayerMapper;
 import lucas.core.game.player.service.PlayerEntityService;
 import lucas.core.game.player.service.PlayerManager;
+import lucas.db.utils.idgenerator.IDGenerator;
+import lucas.db.utils.idgenerator.IDType;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -35,12 +37,12 @@ public class MybatisTest {
     @Test
     public void t2() {
         ApplicationContext applicationContext = ApplicationContextUtils.getApplicationContext();
-        PlayerEntity playerEntity = new PlayerEntity("kkaa",79339);
-        playerEntity.setName("考神2");
+        PlayerEntity playerEntity = new PlayerEntity("kkaa", IDGenerator.createId(IDType.PLAYER_ID));
+        playerEntity.setName("考神" + playerEntity.getId());
         PlayerManager playerManager = applicationContext.getBean(PlayerManager.class);
         PlayerEntityService entityService = playerManager.getPlayerEntityService();
         entityService.insertEntity(playerEntity);
-        PlayerEntity entity = entityService.getEntity(79339);
+        PlayerEntity entity = entityService.getEntity(playerEntity.getId());
         System.out.println(entity.getName());
     }
 }

@@ -5,7 +5,6 @@ public enum IDType {
     PLAYER_ID(true),
     SESSION_ID(false);
 
-
     private boolean save;
 
     IDType(boolean save) {

@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * @author lushengkao vip8
  * 2018/11/27 12:00
- * 参考Twitter_Snowflake  https://github.com/twitter-archive/snowflake <br>
+ * 分布式id生成器 参考Twitter_Snowflake  https://github.com/twitter-archive/snowflake <br>
  *
  * SnowFlake的结构如下(每部分用-分开): Long型 64位<br>
  * 0 - 0000000000 0000000000 0000000000 0000000000 0 - 00000 - 00000 - 000000000000 <br>
@@ -29,7 +29,7 @@ public class SnowFlakeIdWorker {
     private static final long WORKER_ID_BITS = 10L;
 
     /**
-     * 支持的最大机器id，结果是1024 (这个移位算法可以很快的计算出几位二进制数所能表示的最大十进制数)
+     * 支持的最大机器id，1024
      */
     private static final long MAX_WORKER_ID = ~(-1L << WORKER_ID_BITS);
 
@@ -63,7 +63,7 @@ public class SnowFlakeIdWorker {
      */
     private long lastTimestamp = -1L;
 
-    private Random random = new Random(10L);
+    private Random random = new Random();
 
 
     /**
@@ -100,7 +100,7 @@ public class SnowFlakeIdWorker {
         }
         //时间戳改变，毫秒内序列重置 为了避免0出现过多的情况 在 0~9随机一个数字
         else {
-            sequence = random.nextLong();
+            sequence = random.nextInt(10);
         }
         //上次生成ID的时间截
         lastTimestamp = timestamp;
