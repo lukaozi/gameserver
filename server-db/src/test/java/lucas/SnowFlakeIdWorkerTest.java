@@ -4,7 +4,6 @@ package lucas;
 import lucas.common.GlobalContant;
 import lucas.db.utils.idgenerator.SnowFlakeIdWorker;
 import org.junit.Test;
-import sun.rmi.runtime.Log;
 
 /**
  * @author lushengkao vip8

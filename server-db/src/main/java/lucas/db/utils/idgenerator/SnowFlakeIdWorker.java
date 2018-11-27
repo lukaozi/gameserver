@@ -105,7 +105,7 @@ public class SnowFlakeIdWorker {
         //上次生成ID的时间截
         lastTimestamp = timestamp;
         //移位并通过或运算拼到一起组成64位的ID
-        return ((timestamp - BEGIN_TIME_STAMP) << TIMESTAMP_LEFT_SHIFT) | (workerId << SEQUENCE_BITS) | sequence;
+        return ((timestamp - BEGIN_TIME_STAMP) << TIMESTAMP_LEFT_SHIFT) | workerId << SEQUENCE_BITS | sequence;
     }
 
     /**
@@ -130,4 +130,5 @@ public class SnowFlakeIdWorker {
     private long timeGen() {
         return System.currentTimeMillis();
     }
+
 }
