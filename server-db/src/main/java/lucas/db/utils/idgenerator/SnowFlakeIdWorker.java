@@ -4,7 +4,8 @@ import java.util.Random;
 
 /**
  * @author lushengkao vip8
- * 2018/11/27 12:00 参考Twitter_Snowflake  https://github.com/twitter-archive/snowflake <br>
+ * 2018/11/27 12:00
+ * 参考Twitter_Snowflake  https://github.com/twitter-archive/snowflake <br>
  *
  * SnowFlake的结构如下(每部分用-分开): Long型 64位<br>
  * 0 - 0000000000 0000000000 0000000000 0000000000 0 - 00000 - 00000 - 000000000000 <br>
