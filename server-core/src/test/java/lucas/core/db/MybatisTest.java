@@ -5,6 +5,7 @@ import lucas.core.game.player.entity.PlayerEntity;
 import lucas.core.game.player.entity.PlayerMapper;
 import lucas.core.game.player.service.PlayerEntityService;
 import lucas.core.game.player.service.PlayerManager;
+import lucas.db.entity.IEntity;
 import lucas.db.redis.service.RedisService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,12 +38,12 @@ public class MybatisTest {
     @Test
     public void t2() {
         ApplicationContext applicationContext = ApplicationContextUtils.getApplicationContext();
-        PlayerEntity playerEntity = new PlayerEntity("kaoshen",341222L);
+        PlayerEntity playerEntity = new PlayerEntity("kkaa",79339);
+        playerEntity.setName("考神2");
         PlayerManager playerManager = applicationContext.getBean(PlayerManager.class);
         PlayerEntityService entityService = playerManager.getPlayerEntityService();
         entityService.insertEntity(playerEntity);
-        RedisService redisService = applicationContext.getBean(RedisService.class);
-        Map<String, String> map = redisService.getMap(playerEntity.getRedisKey().getKey() + playerEntity.getId());
-        System.out.println(map.toString());
+        PlayerEntity entity = entityService.getEntity(79339);
+        System.out.println(entity.getName());
     }
 }

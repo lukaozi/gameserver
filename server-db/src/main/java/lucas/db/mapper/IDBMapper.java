@@ -15,7 +15,7 @@ public interface IDBMapper<T extends IEntity> {
 
     long insertEntity(T entity);
 
-    IEntity getEntity(Serializable id);
+    T getEntity(Serializable id);
 
     List<T> getEntityList(Serializable key);
 

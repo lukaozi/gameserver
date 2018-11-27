@@ -57,7 +57,6 @@ public class BeanUtils {
     }
 
     public static Object getObjectFromMap(Object result, Map<String, String> map) {
-
         try {
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 String fieldName = entry.getKey();
@@ -70,6 +69,7 @@ public class BeanUtils {
                 field.setAccessible(true);
                 field.set(result,fieldObj);
             }
+            return result;
         } catch (Exception e) {
             e.printStackTrace();
         }

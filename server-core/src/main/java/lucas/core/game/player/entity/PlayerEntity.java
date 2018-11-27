@@ -20,7 +20,10 @@ public class PlayerEntity extends BaseLongIdEntity implements RedisInterface {
 
     private Player player = new Player(this);
 
-    public PlayerEntity(String account,long id) {
+    public PlayerEntity() {
+    }
+
+    public PlayerEntity(String account, long id) {
         this.account = account;
         this.setId(id);
     }

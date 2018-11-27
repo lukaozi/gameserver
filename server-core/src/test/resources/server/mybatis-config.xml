@@ -39,6 +39,7 @@
 
     <typeAliases>
         <typeAlias alias="player" type="lucas.core.game.player.entity.PlayerEntity"/>
+        <typeAlias alias="id" type="java.io.Serializable"/>
     </typeAliases>
 
     <mappers>

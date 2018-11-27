@@ -53,7 +53,7 @@ public class EntityService<T extends AbstractEntity> implements IEntityService<T
 
     @Override
     @CacheOperation(OperationEnum.query)
-    public IEntity getEntity(Serializable id) {
+    public T getEntity(Serializable id) {
         IDBMapper<T> mapper = getEntityMapper(entityClass);
         return mapper.getEntity(id);
     }

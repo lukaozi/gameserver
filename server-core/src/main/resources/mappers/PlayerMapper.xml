@@ -4,7 +4,11 @@
 <mapper namespace="lucas.core.game.player.entity.PlayerMapper">
 
     <!--批量插入-->
-    <insert id="insertEntity" parameterType="Player">
+    <insert id="insertEntity" parameterType="player">
         insert into `playerentity` (userid,`name`) values (#{userId},#{name})
     </insert>
+    <select id="getEntity" resultType="player" parameterType="id" >
+        select * from `playerentity` where userid=#{id}
+    </select>
+
 </mapper>
