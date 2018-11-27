@@ -5,8 +5,6 @@ import lucas.core.game.player.entity.PlayerEntity;
 import lucas.core.game.player.entity.PlayerMapper;
 import lucas.core.game.player.service.PlayerEntityService;
 import lucas.core.game.player.service.PlayerManager;
-import lucas.db.entity.IEntity;
-import lucas.db.redis.service.RedisService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -14,7 +12,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.Map;
 
 /**
  * @author lushengkao vip8
