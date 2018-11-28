@@ -15,4 +15,6 @@ public interface GlobalContant {
     boolean USE_CACHE =true;
     //机器编码 1 ~ 1023 10bit作为机器编码
     int SERVER_NO = 1;
+    //是否使用异步入库
+    boolean useAysnc=false;
 }

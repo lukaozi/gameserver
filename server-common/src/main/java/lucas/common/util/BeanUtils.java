@@ -65,6 +65,9 @@ public class BeanUtils {
                     continue;
                 }
                 Object fieldObj = SQLFileStringUtils.fromString(fieldVale,field.getType());
+                if (fieldObj == null) {
+                    continue;
+                }
                 field.setAccessible(true);
                 field.set(result, fieldObj);
             }

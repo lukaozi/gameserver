@@ -42,6 +42,6 @@ public class SQLFileStringUtils {
         } else if (clazz == Timestamp.class) {
             return TimeUtils.stringToTimestamp(text);
         }
-        throw null;
+        return null;
     }
 }

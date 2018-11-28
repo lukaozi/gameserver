@@ -1,5 +1,6 @@
 package lucas.db.service.proxy;
 
+import lucas.common.GlobalContant;
 import lucas.db.entity.AbstractEntity;
 import lucas.db.redis.RedisInterface;
 import lucas.db.service.EntityService;
@@ -22,6 +23,9 @@ public class EntityServiceProxyFactory {
 
     private <T extends EntityService> T createProxy(T entityService) throws Exception {
         EntityServiceProxy entityServiceProxy = new EntityServiceProxy();
+        if (GlobalContant.useAysnc) {
+            entityServiceProxy = new AsyncEntityServiceProxy();
+        }
         T proxy = createProxy0(entityService, entityServiceProxy);
         BeanUtils.copyProperties(proxy,entityService);
         return proxy;
@@ -37,7 +41,10 @@ public class EntityServiceProxyFactory {
 
     public Object createEntityServiceProxy(Object object, Class<?> clazz) throws Exception {
         if (object instanceof EntityService) {
-            EntityServiceProxy entityServiceProxy = new EntityServiceProxy();
+            EntityServiceProxy entityServiceProxy =  new EntityServiceProxy();
+            if (GlobalContant.useAysnc) {
+                entityServiceProxy = new AsyncEntityServiceProxy();
+            }
             entityServiceProxy.setEntityClass(clazz);
             Object instance = clazz.newInstance();
             if (!(instance instanceof AbstractEntity)) {

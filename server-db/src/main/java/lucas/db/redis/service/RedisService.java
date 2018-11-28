@@ -2,6 +2,7 @@ package lucas.db.redis.service;
 
 import lucas.common.log.Loggers;
 import lucas.db.redis.contant.RedisContant;
+import lucas.db.redis.lock.RedisLock;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,7 +36,7 @@ public class RedisService {
         }
     }
 
-    public Map<String,String> getMap(String redisKey) {
+    public Map<String, String> getMap(String redisKey) {
         try (Jedis jedis = helper.getResource()) {
             Map<String, String> map = jedis.hgetAll(redisKey);
             jedis.expire(redisKey, RedisContant.NORMAL_LIFE);
@@ -56,5 +57,23 @@ public class RedisService {
             logger.error("淘汰缓存异常，redis key：" + redisKey);
         }
         return success;
+    }
+
+    public boolean tryLock(String lockKey, String requestId, int expireTime) {
+        try (Jedis jedis = helper.getResource()) {
+            return RedisLock.tryGetDistributedLock(jedis, lockKey, requestId, expireTime);
+        } catch (Exception e) {
+            logger.error("获取redis锁失败，redis key：" + lockKey);
+        }
+        return false;
+    }
+
+    public boolean releaseLock(String lockKey, String requestId) {
+        try (Jedis jedis = helper.getResource()) {
+            return RedisLock.releaseDistributedLock(jedis, lockKey, requestId);
+        } catch (Exception e) {
+            logger.error("淘汰缓存异常，redis key：" + lockKey);
+        }
+        return false;
     }
 }

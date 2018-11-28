@@ -23,6 +23,7 @@
       <module name="server-executor" target="1.8" />
       <module name="server-gamecode" target="1.8" />
       <module name="server-net" target="1.5" />
+      <module name="transaction" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
