@@ -3,6 +3,7 @@ package lucas.db.service;
 import lucas.common.log.Loggers;
 import lucas.common.util.BeanUtils;
 import lucas.common.util.FastJsonUtils;
+import lucas.common.util.SQLFileStringUtils;
 import lucas.db.annnotation.CacheField;
 import lucas.db.entity.AbstractEntity;
 import lucas.db.redis.RedisInterface;
@@ -74,7 +75,7 @@ public class EntityCacheUtils {
                 logger.error("获取值异常 + class:" + entity.getClass().getSimpleName()
                         + "-id :" + entity.getId() + "-fieldName :" + field.getName());
             }
-            result.put(field.getName(), FastJsonUtils.toJson(value));
+            result.put(field.getName(), SQLFileStringUtils.toString(value));
         }
         return result;
     }
@@ -98,7 +99,7 @@ public class EntityCacheUtils {
         }
         Map<String,String> valueMap = new HashMap<>();
         for (Map.Entry<String, Object> entry : change.entrySet()) {
-            valueMap.put(entry.getKey(),FastJsonUtils.toJson(entry.getValue()));
+            valueMap.put(entry.getKey(), SQLFileStringUtils.toString(entry.getValue()));
         }
         String redisKey = getRedisKey(updateEntity);
         redisService.setMap(redisKey,valueMap);

@@ -64,7 +64,7 @@ public class BeanUtils {
                 if (field == null) {
                     continue;
                 }
-                Object fieldObj = FastJsonUtils.fromJson(fieldVale,field.getType());
+                Object fieldObj = SQLFileStringUtils.fromString(fieldVale,field.getType());
                 field.setAccessible(true);
                 field.set(result, fieldObj);
             }
