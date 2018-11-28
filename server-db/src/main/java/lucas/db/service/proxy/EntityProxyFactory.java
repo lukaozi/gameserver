@@ -11,21 +11,20 @@ import org.springframework.stereotype.Service;
  * 实体对象代理生成工厂
  * 2018/10/22 19:32
  */
+@SuppressWarnings("unchecked")
 @Service
 public class EntityProxyFactory {
 
 
     public <T extends AbstractEntity> T createProxyEntity(T entity) throws Exception {
-            EntityProxy entityProxy = createProxy(entity);
-            AbstractEntity result = createCGLibProxyEntity(entityProxy);
-            result.setProxy(entityProxy);
-            BeanUtils.copyProperties(result, entity);
-            entityProxy.setCollect(true);
-            return (T) result;
-
+        EntityProxy entityProxy = createProxy(entity);
+        AbstractEntity result = createCGLibProxyEntity(entityProxy);
+        entity.setProxy(entityProxy);
+        BeanUtils.copyProperties(result, entity);
+        entityProxy.setCollect(true);
+        return (T) result;
     }
 
-    @SuppressWarnings("unchecked")
     private <T extends AbstractEntity> T createCGLibProxyEntity(EntityProxy proxy) {
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(proxy.getSubject().getClass());
@@ -33,7 +32,6 @@ public class EntityProxyFactory {
         return (T) enhancer.create();
     }
 
-    @SuppressWarnings("unchecked")
     private <T extends AbstractEntity> EntityProxy createProxy(T entity) {
         return new EntityProxy(entity);
     }

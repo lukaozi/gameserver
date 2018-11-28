@@ -10,6 +10,7 @@ import lucas.db.redis.contant.RedisKey;
 import lucas.db.service.EntityCacheUtils;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
+import org.springframework.context.ApplicationContext;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;
@@ -65,9 +66,11 @@ public class EntityServiceProxy implements MethodInterceptor {
                 if (query == null) {
                     query = (AbstractEntity) methodProxy.invokeSuper(o,objects);
                     EntityCacheUtils.insertToRedis(query);
+                }else {
+                    ApplicationContext context = ApplicationContextUtils.getApplicationContext();
+                    EntityProxyFactory factory = context.getBean(EntityProxyFactory.class);
+                    query = factory.createProxyEntity(query);
                 }
-                EntityProxyFactory factory = ApplicationContextUtils.getApplicationContext().getBean(EntityProxyFactory.class);
-                query = factory.createProxyEntity(query);
                 result = query;
                 break;
             case update:

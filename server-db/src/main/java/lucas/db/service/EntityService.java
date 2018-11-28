@@ -88,6 +88,7 @@ public class EntityService<T extends AbstractEntity> implements IEntityService<T
             return;
         }
         Map data = new HashMap<>(changeParamMap);
+        data.put("id",entity.getId());
         IDBMapper<T> mapper = getEntityMapper(entity);
         mapper.updateEntityByMap(data);
     }

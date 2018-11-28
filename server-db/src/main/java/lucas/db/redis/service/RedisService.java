@@ -37,7 +37,9 @@ public class RedisService {
 
     public Map<String,String> getMap(String redisKey) {
         try (Jedis jedis = helper.getResource()) {
-            return jedis.hgetAll(redisKey);
+            Map<String, String> map = jedis.hgetAll(redisKey);
+            jedis.expire(redisKey, RedisContant.NORMAL_LIFE);
+            return map;
             //设置缓存时间
         } catch (Exception e) {
             logger.error("查询缓存异常，redis key：" + redisKey);

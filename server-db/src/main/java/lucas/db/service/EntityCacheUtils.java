@@ -1,8 +1,8 @@
 package lucas.db.service;
 
-import com.alibaba.druid.support.json.JSONUtils;
 import lucas.common.log.Loggers;
 import lucas.common.util.BeanUtils;
+import lucas.common.util.FastJsonUtils;
 import lucas.db.annnotation.CacheField;
 import lucas.db.entity.AbstractEntity;
 import lucas.db.redis.RedisInterface;
@@ -62,9 +62,9 @@ public class EntityCacheUtils {
     }
 
     private static Map<String, String> getCacheValueMap(AbstractEntity entity) {
-        Map<String, String> result = new HashMap<>();
         Class<? extends AbstractEntity> entityClass = entity.getClass();
         List<Field> fields = BeanUtils.getFieldsWithAnnotation(entityClass, CacheField.class);
+        Map<String, String> result = new HashMap<>();
         for (Field field : fields) {
             Object value = null;
             field.setAccessible(true);
@@ -74,7 +74,7 @@ public class EntityCacheUtils {
                 logger.error("获取值异常 + class:" + entity.getClass().getSimpleName()
                         + "-id :" + entity.getId() + "-fieldName :" + field.getName());
             }
-            result.put(field.getName(), JSONUtils.toJSONString(value));
+            result.put(field.getName(), FastJsonUtils.toJson(value));
         }
         return result;
     }
@@ -98,7 +98,7 @@ public class EntityCacheUtils {
         }
         Map<String,String> valueMap = new HashMap<>();
         for (Map.Entry<String, Object> entry : change.entrySet()) {
-            valueMap.put(entry.getKey(),JSONUtils.toJSONString(entry.getValue()));
+            valueMap.put(entry.getKey(),FastJsonUtils.toJson(entry.getValue()));
         }
         String redisKey = getRedisKey(updateEntity);
         redisService.setMap(redisKey,valueMap);

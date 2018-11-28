@@ -37,12 +37,15 @@ public class MybatisTest {
     @Test
     public void t2() {
         ApplicationContext applicationContext = ApplicationContextUtils.getApplicationContext();
-        PlayerEntity playerEntity = new PlayerEntity("kkaa", IDGenerator.createId(IDType.PLAYER_ID));
-        playerEntity.setName("考神" + playerEntity.getId());
+        PlayerEntity playerEntity = new PlayerEntity("测试", IDGenerator.createId(IDType.PLAYER_ID));
+        playerEntity.setName("考神");
         PlayerManager playerManager = applicationContext.getBean(PlayerManager.class);
         PlayerEntityService entityService = playerManager.getPlayerEntityService();
         entityService.insertEntity(playerEntity);
         PlayerEntity entity = entityService.getEntity(playerEntity.getId());
-        System.out.println(entity.getName());
+        entity.setName("猪猪");
+        entityService.updateEntity(entity);
+        PlayerEntity entity1 = entityService.getEntity(playerEntity.getId());
+        System.out.println(entity1.getName());
     }
 }

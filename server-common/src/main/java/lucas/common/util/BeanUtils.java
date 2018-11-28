@@ -1,6 +1,5 @@
 package lucas.common.util;
 
-import com.alibaba.druid.support.json.JSONUtils;
 import org.springframework.util.ReflectionUtils;
 
 import java.lang.annotation.Annotation;
@@ -31,14 +30,14 @@ public class BeanUtils {
         return newValue.equals(oldValue);
     }
 
-    public static Field getFiledByName(Object object, String fileName){
-        Class<?> clazz = object.getClass();
-        Class<?> TmpClazz = clazz;
+    public static Field getFiledByName(Object object, String fileName) {
+        Class<?> TmpClazz = object.getClass();
         do {
             try {
                 return TmpClazz.getDeclaredField(fileName);
-            } catch (NoSuchFieldException ignored) {}
-        }while ((TmpClazz = clazz.getSuperclass()) != Object.class);
+            } catch (NoSuchFieldException ignored) {
+            }
+        } while ((TmpClazz = TmpClazz.getSuperclass()) != Object.class);
         return null;
     }
 
@@ -48,11 +47,11 @@ public class BeanUtils {
         do {
             Field[] fields = TmpClazz.getDeclaredFields();
             for (Field field : fields) {
-                if (field.getAnnotation(annotation)  != null) {
+                if (field.getAnnotation(annotation) != null) {
                     result.add(field);
                 }
             }
-        }while ((TmpClazz = clazz.getSuperclass()) == Object.class);
+        } while ((TmpClazz = TmpClazz.getSuperclass()) != Object.class);
         return result;
     }
 
@@ -61,13 +60,13 @@ public class BeanUtils {
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 String fieldName = entry.getKey();
                 String fieldVale = entry.getValue();
-                Object fieldObj = JSONUtils.parse(fieldVale);
                 Field field = getFiledByName(result, fieldName);
                 if (field == null) {
                     continue;
                 }
+                Object fieldObj = FastJsonUtils.fromJson(fieldVale,field.getType());
                 field.setAccessible(true);
-                field.set(result,fieldObj);
+                field.set(result, fieldObj);
             }
             return result;
         } catch (Exception e) {
