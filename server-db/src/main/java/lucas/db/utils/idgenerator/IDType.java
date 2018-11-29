@@ -3,7 +3,8 @@ package lucas.db.utils.idgenerator;
 public enum IDType {
 
     PLAYER_ID(true),
-    SESSION_ID(false);
+    SESSION_ID(false),
+    REDIS_LOCK(true);
 
     private boolean save;
 

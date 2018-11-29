@@ -13,13 +13,13 @@ import javax.annotation.PostConstruct;
  * 2018/11/23 16:24
  */
 @Component
-public class JedisPoolHelper {
+public class JedisHelper {
 
     private Logger logger = Loggers.REDIS;
 
     private JedisPool jedisPool;
 
-    public JedisPoolHelper(JedisPool jedisPool) {
+    public JedisHelper(JedisPool jedisPool) {
         this.jedisPool = jedisPool;
     }
 
