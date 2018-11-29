@@ -36,7 +36,7 @@ public class RedisLock {
     }
 
     /**
-     * 尝试获取分布式锁
+     * 尝试获取分布式锁 通过传入 request id 确保其他客户端不能解除本机的锁
      * setnx 原子性加锁
      * @return 是否获取成功
      */
@@ -58,10 +58,10 @@ public class RedisLock {
     /**
      * 释放分布式锁
      *
-     * 利用reids执行lua脚本的时候redis停止运行的特性使原子性运行解锁
+     * 利用redis执行lua脚本的时候redis停止运行的特性使原子性解锁
      * @return 是否释放成功
      */
-    public boolean unLock() {
+    public boolean unlock() {
         if (lockRequestId == null) {
             return false;
         }
