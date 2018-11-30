@@ -2,7 +2,6 @@ package lucas.db.service;
 
 import lucas.common.log.Loggers;
 import lucas.common.util.BeanUtils;
-import lucas.common.util.FastJsonUtils;
 import lucas.common.util.SQLFileStringUtils;
 import lucas.db.annnotation.CacheField;
 import lucas.db.entity.AbstractEntity;
@@ -31,7 +30,9 @@ public class EntityCacheUtils {
     private static Logger logger = Loggers.REDIS;
 
     public EntityCacheUtils(RedisService service) {
-        redisService = service;
+        if (redisService != null) {
+            redisService = service;
+        }
     }
 
     public static void insertToRedis(AbstractEntity entity) {

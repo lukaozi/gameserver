@@ -29,24 +29,12 @@ public enum  PacketType {
         return req;
     }
 
-    public void setReq(boolean req) {
-        this.req = req;
-    }
-
     public int getCommand() {
         return command;
     }
 
-    public void setCommand(int command) {
-        this.command = command;
-    }
-
     public Class<? extends AbstractPacket> getClazz() {
         return clazz;
-    }
-
-    public void setClazz(Class<? extends AbstractPacket> clazz) {
-        this.clazz = clazz;
     }
 
 }

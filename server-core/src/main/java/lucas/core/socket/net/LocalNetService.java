@@ -13,8 +13,6 @@ import org.slf4j.Logger;
  */
 public class LocalNetService implements IService {
 
-    Logger logger = Loggers.SERVER_LOGGER;
-
     //tcp服务
     private NettyTcpSocketServerService nettyTcpSocketServerService;
 

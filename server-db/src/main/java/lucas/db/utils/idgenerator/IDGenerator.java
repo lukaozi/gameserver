@@ -43,7 +43,7 @@ public class IDGenerator {
         SnowFlakeIdWorker snowFlakeIdWorker = SNOW_FLAKE_ID_WORKER_MAP.get(type);
         if (snowFlakeIdWorker == null) {
             SnowFlakeIdWorker value = new SnowFlakeIdWorker(GlobalContant.SERVER_NO);
-            SnowFlakeIdWorker old = SNOW_FLAKE_ID_WORKER_MAP.put(type, value);
+            SnowFlakeIdWorker old = SNOW_FLAKE_ID_WORKER_MAP.putIfAbsent(type, value);
             if (old != null) {
                 snowFlakeIdWorker = old;
             }else {

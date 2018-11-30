@@ -61,7 +61,7 @@ public class MybatisTest {
         long time1 = System.currentTimeMillis();
         ConcurrentHashMap<Integer,Boolean> map = new ConcurrentHashMap<>();
         ExecutorService executorService = Executors.newFixedThreadPool(200);
-        for (int i = 0; i < 300; i++) {
+        for (int i = 0; i < 400; i++) {
             executorService.submit(() -> {
                 RedisLock redisLock = new RedisLock("test");
                 try {
@@ -83,7 +83,7 @@ public class MybatisTest {
                 }catch (Exception e) {
                     e.printStackTrace();
                 }finally {
-                    redisLock.unLock();
+                    redisLock.unlock();
                 }
             });
         }

@@ -23,7 +23,7 @@ import java.lang.reflect.Method;
  * query 查询的时候先查询缓存，缓存没有命中则查询mysql，再插入缓存
  * update 先更新mysql 再淘汰缓存或者更新缓存
  * delete 先删除mysql 再淘汰缓存 如果先淘汰缓存，会造成cache miss的时候重新更新缓存
- *
+ * <p>
  * 2018/10/22 16:42
  */
 public class EntityServiceProxy implements MethodInterceptor {
@@ -44,29 +44,29 @@ public class EntityServiceProxy implements MethodInterceptor {
         Object result = null;
         CacheOperation cacheOperation = method.getAnnotation(CacheOperation.class);
         if (cacheOperation == null) {
-            return methodProxy.invokeSuper(o,objects);
+            return methodProxy.invokeSuper(o, objects);
         }
         if (!GlobalContant.USE_CACHE) {
-            return methodProxy.invokeSuper(o,objects);
+            return methodProxy.invokeSuper(o, objects);
         }
         if (redisKey == null) {
-            return methodProxy.invokeSuper(o,objects);
+            return methodProxy.invokeSuper(o, objects);
         }
         OperationEnum operation = cacheOperation.value();
         switch (operation) {
             case insert:
-                result = methodProxy.invokeSuper(o,objects);
+                result = methodProxy.invokeSuper(o, objects);
                 AbstractEntity entity = (AbstractEntity) objects[0];
                 EntityCacheUtils.insertToRedis(entity);
                 break;
             case query:
                 Serializable id = (Serializable) objects[0];
                 String redisKey = this.redisKey.getKey() + id;
-                AbstractEntity query = EntityCacheUtils.queryFromRedis(redisKey,entityClass);
+                AbstractEntity query = EntityCacheUtils.queryFromRedis(redisKey, entityClass);
                 if (query == null) {
-                    query = (AbstractEntity) methodProxy.invokeSuper(o,objects);
+                    query = (AbstractEntity) methodProxy.invokeSuper(o, objects);
                     EntityCacheUtils.insertToRedis(query);
-                }else {
+                } else {
                     ApplicationContext context = ApplicationContextUtils.getApplicationContext();
                     EntityProxyFactory factory = context.getBean(EntityProxyFactory.class);
                     query = factory.createProxyEntity(query);
@@ -75,13 +75,15 @@ public class EntityServiceProxy implements MethodInterceptor {
                 break;
             case update:
                 AbstractEntity updateEntity = (AbstractEntity) objects[0];
-                result = methodProxy.invokeSuper(o,objects);
+                result = methodProxy.invokeSuper(o, objects);
                 EntityCacheUtils.updateEntity(updateEntity);
                 break;
             case delete:
                 AbstractEntity delEntity = (AbstractEntity) objects[0];
-                result = methodProxy.invokeSuper(o,objects);
+                result = methodProxy.invokeSuper(o, objects);
                 EntityCacheUtils.deleteEntity(delEntity);
+                break;
+            default:
                 break;
         }
         return result;

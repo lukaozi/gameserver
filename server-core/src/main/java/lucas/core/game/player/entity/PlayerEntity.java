@@ -26,7 +26,7 @@ public class PlayerEntity extends BaseLongIdEntity implements RedisInterface {
         setId(id);
     }
 
-    private Player player = new Player(this);
+    private transient Player player = new Player(this);
 
     @CacheField
     private String account;
