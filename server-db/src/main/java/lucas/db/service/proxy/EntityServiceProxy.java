@@ -88,4 +88,12 @@ public class EntityServiceProxy implements MethodInterceptor {
         }
         return result;
     }
+
+    public RedisKey getRedisKey() {
+        return redisKey;
+    }
+
+    public Class<?> getEntityClass() {
+        return entityClass;
+    }
 }

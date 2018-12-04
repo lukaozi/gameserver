@@ -15,7 +15,6 @@
         <module>server-common</module>
         <module>client</module>
         <module>remote</module>
-        <module>transaction</module>
     </modules>
 
     <dependencies>
