@@ -17,7 +17,7 @@ public class AsyncEntityServiceProxy extends EntityServiceProxy {
 
     private AsyncEntityUtils asyncEntityUtils;
 
-    public AsyncEntityServiceProxy(EntityCacheUtils entityCacheUtils, AsyncEntityUtils asyncEntityUtils) {
+    AsyncEntityServiceProxy(EntityCacheUtils entityCacheUtils, AsyncEntityUtils asyncEntityUtils) {
         super(entityCacheUtils);
         this.asyncEntityUtils = asyncEntityUtils;
     }
@@ -37,7 +37,6 @@ public class AsyncEntityServiceProxy extends EntityServiceProxy {
                 AbstractEntity query = entityCacheUtils.queryFromRedis(key, entityClass);
                 if (query == null) {
                     //TODO
-                    logger.error("");
                 }
                 result = query;
                 break;

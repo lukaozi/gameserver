@@ -2,16 +2,15 @@ package lucas.db.service.proxy;
 
 import lucas.common.GlobalContant;
 import lucas.common.log.Loggers;
-import lucas.common.util.ApplicationContextUtils;
 import lucas.db.annnotation.CacheOperation;
 import lucas.db.entity.AbstractEntity;
 import lucas.db.enums.OperationEnum;
 import lucas.db.redis.contant.RedisKey;
 import lucas.db.service.EntityCacheUtils;
 import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
-import org.springframework.context.ApplicationContext;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;
@@ -36,6 +35,13 @@ public class EntityServiceProxy implements MethodInterceptor {
     Class<?> entityClass;
 
     EntityCacheUtils entityCacheUtils;
+
+    private EntityProxyFactory factory;
+
+    @Autowired
+    public void setFactory(EntityProxyFactory factory) {
+        this.factory = factory;
+    }
 
     EntityServiceProxy(EntityCacheUtils entityCacheUtils) {
         this.entityCacheUtils = entityCacheUtils;
@@ -81,8 +87,6 @@ public class EntityServiceProxy implements MethodInterceptor {
                     query = (AbstractEntity) methodProxy.invokeSuper(o, objects);
                     entityCacheUtils.insertToRedis(query);
                 } else {
-                    ApplicationContext context = ApplicationContextUtils.getApplicationContext();
-                    EntityProxyFactory factory = context.getBean(EntityProxyFactory.class);
                     query = factory.createProxyEntity(query);
                 }
                 result = query;
