@@ -3,8 +3,11 @@ package lucas.db.service.proxy;
 import lucas.common.GlobalContant;
 import lucas.db.entity.AbstractEntity;
 import lucas.db.redis.RedisInterface;
+import lucas.db.service.AsyncEntityUtils;
+import lucas.db.service.EntityCacheUtils;
 import lucas.db.service.EntityService;
 import org.apache.commons.beanutils.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.stereotype.Service;
 
@@ -17,33 +20,25 @@ import org.springframework.stereotype.Service;
 @Service
 public class EntityServiceProxyFactory {
 
-    public <T extends EntityService> T createEntityServiceProxy(T entityService) throws Exception{
-        return createProxy(entityService);
+    private EntityCacheUtils entityCacheUtils;
+
+    private AsyncEntityUtils asyncEntityUtils;
+
+    @Autowired
+    public void setEntityCacheUtils(EntityCacheUtils entityCacheUtils) {
+        this.entityCacheUtils = entityCacheUtils;
     }
 
-    private <T extends EntityService> T createProxy(T entityService) throws Exception {
-        EntityServiceProxy entityServiceProxy = new EntityServiceProxy();
-        if (GlobalContant.useAysnc) {
-            entityServiceProxy = new AsyncEntityServiceProxy();
-        }
-        T proxy = createProxy0(entityService, entityServiceProxy);
-        BeanUtils.copyProperties(proxy,entityService);
-        return proxy;
-    }
-
-    @SuppressWarnings("unchecked")
-    private <T extends EntityService> T createProxy0(T entityService, EntityServiceProxy entityServiceProxy) {
-        Enhancer enhancer = new Enhancer();
-        enhancer.setSuperclass(entityService.getClass());
-        enhancer.setCallback(entityServiceProxy);
-        return (T) enhancer.create();
+    @Autowired
+    public void setAsyncEntityUtils(AsyncEntityUtils asyncEntityUtils) {
+        this.asyncEntityUtils = asyncEntityUtils;
     }
 
     public Object createEntityServiceProxy(Object object, Class<?> clazz) throws Exception {
         if (object instanceof EntityService) {
-            EntityServiceProxy entityServiceProxy =  new EntityServiceProxy();
+            EntityServiceProxy entityServiceProxy = new EntityServiceProxy(entityCacheUtils);
             if (GlobalContant.useAysnc) {
-                entityServiceProxy = new AsyncEntityServiceProxy();
+                entityServiceProxy = new AsyncEntityServiceProxy(entityCacheUtils,asyncEntityUtils);
             }
             entityServiceProxy.setEntityClass(clazz);
             Object instance = clazz.newInstance();
@@ -57,7 +52,7 @@ public class EntityServiceProxyFactory {
             enhancer.setSuperclass(object.getClass());
             enhancer.setCallback(entityServiceProxy);
             Object proxy = enhancer.create();
-            BeanUtils.copyProperties(proxy,object);
+            BeanUtils.copyProperties(proxy, object);
             return proxy;
         }
         throw new RuntimeException("无法生成 entity service");

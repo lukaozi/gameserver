@@ -25,17 +25,15 @@ import java.util.Map;
 @Component
 public class EntityCacheUtils {
 
-    private static RedisService redisService;
-
     private static Logger logger = Loggers.REDIS;
 
+    private RedisService redisService;
+
     public EntityCacheUtils(RedisService service) {
-        if (redisService != null) {
             redisService = service;
-        }
     }
 
-    public static void insertToRedis(AbstractEntity entity) {
+    public void insertToRedis(AbstractEntity entity) {
         if (!(entity instanceof RedisInterface)) {
             return;
         }
@@ -44,7 +42,7 @@ public class EntityCacheUtils {
         redisService.setMap(redisKey,valueMap);
     }
 
-    public static AbstractEntity queryFromRedis(String redisKey,Class<?> clazz) {
+    public AbstractEntity queryFromRedis(String redisKey,Class<?> clazz) {
         Map<String, String> map = redisService.getMap(redisKey);
         Object result = getObjectFromMap(map,clazz);
         if (result instanceof AbstractEntity) {
@@ -53,7 +51,7 @@ public class EntityCacheUtils {
         return null;
     }
 
-    private static Object getObjectFromMap(Map<String, String> map, Class<?> clazz) {
+    private Object getObjectFromMap(Map<String, String> map, Class<?> clazz) {
         try {
             Object result = clazz.newInstance();
             return BeanUtils.getObjectFromMap(result,map);
@@ -63,7 +61,7 @@ public class EntityCacheUtils {
         return null;
     }
 
-    private static Map<String, String> getCacheValueMap(AbstractEntity entity) {
+    private Map<String, String> getCacheValueMap(AbstractEntity entity) {
         Class<? extends AbstractEntity> entityClass = entity.getClass();
         List<Field> fields = BeanUtils.getFieldsWithAnnotation(entityClass, CacheField.class);
         Map<String, String> result = new HashMap<>();
@@ -81,18 +79,18 @@ public class EntityCacheUtils {
         return result;
     }
 
-    private static String getRedisKey(AbstractEntity entity) {
+    private String getRedisKey(AbstractEntity entity) {
         RedisInterface redisEntity = (RedisInterface) entity;
         return redisEntity.getRedisKey().getKey() + entity.getId();
     }
 
-    public static void deleteEntity(AbstractEntity delEntity) {
+    public void deleteEntity(AbstractEntity delEntity) {
         String redisKey = getRedisKey(delEntity);
         redisService.deleteKey(redisKey);
     }
 
     @SuppressWarnings("unchecked")
-    public static void updateEntity(AbstractEntity updateEntity) {
+    public void updateEntity(AbstractEntity updateEntity) {
         EntityProxy proxy = updateEntity.getProxy();
         Map<String, Object>  change = proxy.getChangeParamMap();
         if (MapUtils.isEmpty(change)) {

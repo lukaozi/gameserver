@@ -1,13 +1,14 @@
 package lucas.db.service.proxy;
 
-import com.alibaba.druid.support.spring.stat.SpringStatUtils;
 import lucas.common.GlobalContant;
+import lucas.common.log.Loggers;
 import lucas.common.util.ApplicationContextUtils;
 import lucas.db.annnotation.CacheOperation;
 import lucas.db.entity.AbstractEntity;
 import lucas.db.enums.OperationEnum;
 import lucas.db.redis.contant.RedisKey;
 import lucas.db.service.EntityCacheUtils;
+import org.slf4j.Logger;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
 import org.springframework.context.ApplicationContext;
@@ -28,9 +29,17 @@ import java.lang.reflect.Method;
  */
 public class EntityServiceProxy implements MethodInterceptor {
 
-    private RedisKey redisKey;
+    protected static Logger logger = Loggers.REDIS;
 
-    private Class<?> entityClass;
+    RedisKey redisKey;
+
+    Class<?> entityClass;
+
+    EntityCacheUtils entityCacheUtils;
+
+    EntityServiceProxy(EntityCacheUtils entityCacheUtils) {
+        this.entityCacheUtils = entityCacheUtils;
+    }
 
     void setRedisKey(RedisKey redisKey) {
         this.redisKey = redisKey;
@@ -53,19 +62,24 @@ public class EntityServiceProxy implements MethodInterceptor {
             return methodProxy.invokeSuper(o, objects);
         }
         OperationEnum operation = cacheOperation.value();
+        return intercept0(o, objects, methodProxy, operation);
+    }
+
+    protected Object intercept0(Object o, Object[] objects, MethodProxy methodProxy, OperationEnum operation) throws Throwable {
+        Object result = null;
         switch (operation) {
             case insert:
                 result = methodProxy.invokeSuper(o, objects);
                 AbstractEntity entity = (AbstractEntity) objects[0];
-                EntityCacheUtils.insertToRedis(entity);
+                entityCacheUtils.insertToRedis(entity);
                 break;
             case query:
                 Serializable id = (Serializable) objects[0];
                 String redisKey = this.redisKey.getKey() + id;
-                AbstractEntity query = EntityCacheUtils.queryFromRedis(redisKey, entityClass);
+                AbstractEntity query = entityCacheUtils.queryFromRedis(redisKey, entityClass);
                 if (query == null) {
                     query = (AbstractEntity) methodProxy.invokeSuper(o, objects);
-                    EntityCacheUtils.insertToRedis(query);
+                    entityCacheUtils.insertToRedis(query);
                 } else {
                     ApplicationContext context = ApplicationContextUtils.getApplicationContext();
                     EntityProxyFactory factory = context.getBean(EntityProxyFactory.class);
@@ -76,24 +90,16 @@ public class EntityServiceProxy implements MethodInterceptor {
             case update:
                 AbstractEntity updateEntity = (AbstractEntity) objects[0];
                 result = methodProxy.invokeSuper(o, objects);
-                EntityCacheUtils.updateEntity(updateEntity);
+                entityCacheUtils.updateEntity(updateEntity);
                 break;
             case delete:
                 AbstractEntity delEntity = (AbstractEntity) objects[0];
                 result = methodProxy.invokeSuper(o, objects);
-                EntityCacheUtils.deleteEntity(delEntity);
+                entityCacheUtils.deleteEntity(delEntity);
                 break;
             default:
                 break;
         }
         return result;
-    }
-
-    public RedisKey getRedisKey() {
-        return redisKey;
-    }
-
-    public Class<?> getEntityClass() {
-        return entityClass;
     }
 }
