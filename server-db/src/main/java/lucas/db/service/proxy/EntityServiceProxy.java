@@ -36,7 +36,7 @@ public class EntityServiceProxy implements MethodInterceptor {
 
     EntityCacheUtils entityCacheUtils;
 
-    private EntityProxyFactory factory;
+    EntityProxyFactory factory;
 
     @Autowired
     public void setFactory(EntityProxyFactory factory) {

@@ -23,7 +23,7 @@ public class AsyncEntityServiceProxy extends EntityServiceProxy {
     }
 
     @Override
-    protected Object intercept0(Object o, Object[] objects, MethodProxy methodProxy, OperationEnum operation) {
+    protected Object intercept0(Object o, Object[] objects, MethodProxy methodProxy, OperationEnum operation) throws Throwable {
         Object result = null;
         switch (operation) {
             case insert:
@@ -36,7 +36,10 @@ public class AsyncEntityServiceProxy extends EntityServiceProxy {
                 String key = redisKey.getKey() + id;
                 AbstractEntity query = entityCacheUtils.queryFromRedis(key, entityClass);
                 if (query == null) {
-                    //TODO
+                    query = (AbstractEntity) methodProxy.invokeSuper(o, objects);
+                    entityCacheUtils.insertToRedis(query);
+                }else {
+                    query = factory.createProxyEntity(query);
                 }
                 result = query;
                 break;

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.Ordered;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 /**
@@ -17,16 +18,16 @@ public class SubscribeRegister implements BeanPostProcessor, ApplicationContextA
 
     private EventBus eventBus;
 
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+    public void setApplicationContext(@NonNull ApplicationContext applicationContext) throws BeansException {
         this.eventBus = applicationContext.getBean(EventBus.class);
     }
 
     //前置注册监听者方法
-    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+    public Object postProcessBeforeInitialization(@NonNull Object bean, String beanName) throws BeansException {
         return eventBus.registerSubscriber(bean);
     }
     //后置无处理
-    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+    public Object postProcessAfterInitialization(@NonNull Object bean, String beanName) throws BeansException {
         return bean;
     }
 
