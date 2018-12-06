@@ -2,6 +2,8 @@ package lucas.db.service.proxy;
 
 import lucas.db.entity.AbstractEntity;
 import lucas.db.enums.OperationEnum;
+import lucas.db.redis.contant.RedisKey;
+import lucas.db.redis.lock.RedisLock;
 import lucas.db.service.AsyncEntityUtils;
 import lucas.db.service.EntityCacheUtils;
 import org.springframework.cglib.proxy.MethodProxy;
@@ -36,8 +38,18 @@ public class AsyncEntityServiceProxy extends EntityServiceProxy {
                 String key = redisKey.getKey() + id;
                 AbstractEntity query = entityCacheUtils.queryFromRedis(key, entityClass);
                 if (query == null) {
-                    query = (AbstractEntity) methodProxy.invokeSuper(o, objects);
-                    entityCacheUtils.insertToRedis(query);
+                    RedisLock redisLock = new RedisLock(RedisKey.PLAYER.getKey() + id);
+                    try {
+                        redisLock.lock();
+                        query = entityCacheUtils.queryFromRedis(key, entityClass);
+                        if (query != null) {
+                            return query;
+                        }
+                        query = (AbstractEntity) methodProxy.invokeSuper(o, objects);
+                        entityCacheUtils.insertToRedis(query);
+                    }finally {
+                        redisLock.unlock();
+                    }
                 }else {
                     query = factory.createProxyEntity(query);
                 }

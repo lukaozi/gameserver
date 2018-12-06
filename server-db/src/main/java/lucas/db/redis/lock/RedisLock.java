@@ -36,6 +36,18 @@ public class RedisLock {
     }
 
     /**
+     * 获取分布式锁 通过传入 request id 确保其他客户端不能解除本机的锁
+     * setnx 原子性加锁
+     */
+    public void lock() {
+        for (;;) {
+            if (tryLock()) {
+                return;
+            }
+        }
+    }
+
+    /**
      * 尝试获取分布式锁 通过传入 request id 确保其他客户端不能解除本机的锁
      * setnx 原子性加锁
      * @return 是否获取成功
