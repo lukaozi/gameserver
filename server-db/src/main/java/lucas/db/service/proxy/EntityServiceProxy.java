@@ -28,8 +28,6 @@ import java.lang.reflect.Method;
  */
 public class EntityServiceProxy implements MethodInterceptor {
 
-    protected static Logger logger = Loggers.REDIS;
-
     RedisKey redisKey;
 
     Class<?> entityClass;
