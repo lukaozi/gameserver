@@ -7,7 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="server-common" />
-        <module name="teamserver" />
+        <module name="team-server" />
       </profile>
     </annotationProcessing>
   </component>
