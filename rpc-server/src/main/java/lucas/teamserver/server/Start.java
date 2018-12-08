@@ -20,8 +20,8 @@ public class Start {
         intiSpring();
         addShutdownHook();
         logger.info("启动完成");
-//        ServerRegistry registry = applicationContext.getBean(ServerRegistry.class);
-//        registry.connect();
+        ServerRegistry registry = applicationContext.getBean(ServerRegistry.class);
+        registry.connect();
         System.in.read();
     }
 

@@ -12,10 +12,5 @@
         <module name="team-server-provider" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="team-server-api" target="8" />
-      <module name="team-server-consumer" target="8" />
-      <module name="team-server-provider" target="8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
