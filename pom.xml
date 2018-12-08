@@ -13,8 +13,8 @@
         <module>server-core</module>
         <module>server-db</module>
         <module>server-common</module>
+        <module>rpc-server</module>
         <module>client</module>
-        <module>rpc</module>
     </modules>
 
     <dependencies>

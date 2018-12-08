@@ -1,12 +1,11 @@
-package lucas.teamserver.server;
+package lucas.teamserver.provider;
 
 import com.alibaba.dubbo.config.ApplicationConfig;
-import com.alibaba.dubbo.config.ProtocolConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 import com.alibaba.dubbo.config.ServiceConfig;
-import lucas.teamserver.team.TeamService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lucas.teamserver.RpcTeamService;
 import org.springframework.stereotype.Component;
+
 
 /**
  * @author lushengkao vip8
@@ -15,10 +14,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class ServerRegistry {
 
-//    @Autowired
-//    private TeamService teamService;
+    public void connect() {
+        ServiceConfig<RpcTeamService> service = new ServiceConfig<>();
+        ApplicationConfig application = new ApplicationConfig("team-server-provider");
+        service.setApplication(application);
+        RegistryConfig registry = new RegistryConfig("127.0.0.1:2181");
+        registry.setProtocol("zookeeper");
+        service.setRegistry(registry);
+        service.setInterface(RpcTeamService.class);
+        service.setRef(new TeamServiceImpl());
+        service.export();
+        System.out.println("组队服务器启动完成");
 //
-//    public void connect() {
 //        // 当前应用配置
 //        ApplicationConfig application = new ApplicationConfig();
 //        application.setName("team-server");
@@ -47,9 +54,11 @@ public class ServerRegistry {
 //        service.setProtocol(protocol);
 //        service.setInterface(TeamService.class);
 //        // 服务实现
+//        ApplicationContext context = ApplicationContextUtils.getApplicationContext();
+//        TeamServiceImpl teamService = context.getBean(TeamServiceImpl.class);
 //        service.setRef(teamService);
 //        service.setVersion("1.0.0");
 //        // 暴露及注册服务
 //        service.export();
-//    }
+    }
 }
