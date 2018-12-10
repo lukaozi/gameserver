@@ -34,6 +34,9 @@ public class PlayerEntity extends BaseLongIdEntity implements RedisInterface {
     @CacheField
     private String name;
 
+    @CacheField
+    private int level;
+
     public String getName() {
         return name;
     }
@@ -57,7 +60,16 @@ public class PlayerEntity extends BaseLongIdEntity implements RedisInterface {
         this.account = account;
     }
 
+    @CacheMethod("level")
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
     public Player getPlayer() {
         return player;
+    }
+
+    public int getLevel() {
+        return level;
     }
 }

@@ -22,10 +22,10 @@
     <!--<dubbo:protocol name="team-server" port="20880"/>-->
 
     <!--&lt;!&ndash; 声明需要暴露的服务接口 &ndash;&gt;-->
-    <!--<dubbo:service interface="lucas.teamserver.team.TeamService" ref="teamService"/>-->
+    <!--<dubbo:service interface="lucas.rpcserver.teamserver.team.TeamService" ref="teamService"/>-->
 
     <!-- 和本地bean一样实现服务 -->
-    <!--<bean id="teamService" class="lucas.teamserver.team.TeamServiceImpl"/>-->
+    <!--<bean id="teamService" class="lucas.rpcserver.teamserver.team.TeamServiceImpl"/>-->
 
 
 </beans>

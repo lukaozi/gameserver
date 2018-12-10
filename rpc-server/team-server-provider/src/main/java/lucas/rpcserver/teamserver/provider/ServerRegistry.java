@@ -1,4 +1,4 @@
-package lucas.teamserver.provider;
+package lucas.rpcserver.teamserver.provider;
 
 import com.alibaba.dubbo.config.ApplicationConfig;
 import com.alibaba.dubbo.config.ProtocolConfig;
@@ -6,7 +6,7 @@ import com.alibaba.dubbo.config.RegistryConfig;
 import com.alibaba.dubbo.config.ServiceConfig;
 import lucas.common.log.Loggers;
 import lucas.common.util.ApplicationContextUtils;
-import lucas.teamserver.RpcTeamService;
+import lucas.rpcserver.teamserver.RpcTeamService;
 import org.slf4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;

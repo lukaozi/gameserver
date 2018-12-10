@@ -45,4 +45,8 @@ public class Player {
     public String getAccount() {
         return entity.getAccount();
     }
+
+    public int getLevel() {
+        return entity.getLevel();
+    }
 }

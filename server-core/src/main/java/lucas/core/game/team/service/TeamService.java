@@ -3,7 +3,9 @@ package lucas.core.game.team.service;
 import com.alibaba.dubbo.config.ApplicationConfig;
 import com.alibaba.dubbo.config.ReferenceConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
-import lucas.teamserver.RpcTeamService;
+import lucas.core.game.player.Player;
+import lucas.rpcserver.teamserver.RpcTeamService;
+import lucas.rpcserver.teamserver.model.TeamPlayer;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -33,8 +35,16 @@ public class TeamService {
         this.rpcService = referenceConfig.get();
     }
 
-    public void sayHello() {
-        rpcService.hello();
+    public void createTeam(Player player) {
+        TeamPlayer teamPlayer = createTeamPlayer(player);
+        rpcService.createTeam(teamPlayer);
     }
 
+    private TeamPlayer createTeamPlayer(Player player) {
+        TeamPlayer teamPlayer = new TeamPlayer();
+        teamPlayer.setAccount(player.getAccount());
+        teamPlayer.setLevel(player.getLevel());
+        teamPlayer.setPlayerId(player.getPlayerId());
+        return teamPlayer;
+    }
 }

@@ -1,4 +1,4 @@
-package lucas.teamserver.provider;
+package lucas.rpcserver.teamserver.provider;
 
 import lucas.common.log.Loggers;
 import org.slf4j.Logger;

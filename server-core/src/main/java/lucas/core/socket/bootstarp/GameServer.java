@@ -28,7 +28,6 @@ public class GameServer {
         addShutdownHook();
         GameServerRunTime.setOpen(true);
         logger.info("启动完成");
-        ApplicationContextUtils.getApplicationContext().getBean(TeamService.class).sayHello();
     }
 
     private static void intiSpring() {
