@@ -20,7 +20,7 @@ public class TeamService {
     private ReferenceConfig<RpcTeamService> referenceConfig;
 
     @PostConstruct
-    public void connectRpc() {
+    private void connectRpc() {
         referenceConfig = new ReferenceConfig<>();
         ApplicationConfig application = new ApplicationConfig();
         application.setName("team-server-consumer");
@@ -32,4 +32,9 @@ public class TeamService {
         referenceConfig.setInterface(RpcTeamService.class);
         this.rpcService = referenceConfig.get();
     }
+
+    public void sayHello() {
+        rpcService.hello();
+    }
+
 }

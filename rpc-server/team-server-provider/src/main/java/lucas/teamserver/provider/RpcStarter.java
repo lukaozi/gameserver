@@ -10,7 +10,7 @@ import java.io.IOException;
  * @author lushengkao vip8
  * 2018/12/7 17:33
  */
-public class Start {
+public class RpcStarter {
 
     private static ClassPathXmlApplicationContext applicationContext;
 
@@ -22,7 +22,6 @@ public class Start {
         logger.info("启动完成");
         ServerRegistry registry = applicationContext.getBean(ServerRegistry.class);
         registry.connect();
-        System.in.read();
     }
 
     private static void intiSpring() {
