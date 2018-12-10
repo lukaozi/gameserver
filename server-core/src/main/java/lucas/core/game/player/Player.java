@@ -14,6 +14,8 @@ public class Player {
 
     private GameSession session;
 
+    private long teamId;
+
     public Player(PlayerEntity playerEntity) {
         this.entity = playerEntity;
     }
@@ -48,5 +50,13 @@ public class Player {
 
     public int getLevel() {
         return entity.getLevel();
+    }
+
+    public long getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(long teamId) {
+        this.teamId = teamId;
     }
 }

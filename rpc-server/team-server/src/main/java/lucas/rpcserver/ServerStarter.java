@@ -1,4 +1,4 @@
-package lucas.rpcserver.teamserver.provider;
+package lucas.rpcserver;
 
 import lucas.common.log.Loggers;
 import org.slf4j.Logger;
@@ -10,7 +10,7 @@ import java.io.IOException;
  * @author lushengkao vip8
  * 2018/12/7 17:33
  */
-public class RpcStarter {
+public class ServerStarter {
 
     private static ClassPathXmlApplicationContext applicationContext;
 
@@ -20,8 +20,6 @@ public class RpcStarter {
         intiSpring();
         addShutdownHook();
         logger.info("启动完成");
-        ServerRegistry registry = applicationContext.getBean(ServerRegistry.class);
-        registry.connect();
     }
 
     private static void intiSpring() {

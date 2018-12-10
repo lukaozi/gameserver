@@ -1,4 +1,4 @@
-package lucas.rpcserver.teamserver.provider;
+package lucas.rpcserver.provider.team;
 
 import lucas.common.util.LinkedLock;
 import lucas.rpcserver.teamserver.RpcTeamService;
@@ -28,7 +28,7 @@ public class TeamServiceImpl implements RpcTeamService {
         if (teamDataManager.inTeam(account)) {
             throw new RuntimeException("in team");
         }
-        long teamId = teamDataManager.createTeamId();
+        long teamId = player.getTeamId();
         Team team =  new Team.builder().id(teamId).leader(account).build();
         Object accountLock = teamDataManager.getAccountLockObject(player.getPlayerId());
         Object teamLock = teamDataManager.getTeamLockObject(teamId);

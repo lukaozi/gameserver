@@ -1,12 +1,10 @@
 package lucas.rpcserver.teamserver;
 
 import lucas.rpcserver.teamserver.model.Team;
-import lucas.rpcserver.teamserver.model.TeamPlayer;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author lushengkao vip8
@@ -15,7 +13,6 @@ import java.util.concurrent.atomic.AtomicLong;
 @Component
 public class TeamDataManager {
 
-    private AtomicLong teamId = new AtomicLong(1L);
 
     private ConcurrentHashMap<Long, Team> teams = new ConcurrentHashMap<>();
 
@@ -56,10 +53,6 @@ public class TeamDataManager {
 
     public boolean inTeam(String account) {
         return account2TeamId.containsKey(account);
-    }
-
-    public long createTeamId() {
-        return teamId.addAndGet(1L);
     }
 
     public Team getTeam(long teamId) {

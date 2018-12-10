@@ -1,5 +1,6 @@
 package lucas.core.packet.packethandler;
 
+import lucas.core.packet.Req_CreateTeam;
 import lucas.core.packet.Req_Login;
 
 
@@ -11,7 +12,9 @@ import lucas.core.packet.Req_Login;
 public enum  PacketType {
 
     //登陆
-    LOGIN(1, Req_Login.class,true);
+    LOGIN(1, Req_Login.class,true),
+    //创建队伍
+    CREATE_TEAM(2,Req_CreateTeam.class,true);
 
     PacketType(int command, Class<? extends AbstractPacket> clazz, boolean req) {
         this.command = command;

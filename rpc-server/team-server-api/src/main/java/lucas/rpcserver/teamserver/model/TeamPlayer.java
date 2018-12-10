@@ -12,6 +12,16 @@ public class TeamPlayer {
 
     private int level;
 
+    private long teamId;
+
+    public long getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(long teamId) {
+        this.teamId = teamId;
+    }
+
     public long getPlayerId() {
         return playerId;
     }

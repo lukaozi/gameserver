@@ -16,8 +16,8 @@
         <module name="serverexecutor" />
         <module name="servergamecode" />
         <module name="servernet" />
+        <module name="team-server" />
         <module name="team-server-api" />
-        <module name="team-server-provider" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

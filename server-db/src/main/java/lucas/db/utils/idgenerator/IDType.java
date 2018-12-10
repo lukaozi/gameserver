@@ -4,7 +4,8 @@ public enum IDType {
 
     PLAYER_ID(true),
     SESSION_ID(false),
-    REDIS_LOCK(true);
+    REDIS_LOCK(true),
+    TEAM_ID(true);
 
     private boolean save;
 

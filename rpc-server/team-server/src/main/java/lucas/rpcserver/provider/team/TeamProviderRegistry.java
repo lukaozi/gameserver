@@ -1,14 +1,13 @@
-package lucas.rpcserver.teamserver.provider;
+package lucas.rpcserver.provider.team;
 
 import com.alibaba.dubbo.config.ApplicationConfig;
 import com.alibaba.dubbo.config.ProtocolConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 import com.alibaba.dubbo.config.ServiceConfig;
 import lucas.common.log.Loggers;
-import lucas.common.util.ApplicationContextUtils;
 import lucas.rpcserver.teamserver.RpcTeamService;
 import org.slf4j.Logger;
-import org.springframework.context.ApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -19,15 +18,22 @@ import java.io.IOException;
  * 2018/12/7 18:05
  */
 @Component
-public class ServerRegistry {
+public class TeamProviderRegistry {
 
     private final static int THREAD_COUNT = Runtime.getRuntime().availableProcessors() * 2;
 
     private static final Logger LOGGER = Loggers.RPC;
 
+    private TeamServiceImpl teamService;
+
+    @Autowired
+    public void setTeamService(TeamServiceImpl teamService) {
+        this.teamService = teamService;
+    }
+
     public void connect() throws IOException {
         ServiceConfig<RpcTeamService> service = new ServiceConfig<>();
-        ApplicationConfig application = new ApplicationConfig("team-server-provider");
+        ApplicationConfig application = new ApplicationConfig("rpc-server-provider");
         service.setApplication(application);
         RegistryConfig registry = new RegistryConfig("127.0.0.1:2181");
         registry.setProtocol("zookeeper");
@@ -38,8 +44,6 @@ public class ServerRegistry {
         protocolConfig.setThreads(THREAD_COUNT);
         service.setProtocol(protocolConfig);
         service.setInterface(RpcTeamService.class);
-        ApplicationContext applicationContext = ApplicationContextUtils.getApplicationContext();
-        TeamServiceImpl teamService = applicationContext.getBean(TeamServiceImpl.class);
         service.setRef(teamService);
         service.export();
         LOGGER.debug("组队服务器启动完成");

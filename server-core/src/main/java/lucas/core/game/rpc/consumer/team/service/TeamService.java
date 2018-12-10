@@ -1,9 +1,11 @@
-package lucas.core.game.team.service;
+package lucas.core.game.rpc.consumer.team.service;
 
 import com.alibaba.dubbo.config.ApplicationConfig;
 import com.alibaba.dubbo.config.ReferenceConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 import lucas.core.game.player.Player;
+import lucas.db.utils.idgenerator.IDGenerator;
+import lucas.db.utils.idgenerator.IDType;
 import lucas.rpcserver.teamserver.RpcTeamService;
 import lucas.rpcserver.teamserver.model.TeamPlayer;
 import org.springframework.stereotype.Component;
@@ -36,7 +38,14 @@ public class TeamService {
     }
 
     public void createTeam(Player player) {
+        long teamId = player.getTeamId();
+        if (teamId != 0) {
+            //TODO
+            throw new RuntimeException("in team");
+        }
+        teamId = IDGenerator.createId(IDType.TEAM_ID);
         TeamPlayer teamPlayer = createTeamPlayer(player);
+        teamPlayer.setTeamId(teamId);
         rpcService.createTeam(teamPlayer);
     }
 
@@ -45,6 +54,7 @@ public class TeamService {
         teamPlayer.setAccount(player.getAccount());
         teamPlayer.setLevel(player.getLevel());
         teamPlayer.setPlayerId(player.getPlayerId());
+        teamPlayer.setTeamId(player.getTeamId());
         return teamPlayer;
     }
 }
