@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.io.IOException;
 
 
@@ -31,6 +32,7 @@ public class TeamProviderRegistry {
         this.teamService = teamService;
     }
 
+    @PostConstruct
     public void connect() throws IOException {
         ServiceConfig<RpcTeamService> service = new ServiceConfig<>();
         ApplicationConfig application = new ApplicationConfig("rpc-server-provider");

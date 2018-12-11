@@ -3,6 +3,8 @@ package lucas.db.service.proxy;
 import lucas.common.util.FastJsonUtils;
 import lucas.db.enums.OperationEnum;
 
+import java.util.Map;
+
 /**
  * @author lushengkao vip8
  * 异步实体的封装
@@ -15,7 +17,7 @@ public class AsyncEntityWrapper {
     //对应操作
     private OperationEnum operationEnum;
     //操作对象
-    private Object object;
+    private Map<String,String> params;
 
     public String serialize() {
         return FastJsonUtils.toJson(this);
@@ -25,7 +27,7 @@ public class AsyncEntityWrapper {
         AsyncEntityWrapper wrapper = FastJsonUtils.fromJson(json, getClass());
         this.createTime = wrapper.getCreateTime();
         this.operationEnum = wrapper.getOperationEnum();
-        this.object = wrapper.getObject();
+        this.params = wrapper.getParams();
     }
 
     public long getCreateTime() {
@@ -44,11 +46,11 @@ public class AsyncEntityWrapper {
         this.operationEnum = operationEnum;
     }
 
-    public Object getObject() {
-        return object;
+    public Map<String, String> getParams() {
+        return params;
     }
 
-    public void setObject(Object object) {
-        this.object = object;
+    public void setParams(Map<String, String> params) {
+        this.params = params;
     }
 }

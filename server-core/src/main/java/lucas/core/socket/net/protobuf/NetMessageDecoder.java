@@ -3,7 +3,7 @@ package lucas.core.socket.net.protobuf;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageDecoder;
-import lucas.common.GlobalContant;
+import lucas.common.GlobalConstant;
 import lucas.core.socket.net.message.AbstractNetMessage;
 import lucas.core.socket.net.message.NetMessageBody;
 import lucas.core.socket.net.message.NetMessageHead;
@@ -20,12 +20,12 @@ public class NetMessageDecoder extends MessageToMessageDecoder<ByteBuf> {
     protected void decode(ChannelHandlerContext ctx, ByteBuf msg, List<Object> out) {
         short magicCode = msg.readShort();
         //协议有问题 关闭
-        if (magicCode != GlobalContant.MAGIC_CODE) {
+        if (magicCode != GlobalConstant.MAGIC_CODE) {
             ctx.fireChannelInactive();
             return;
         }
         byte version = msg.readByte();
-        if (version != GlobalContant.VERSION) {
+        if (version != GlobalConstant.VERSION) {
             ctx.fireChannelInactive();
             return;
         }

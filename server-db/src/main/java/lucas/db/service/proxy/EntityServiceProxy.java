@@ -1,14 +1,11 @@
 package lucas.db.service.proxy;
 
-import lucas.common.GlobalContant;
-import lucas.common.log.Loggers;
+import lucas.common.GlobalConstant;
 import lucas.db.annnotation.CacheOperation;
 import lucas.db.entity.AbstractEntity;
 import lucas.db.enums.OperationEnum;
 import lucas.db.redis.contant.RedisKey;
 import lucas.db.service.EntityCacheUtils;
-import org.slf4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
 
@@ -36,7 +33,6 @@ public class EntityServiceProxy implements MethodInterceptor {
 
     EntityProxyFactory factory;
 
-    @Autowired
     public void setFactory(EntityProxyFactory factory) {
         this.factory = factory;
     }
@@ -54,12 +50,11 @@ public class EntityServiceProxy implements MethodInterceptor {
     }
 
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-        Object result = null;
         CacheOperation cacheOperation = method.getAnnotation(CacheOperation.class);
         if (cacheOperation == null) {
             return methodProxy.invokeSuper(o, objects);
         }
-        if (!GlobalContant.USE_CACHE) {
+        if (!GlobalConstant.USE_CACHE) {
             return methodProxy.invokeSuper(o, objects);
         }
         if (redisKey == null) {
@@ -75,12 +70,17 @@ public class EntityServiceProxy implements MethodInterceptor {
             case insert:
                 result = methodProxy.invokeSuper(o, objects);
                 AbstractEntity entity = (AbstractEntity) objects[0];
-                entityCacheUtils.insertToRedis(entity);
+                if (redisKey != null) {
+                    entityCacheUtils.insertToRedis(entity);
+                }
                 break;
             case query:
                 Serializable id = (Serializable) objects[0];
-                String redisKey = this.redisKey.getKey() + id;
-                AbstractEntity query = entityCacheUtils.queryFromRedis(redisKey, entityClass);
+                AbstractEntity query = null;
+                if (redisKey != null) {
+                    String redisKey = this.redisKey.getKey() + id;
+                    query = entityCacheUtils.queryFromRedis(redisKey, entityClass);
+                }
                 if (query == null) {
                     query = (AbstractEntity) methodProxy.invokeSuper(o, objects);
                     entityCacheUtils.insertToRedis(query);
@@ -92,12 +92,16 @@ public class EntityServiceProxy implements MethodInterceptor {
             case update:
                 AbstractEntity updateEntity = (AbstractEntity) objects[0];
                 result = methodProxy.invokeSuper(o, objects);
-                entityCacheUtils.updateEntity(updateEntity);
+                if (redisKey != null) {
+                    entityCacheUtils.updateEntity(updateEntity);
+                }
                 break;
             case delete:
                 AbstractEntity delEntity = (AbstractEntity) objects[0];
                 result = methodProxy.invokeSuper(o, objects);
-                entityCacheUtils.deleteEntity(delEntity);
+                if (redisKey != null) {
+                    entityCacheUtils.deleteEntity(delEntity);
+                }
                 break;
             default:
                 break;

@@ -4,7 +4,6 @@ import lucas.common.log.Loggers;
 import org.slf4j.Logger;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.io.IOException;
 
 /**
  * @author lushengkao vip8
@@ -16,7 +15,7 @@ public class ServerStarter {
 
     private final static Logger logger = Loggers.SERVER_LOGGER;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         intiSpring();
         addShutdownHook();
         logger.info("启动完成");

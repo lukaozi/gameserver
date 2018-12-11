@@ -30,7 +30,9 @@ public class AsyncEntityServiceProxy extends EntityServiceProxy {
         switch (operation) {
             case insert:
                 AbstractEntity entity = (AbstractEntity) objects[0];
-                entityCacheUtils.insertToRedis(entity);
+                if (redisKey != null) {
+                    entityCacheUtils.insertToRedis(entity);
+                }
                 asyncEntityUtils.pushInsertEntity(entity);
                 break;
             case query:
@@ -47,10 +49,10 @@ public class AsyncEntityServiceProxy extends EntityServiceProxy {
                         }
                         query = (AbstractEntity) methodProxy.invokeSuper(o, objects);
                         entityCacheUtils.insertToRedis(query);
-                    }finally {
+                    } finally {
                         redisLock.unlock();
                     }
-                }else {
+                } else {
                     query = factory.createProxyEntity(query);
                 }
                 result = query;
@@ -62,7 +64,7 @@ public class AsyncEntityServiceProxy extends EntityServiceProxy {
                 break;
             case delete:
                 AbstractEntity delEntity = (AbstractEntity) objects[0];
-                asyncEntityUtils.deleteEntity(delEntity);
+                asyncEntityUtils.pushDeleteEntity(delEntity);
                 break;
             default:
                 break;

@@ -1,8 +1,9 @@
 package lucas.db.service.proxy;
 
-import lucas.common.GlobalContant;
+import lucas.common.GlobalConstant;
 import lucas.db.entity.AbstractEntity;
 import lucas.db.redis.RedisInterface;
+import lucas.db.redis.contant.RedisKey;
 import lucas.db.service.AsyncEntityUtils;
 import lucas.db.service.EntityCacheUtils;
 import lucas.db.service.EntityService;
@@ -36,18 +37,22 @@ public class EntityServiceProxyFactory {
 
     public Object createEntityServiceProxy(Object object, Class<?> clazz) throws Exception {
         if (object instanceof EntityService) {
-            EntityServiceProxy entityServiceProxy = new EntityServiceProxy(entityCacheUtils);
-            if (GlobalContant.useAysnc) {
-                entityServiceProxy = new AsyncEntityServiceProxy(entityCacheUtils,asyncEntityUtils);
-            }
-            entityServiceProxy.setEntityClass(clazz);
             Object instance = clazz.newInstance();
             if (!(instance instanceof AbstractEntity)) {
                 throw new RuntimeException("无法生成 entity service");
             }
+            RedisKey redisKey = null;
             if (instance instanceof RedisInterface) {
-                entityServiceProxy.setRedisKey(((RedisInterface) instance).getRedisKey());
+                redisKey = ((RedisInterface) instance).getRedisKey();
             }
+            EntityServiceProxy entityServiceProxy;
+            if (GlobalConstant.USE_ASYNC && redisKey != null && redisKey.isAsync()) {
+                entityServiceProxy = new AsyncEntityServiceProxy(entityCacheUtils, asyncEntityUtils);
+            } else {
+                entityServiceProxy = new EntityServiceProxy(entityCacheUtils);
+            }
+            entityServiceProxy.setRedisKey(redisKey);
+            entityServiceProxy.setEntityClass(clazz);
             Enhancer enhancer = new Enhancer();
             enhancer.setSuperclass(object.getClass());
             enhancer.setCallback(entityServiceProxy);

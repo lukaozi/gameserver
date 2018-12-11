@@ -22,7 +22,7 @@
     </build>
     <modules>
         <module>team-server-api</module>
-        <module>team-server-provider</module>
+        <module>team-server</module>
     </modules>
 
     <dependencies>

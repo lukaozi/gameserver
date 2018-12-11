@@ -4,13 +4,20 @@ package lucas.db.redis.contant;
  * redis的键名
  */
 public enum RedisKey {
-    PLAYER("PR#"),
+    PLAYER("PR#",true),
     ;
 
     private String key;
 
-    RedisKey(String key) {
+    private boolean async;
+
+    public boolean isAsync() {
+        return async;
+    }
+
+    RedisKey(String key, boolean async) {
         this.key = key;
+        this.async = async;
     }
 
     public String getKey() {

@@ -4,7 +4,7 @@ import io.protostuff.LinkedBuffer;
 import io.protostuff.ProtostuffIOUtil;
 import io.protostuff.Schema;
 import io.protostuff.runtime.RuntimeSchema;
-import lucas.common.GlobalContant;
+import lucas.common.GlobalConstant;
 import lucas.core.packet.packethandler.PacketHelper;
 import lucas.core.socket.bootstarp.manager.SpringBeanManager;
 import lucas.core.socket.net.message.AbstractNetMessage;
@@ -84,7 +84,7 @@ public class MessageHelper {
         byte[] serialize = MessageHelper.serialize(packet);
         protoBufNetMessage.getBody().setBytes(serialize);
         NetMessageHead head = protoBufNetMessage.getHead();
-        head.setVersion(GlobalContant.VERSION);
+        head.setVersion(GlobalConstant.VERSION);
         Class<? extends AbstractPacket> packetClass = packet.getClass();
         PacketHelper packetHelper = SpringBeanManager.getInstance().getPacketHelper();
         int command = packetHelper.getCommand(packetClass);

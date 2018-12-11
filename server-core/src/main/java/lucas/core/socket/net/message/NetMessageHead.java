@@ -1,6 +1,6 @@
 package lucas.core.socket.net.message;
 
-import lucas.common.GlobalContant;
+import lucas.common.GlobalConstant;
 
 /**
  * @author lushengkao vip8
@@ -20,7 +20,7 @@ public class NetMessageHead {
     private int command;
 
     public NetMessageHead() {
-        head = GlobalContant.MAGIC_CODE;
+        head = GlobalConstant.MAGIC_CODE;
     }
 
     public short getHead() {

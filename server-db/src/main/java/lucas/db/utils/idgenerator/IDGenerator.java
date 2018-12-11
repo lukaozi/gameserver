@@ -1,7 +1,7 @@
 package lucas.db.utils.idgenerator;
 
 
-import lucas.common.GlobalContant;
+import lucas.common.GlobalConstant;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
@@ -42,7 +42,7 @@ public class IDGenerator {
     private static Long createIdBySnowFlake(IDType type) {
         SnowFlakeIdWorker snowFlakeIdWorker = SNOW_FLAKE_ID_WORKER_MAP.get(type);
         if (snowFlakeIdWorker == null) {
-            SnowFlakeIdWorker value = new SnowFlakeIdWorker(GlobalContant.SERVER_NO);
+            SnowFlakeIdWorker value = new SnowFlakeIdWorker(GlobalConstant.SERVER_NO);
             SnowFlakeIdWorker old = SNOW_FLAKE_ID_WORKER_MAP.putIfAbsent(type, value);
             if (old != null) {
                 snowFlakeIdWorker = old;

@@ -1,7 +1,7 @@
 package lucas;
 
 
-import lucas.common.GlobalContant;
+import lucas.common.GlobalConstant;
 import lucas.db.utils.idgenerator.SnowFlakeIdWorker;
 import org.junit.Test;
 
@@ -13,7 +13,7 @@ public class SnowFlakeIdWorkerTest {
 
     @Test
     public void t1() {
-        SnowFlakeIdWorker idWorker = new SnowFlakeIdWorker(GlobalContant.SERVER_NO);
+        SnowFlakeIdWorker idWorker = new SnowFlakeIdWorker(GlobalConstant.SERVER_NO);
         long last = 0;
         for (int i = 0; i < 10000; i++) {
             long id = idWorker.nextId();

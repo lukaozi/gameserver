@@ -66,7 +66,7 @@ public class EntityService<T extends AbstractEntity> implements IEntityService<T
         } catch (Exception e) {
             e.printStackTrace();
         }
-       throw new IllegalStateException("不存在的数据库id--" + entityClass.getSimpleName() + " :" + id);
+        throw new IllegalStateException("不存在的数据库id--" + entityClass.getSimpleName() + " :" + id);
     }
 
     @Override
@@ -88,7 +88,7 @@ public class EntityService<T extends AbstractEntity> implements IEntityService<T
             return;
         }
         Map data = new HashMap<>(changeParamMap);
-        data.put("id",entity.getId());
+        data.put("id", entity.getId());
         IDBMapper<T> mapper = getEntityMapper(entity);
         mapper.updateEntityByMap(data);
     }
