@@ -10,7 +10,6 @@ import lucas.rpcserver.teamserver.RpcTeamService;
 import lucas.rpcserver.teamserver.model.TeamPlayer;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 
 /**
  * @author lushengkao vip8
@@ -23,7 +22,7 @@ public class TeamService {
 
     private ReferenceConfig<RpcTeamService> referenceConfig;
 
-    @PostConstruct
+//    @PostConstruct
     private void connectRpc() {
         referenceConfig = new ReferenceConfig<>();
         ApplicationConfig application = new ApplicationConfig();

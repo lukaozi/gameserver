@@ -54,7 +54,6 @@ public class EntityCacheUtils {
         return null;
     }
 
-
     public void deleteEntity(AbstractEntity delEntity) {
         String redisKey = EntityUtils.getRedisUnionKey(delEntity);
         redisService.deleteKey(redisKey);

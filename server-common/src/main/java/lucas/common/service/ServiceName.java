@@ -1,4 +1,4 @@
-package lucas.core.service;
+package lucas.common.service;
 
 public interface ServiceName {
     //协议注册组件

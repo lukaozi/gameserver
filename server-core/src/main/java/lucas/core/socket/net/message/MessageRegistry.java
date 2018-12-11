@@ -1,14 +1,15 @@
 package lucas.core.socket.net.message;
 
-import lucas.core.service.IService;
-import lucas.core.service.Reloable;
-import lucas.core.service.ServiceName;
+import lucas.common.service.IService;
+import lucas.common.service.ServiceName;
+import org.springframework.stereotype.Service;
 
 /**
  * @author lushengkao vip8
  * 2018/11/6 10:51
  */
-public class MessageRegistry implements IService, Reloable {
+@Service
+public class MessageRegistry implements IService {
 
     @Override
     public String getId() {
@@ -22,11 +23,6 @@ public class MessageRegistry implements IService, Reloable {
 
     @Override
     public void shutDown() {
-
-    }
-
-    @Override
-    public void reload() {
 
     }
 }

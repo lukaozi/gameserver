@@ -1,4 +1,4 @@
-package lucas.core.service;
+package lucas.common.service;
 
 /**
  * 可重载标志

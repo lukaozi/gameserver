@@ -1,11 +1,12 @@
 package lucas.core.socket.bootstarp;
 
 import lucas.common.log.Loggers;
+import lucas.common.service.IService;
 import lucas.core.socket.bootstarp.manager.GlobalManager;
-import lucas.core.socket.bootstarp.manager.LocalMagager;
-import lucas.core.socket.net.LocalNetService;
 import org.slf4j.Logger;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.Map;
 
 /**
  * @author lushengkao vip8
@@ -21,7 +22,7 @@ public class GameServer {
     public static void main(String[] args) {
         intiSpring();
         GlobalManager.init();
-        initNetService();
+        initService();
         addShutdownHook();
         GameServerRunTime.setOpen(true);
         logger.info("启动完成");
@@ -32,16 +33,15 @@ public class GameServer {
         applicationContext.start();
     }
 
-    private static void initNetService() {
-        LocalNetService localNetService = new LocalNetService();
-        localNetService.startUp();
-        LocalMagager.INSTANCE.setLocalNetService(localNetService);
+    private static void initService() {
+        Map<String, IService> serviceMap = applicationContext.getBeansOfType(IService.class);
+        for (IService service : serviceMap.values()) {
+            service.startUp();
+        }
     }
 
     private static void addShutdownHook() {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            //断开服务
-            LocalMagager.INSTANCE.getLocalNetService().shutDown();
             //资源回收
             GlobalManager.stop();
             applicationContext.close();

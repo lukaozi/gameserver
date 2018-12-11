@@ -1,4 +1,4 @@
-package lucas.core.service;
+package lucas.common.service;
 
 /**
  * service抽象接口
@@ -10,4 +10,5 @@ public interface IService {
     void startUp();
 
     void shutDown();
+
 }

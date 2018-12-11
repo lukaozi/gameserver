@@ -70,7 +70,7 @@ public class RedisService {
         try (Jedis jedis = helper.getResource()) {
             jedis.sadd(redisKey,value);
         } catch (Exception e) {
-            logger.error("加入队列异常，redis key：" + redisKey);
+            logger.error("sAdd异常，redis key：" + redisKey);
         }
     }
 }

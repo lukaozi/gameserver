@@ -1,14 +1,16 @@
 package lucas.core.socket.net;
 
 
-import lucas.core.service.IService;
-import lucas.core.service.ServiceName;
+import lucas.common.service.IService;
+import lucas.common.service.ServiceName;
 import lucas.core.socket.net.server.NettyTcpSocketServerService;
+import org.springframework.stereotype.Service;
 
 /**
  * create by lushengkao 2018/10/14 23:42
  * 本地所有service管理
  */
+@Service
 public class LocalNetService implements IService {
 
     //tcp服务
