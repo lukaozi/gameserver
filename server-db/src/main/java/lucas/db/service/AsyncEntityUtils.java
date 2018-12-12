@@ -1,11 +1,13 @@
 package lucas.db.service;
 
+import lucas.common.GlobalConstant;
 import lucas.db.entity.AbstractEntity;
 import lucas.db.enums.OperationEnum;
 import lucas.db.redis.service.RedisService;
 import lucas.db.service.proxy.AsyncEntityWrapper;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -35,7 +37,8 @@ public class AsyncEntityUtils {
     }
 
     public void pushDeleteEntity(AbstractEntity delEntity) {
-        AsyncEntityWrapper wrapper = createAsyncEntityWrapper(OperationEnum.update, null);
+        Map<String, String> changeMap = EntityUtils.getChangeMap(delEntity);
+        AsyncEntityWrapper wrapper = createAsyncEntityWrapper(OperationEnum.update, changeMap);
         pushEntity2Redis(delEntity, wrapper);
     }
 
@@ -49,11 +52,13 @@ public class AsyncEntityUtils {
 
     private void pushEntity2Redis(AbstractEntity entity, AsyncEntityWrapper wrapper) {
         String className = entity.getClass().getSimpleName();
+        //玩家名称
         String redisUnionKey = EntityUtils.getRedisUnionKey(entity);
-        String redisKey = EntityUtils.getRedisKey(entity);
+        //类型名称
+        String classRedisKey = className + "#" + GlobalConstant.SERVER_NO;
         //先加入玩家个人队列
-        redisService.rPushString(redisKey,wrapper.serialize());
+        redisService.rpushString(redisUnionKey, wrapper.serialize());
         //玩家加入总列表 顺序不能乱
-        redisService.sAddString(className,redisUnionKey);
+        redisService.saddString(classRedisKey, redisUnionKey);
     }
 }

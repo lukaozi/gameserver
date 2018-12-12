@@ -2,6 +2,7 @@ package lucas.core.game.player.service;
 
 import lucas.core.game.player.entity.PlayerEntity;
 import lucas.db.service.EntityService;
+import org.springframework.stereotype.Service;
 
 /**
  * @author lushengkao vip8

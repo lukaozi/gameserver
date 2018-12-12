@@ -12,5 +12,4 @@ public interface RedisInterface {
      * @return 返回redis key的类型
      */
     RedisKey getRedisKey();
-
 }

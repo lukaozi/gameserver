@@ -55,8 +55,9 @@ public class BeanUtils {
         return result;
     }
 
-    public static Object getObjectFromMap(Object result, Map<String, String> map) {
+    public static <T> T getObjectFromMap(Class<T> clazz, Map<String, String> map) {
         try {
+            Object result = clazz.newInstance();
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 String fieldName = entry.getKey();
                 String fieldVale = entry.getValue();
@@ -71,7 +72,7 @@ public class BeanUtils {
                 field.setAccessible(true);
                 field.set(result, fieldObj);
             }
-            return result;
+            return (T) result;
         } catch (Exception e) {
             e.printStackTrace();
         }

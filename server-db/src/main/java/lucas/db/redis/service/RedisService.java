@@ -13,6 +13,7 @@ import java.util.Map;
  * @author lushengkao vip8
  * 2018/10/26 11:48
  */
+@SuppressWarnings("ALL")
 @Service
 public class RedisService {
 
@@ -58,7 +59,7 @@ public class RedisService {
         return success;
     }
 
-    public void rPushString(String redisKey, String value) {
+    public void rpushString(String redisKey, String value) {
         try (Jedis jedis = helper.getResource()) {
             jedis.rpush(redisKey,value);
         } catch (Exception e) {
@@ -66,11 +67,29 @@ public class RedisService {
         }
     }
 
-    public void sAddString(String redisKey, String value) {
+    public void saddString(String redisKey, String value) {
         try (Jedis jedis = helper.getResource()) {
             jedis.sadd(redisKey,value);
         } catch (Exception e) {
             logger.error("sAdd异常，redis key：" + redisKey);
         }
+    }
+
+    public long scard(String redisKey) {
+        try (Jedis jedis = helper.getResource()) {
+            return jedis.scard(redisKey);
+        } catch (Exception e) {
+            logger.error("返回集合数量异常，redis key：" + redisKey);
+        }
+        return 0;
+    }
+
+    public String lpop(String redisKey) {
+        try (Jedis jedis = helper.getResource()) {
+            return jedis.lpop(redisKey);
+        } catch (Exception e) {
+            logger.error("返回集合数量异常，redis key：" + redisKey);
+        }
+        return null;
     }
 }

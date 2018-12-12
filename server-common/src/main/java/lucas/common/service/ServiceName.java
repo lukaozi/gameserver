@@ -6,4 +6,6 @@ public interface ServiceName {
 
     String LOCAL_SERVICE = "local_service";
 
+    String ASYNC_DB_SERVICE = "async_save_db_service";
+
 }

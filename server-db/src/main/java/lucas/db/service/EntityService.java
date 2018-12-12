@@ -4,7 +4,6 @@ import lucas.common.util.ApplicationContextUtils;
 import lucas.db.annnotation.DbMapper;
 import lucas.db.annnotation.CacheOperation;
 import lucas.db.entity.AbstractEntity;
-import lucas.db.entity.IEntity;
 import lucas.db.enums.OperationEnum;
 import lucas.db.mapper.IDBMapper;
 import lucas.db.service.proxy.EntityProxy;
@@ -50,7 +49,7 @@ public class EntityService<T extends AbstractEntity> implements IEntityService<T
     @Override
     @CacheOperation(OperationEnum.insert)
     public long insertEntity(T entity) {
-        IDBMapper<T> mapper = getEntityMapper(entity);
+        IDBMapper<T> mapper = getEntityMapper();
         return mapper.insertEntity(entity);
     }
 
@@ -58,7 +57,7 @@ public class EntityService<T extends AbstractEntity> implements IEntityService<T
     @CacheOperation(OperationEnum.query)
     public T getEntity(Serializable id) {
         try {
-            IDBMapper<T> mapper = getEntityMapper(entityClass);
+            IDBMapper<T> mapper = getEntityMapper();
             T entity = mapper.getEntity(id);
             ApplicationContext context = ApplicationContextUtils.getApplicationContext();
             EntityProxyFactory factory = context.getBean(EntityProxyFactory.class);
@@ -72,7 +71,7 @@ public class EntityService<T extends AbstractEntity> implements IEntityService<T
     @Override
     @CacheOperation(OperationEnum.queryList)
     public List<T> getEntityList(Serializable key) {
-        return getEntityMapper(entityClass).getEntityList(key);
+        return getEntityMapper().getEntityList(key);
     }
 
     @Override
@@ -89,14 +88,14 @@ public class EntityService<T extends AbstractEntity> implements IEntityService<T
         }
         Map data = new HashMap<>(changeParamMap);
         data.put("id", entity.getId());
-        IDBMapper<T> mapper = getEntityMapper(entity);
+        IDBMapper<T> mapper = getEntityMapper();
         mapper.updateEntityByMap(data);
     }
 
     @Override
     @CacheOperation(OperationEnum.delete)
     public void deleteEntity(T entity) {
-        IDBMapper<T> mapper = getEntityMapper(entity);
+        IDBMapper<T> mapper = getEntityMapper();
         mapper.deleteEntity(entity);
     }
 
@@ -125,16 +124,8 @@ public class EntityService<T extends AbstractEntity> implements IEntityService<T
     }
 
     @SuppressWarnings("unchecked")
-    private IDBMapper<T> getEntityMapper(T entity) {
-        Class<? extends IEntity> entityClass = entity.getClass();
+    public IDBMapper<T> getEntityMapper() {
         DbMapper dbMapper = entityClass.getAnnotation(DbMapper.class);
-        Class<? extends IDBMapper> mapperClazz = dbMapper.mapper();
-        return sqlSessionTemplate.getMapper(mapperClazz);
-    }
-
-    @SuppressWarnings("unchecked")
-    private IDBMapper<T> getEntityMapper(Class<? extends T> entityClazz) {
-        DbMapper dbMapper = entityClazz.getAnnotation(DbMapper.class);
         Class<? extends IDBMapper> mapperClazz = dbMapper.mapper();
         return sqlSessionTemplate.getMapper(mapperClazz);
     }

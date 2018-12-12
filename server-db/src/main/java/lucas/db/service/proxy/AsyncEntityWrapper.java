@@ -1,8 +1,10 @@
 package lucas.db.service.proxy;
 
 import lucas.common.util.FastJsonUtils;
+import lucas.db.entity.AbstractEntity;
 import lucas.db.enums.OperationEnum;
 
+import java.io.Serializable;
 import java.util.Map;
 
 /**

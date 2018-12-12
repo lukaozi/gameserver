@@ -3,6 +3,7 @@ package lucas.db;
 import lucas.common.GlobalConstant;
 import lucas.common.util.BeanUtils;
 import lucas.db.annnotation.EntityServiceAnnotation;
+import lucas.db.service.EntityService;
 import lucas.db.service.proxy.EntityServiceProxyFactory;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.BeansException;
@@ -16,6 +17,7 @@ import org.springframework.util.ReflectionUtils;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * entity service 注入
@@ -26,6 +28,8 @@ import java.lang.reflect.Type;
 @Component
 public class EntityServiceBeanPostProcessor implements BeanPostProcessor, ApplicationContextAware {
 
+    public static ConcurrentHashMap<String, EntityService> serviceMap = new ConcurrentHashMap<>();
+
     private ApplicationContext applicationContext;
 
     @Override
@@ -33,6 +37,7 @@ public class EntityServiceBeanPostProcessor implements BeanPostProcessor, Applic
         return bean;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public Object postProcessAfterInitialization(@NonNull Object bean, String beanName) throws BeansException {
         Class<?> beanClass = bean.getClass();
@@ -57,6 +62,11 @@ public class EntityServiceBeanPostProcessor implements BeanPostProcessor, Applic
                     assert sqlTempFile != null;
                     sqlTempFile.setAccessible(true);
                     ReflectionUtils.setField(sqlTempFile, entityService, sqlSessionTemplate);
+                    //保存非代理类
+                    EntityService service = (EntityService) fieldType.newInstance();
+                    service.setSqlSessionTemplate(sqlSessionTemplate);
+                    service.setEntityClass(entityClass);
+                    serviceMap.put(entityClass.getSimpleName(),service);
                     if (GlobalConstant.USE_CACHE) {
                         EntityServiceProxyFactory factory = applicationContext.getBean(EntityServiceProxyFactory.class);
                         entityService = factory.createEntityServiceProxy(entityService, entityClass);

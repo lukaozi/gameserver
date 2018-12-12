@@ -72,4 +72,5 @@ public class PlayerEntity extends BaseLongIdEntity implements RedisInterface {
     public int getLevel() {
         return level;
     }
+
 }

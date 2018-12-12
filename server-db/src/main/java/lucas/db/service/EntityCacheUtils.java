@@ -37,19 +37,9 @@ public class EntityCacheUtils {
 
     public AbstractEntity queryFromRedis(String redisKey, Class<?> clazz) {
         Map<String, String> map = redisService.getMap(redisKey);
-        Object result = getObjectFromMap(map, clazz);
+        Object result =  BeanUtils.getObjectFromMap(clazz, map);
         if (result instanceof AbstractEntity) {
             return (AbstractEntity) result;
-        }
-        return null;
-    }
-
-    private Object getObjectFromMap(Map<String, String> map, Class<?> clazz) {
-        try {
-            Object result = clazz.newInstance();
-            return BeanUtils.getObjectFromMap(result, map);
-        } catch (Exception e) {
-            logger.error("redis 生成临时对象失败");
         }
         return null;
     }
