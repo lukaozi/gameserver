@@ -24,7 +24,7 @@ public class EntityProxy<T extends IEntity> implements MethodInterceptor {
 
     private Map<String,Object> changeParamMap;
 
-    public EntityProxy(T entity) {
+    EntityProxy(T entity) {
         this.changeParamMap = new ConcurrentHashMap<>();
         this.subject = entity;
     }

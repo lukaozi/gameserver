@@ -1,5 +1,7 @@
 package lucas.core.game.player.entity;
 
+import lucas.common.util.FastJsonUtils;
+import lucas.core.game.bag.model.Bag;
 import lucas.core.game.player.Player;
 import lucas.db.annnotation.CacheMethod;
 import lucas.db.annnotation.DbMapper;
@@ -18,9 +20,6 @@ import lucas.db.redis.contant.RedisKey;
 @DbMapper(mapper = PlayerMapper.class)
 public class PlayerEntity extends BaseLongIdEntity implements RedisInterface {
 
-    public PlayerEntity() {
-    }
-
     public PlayerEntity(String account, long id) {
         this.account = account;
         setId(id);
@@ -36,6 +35,28 @@ public class PlayerEntity extends BaseLongIdEntity implements RedisInterface {
 
     @CacheField
     private int level;
+
+    @CacheField
+    private String bagJson;
+    //背包
+    private Bag bag;
+
+    public String getBagJson() {
+        return bagJson;
+    }
+
+    @CacheMethod("bagJson")
+    public void setBagJson(String bagJson) {
+        this.bagJson = bagJson;
+    }
+
+    public Bag getBag() {
+        return bag;
+    }
+
+    public void setBag(Bag bag) {
+        this.bag = bag;
+    }
 
     public String getName() {
         return name;
@@ -73,4 +94,16 @@ public class PlayerEntity extends BaseLongIdEntity implements RedisInterface {
         return level;
     }
 
+
+    @Override
+    public void serialize() {
+        setBagJson(FastJsonUtils.toJson(bag));
+    }
+
+    @Override
+    public void deserialize() {
+        if (bag != null) {
+            setBag(FastJsonUtils.fromJson(bagJson, Bag.class));
+        }
+    }
 }

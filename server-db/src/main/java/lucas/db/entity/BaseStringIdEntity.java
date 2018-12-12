@@ -7,7 +7,7 @@ import lucas.db.annnotation.CacheField;
  * 以String为主键的实体类型
  * 2018/10/22 15:25
  */
-public class BaseStringIdEntity extends AbstractEntity<String> {
+public abstract class BaseStringIdEntity extends AbstractEntity<String> {
 
     @CacheField
     private String userId;

@@ -35,10 +35,6 @@ public class EntityService<T extends AbstractEntity> implements IEntityService<T
         this.entityClass = entityClass;
     }
 
-    public SqlSessionTemplate getSqlSessionTemplate() {
-        return sqlSessionTemplate;
-    }
-
     public void setSqlSessionTemplate(SqlSessionTemplate sqlSessionTemplate) {
         this.sqlSessionTemplate = sqlSessionTemplate;
     }
@@ -56,6 +52,13 @@ public class EntityService<T extends AbstractEntity> implements IEntityService<T
     @Override
     @CacheOperation(OperationEnum.query)
     public T getEntity(Serializable id) {
+        T result = getEntity0(id);
+        result.deserialize();
+        return result;
+    }
+
+    @CacheOperation(OperationEnum.query)
+    private T getEntity0(Serializable id) {
         try {
             IDBMapper<T> mapper = getEntityMapper();
             T entity = mapper.getEntity(id);
@@ -75,9 +78,14 @@ public class EntityService<T extends AbstractEntity> implements IEntityService<T
     }
 
     @Override
+    public void updateEntity(T entity) {
+        entity.serialize();
+        updateEntity0(entity);
+    }
+
     @CacheOperation(OperationEnum.update)
     @SuppressWarnings("unchecked")
-    public void updateEntity(T entity) {
+    private void updateEntity0(T entity) {
         EntityProxy proxy = entity.getProxy();
         if (proxy == null) {
             return;

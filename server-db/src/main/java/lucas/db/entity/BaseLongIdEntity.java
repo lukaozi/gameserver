@@ -7,7 +7,7 @@ import lucas.db.annnotation.CacheField;
  * 以long为主键的实体类型
  * 2018/10/22 15:14
  */
-public class BaseLongIdEntity extends AbstractEntity<Long>{
+public abstract class BaseLongIdEntity extends AbstractEntity<Long>{
 
     @CacheField
     private Long userId;
