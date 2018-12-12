@@ -42,6 +42,10 @@ public class GameServer {
 
     private static void addShutdownHook() {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            Map<String, IService> serviceMap = applicationContext.getBeansOfType(IService.class);
+            for (IService service : serviceMap.values()) {
+                service.shutDown();
+            }
             //资源回收
             GlobalManager.stop();
             applicationContext.close();
