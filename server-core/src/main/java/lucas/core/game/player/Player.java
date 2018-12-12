@@ -1,6 +1,7 @@
 package lucas.core.game.player;
 
 
+import lucas.core.game.bag.model.Bag;
 import lucas.core.game.player.entity.PlayerEntity;
 import lucas.core.socket.net.session.GameSession;
 
@@ -58,5 +59,9 @@ public class Player {
 
     public void setTeamId(long teamId) {
         this.teamId = teamId;
+    }
+
+    public Bag getBag() {
+        return entity.getBag();
     }
 }

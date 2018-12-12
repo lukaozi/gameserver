@@ -25,7 +25,7 @@ public class PlayerEntity extends BaseLongIdEntity implements RedisInterface {
         setId(id);
     }
 
-    private transient Player player = new Player(this);
+    private Player player = new Player(this);
 
     @CacheField
     private String account;
@@ -41,59 +41,14 @@ public class PlayerEntity extends BaseLongIdEntity implements RedisInterface {
     //背包
     private Bag bag;
 
-    public String getBagJson() {
-        return bagJson;
-    }
-
-    @CacheMethod("bagJson")
-    public void setBagJson(String bagJson) {
-        this.bagJson = bagJson;
-    }
-
-    public Bag getBag() {
-        return bag;
-    }
-
-    public void setBag(Bag bag) {
-        this.bag = bag;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    @CacheMethod("name")
-    public void setName(String name) {
-        this.name = name;
-    }
-
     @Override
     public RedisKey getRedisKey() {
         return RedisKey.PLAYER;
     }
 
-    public String getAccount() {
-        return account;
-    }
-
-    @CacheMethod("account")
-    public void setAccount(String account) {
-        this.account = account;
-    }
-
-    @CacheMethod("level")
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
     public Player getPlayer() {
         return player;
     }
-
-    public int getLevel() {
-        return level;
-    }
-
 
     @Override
     public void serialize() {
@@ -105,5 +60,49 @@ public class PlayerEntity extends BaseLongIdEntity implements RedisInterface {
         if (bag != null) {
             setBag(FastJsonUtils.fromJson(bagJson, Bag.class));
         }
+    }
+
+    public String getBagJson() {
+        return bagJson;
+    }
+
+    @CacheMethod("bagJson")
+    public void setBagJson(String bagJson) {
+        this.bagJson = bagJson;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @CacheMethod("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    @CacheMethod("level")
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    @CacheMethod("account")
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+    public Bag getBag() {
+        return bag;
+    }
+
+    public void setBag(Bag bag) {
+        this.bag = bag;
     }
 }
