@@ -55,7 +55,7 @@ public class AsyncEntityUtils {
         //玩家名称
         String redisUnionKey = EntityUtils.getRedisUnionKey(entity);
         //类型名称
-        String classRedisKey = className + "#" + GlobalConstant.SERVER_NO;
+        String classRedisKey = className + "#" + GlobalConstant.getServerNo();
         //先加入玩家个人队列
         redisService.rpushString(redisUnionKey, wrapper.serialize());
         //玩家加入总列表 顺序不能乱

@@ -37,7 +37,7 @@ public class AsyncSaveDbHelper implements IService {
         this.entityServiceMap = new ConcurrentHashMap<>();
         ConcurrentHashMap<String, EntityService> serviceMap = EntityServiceBeanPostProcessor.serviceMap;
         for (Map.Entry<String, EntityService> entry : serviceMap.entrySet()) {
-            String classRedisKey = entry.getKey() + "#" + GlobalConstant.SERVER_NO;
+            String classRedisKey = entry.getKey() + "#" + GlobalConstant.getServerNo();
             executors.put(classRedisKey, Executors.newSingleThreadScheduledExecutor());
             entityServiceMap.put(classRedisKey,entry.getValue());
         }
@@ -50,6 +50,9 @@ public class AsyncSaveDbHelper implements IService {
 
     @Override
     public void startUp() {
+        if (!GlobalConstant.isUseAsync()) {
+            return;
+        }
         for (Map.Entry<String, ScheduledExecutorService> entry : executors.entrySet()) {
             ScheduledExecutorService executorService = entry.getValue();
             String classRedisKey = entry.getKey();

@@ -67,7 +67,7 @@ public class EntityServiceBeanPostProcessor implements BeanPostProcessor, Applic
                     service.setSqlSessionTemplate(sqlSessionTemplate);
                     service.setEntityClass(entityClass);
                     serviceMap.put(entityClass.getSimpleName(),service);
-                    if (GlobalConstant.USE_CACHE) {
+                    if (GlobalConstant.isUseAsync()) {
                         EntityServiceProxyFactory factory = applicationContext.getBean(EntityServiceProxyFactory.class);
                         entityService = factory.createEntityServiceProxy(entityService, entityClass);
                     }

@@ -20,7 +20,7 @@ public class NetMessageHead {
     private int command;
 
     public NetMessageHead() {
-        head = GlobalConstant.MAGIC_CODE;
+        head = GlobalConstant.getMagicCode();
     }
 
     public short getHead() {

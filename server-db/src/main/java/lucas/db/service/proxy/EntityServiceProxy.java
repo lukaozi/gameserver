@@ -54,7 +54,7 @@ public class EntityServiceProxy implements MethodInterceptor {
         if (cacheOperation == null) {
             return methodProxy.invokeSuper(o, objects);
         }
-        if (!GlobalConstant.USE_CACHE) {
+        if (!GlobalConstant.isUseCache()) {
             return methodProxy.invokeSuper(o, objects);
         }
         if (redisKey == null) {

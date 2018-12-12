@@ -46,7 +46,7 @@ public class EntityServiceProxyFactory {
                 redisKey = ((RedisInterface) instance).getRedisKey();
             }
             EntityServiceProxy entityServiceProxy;
-            if (GlobalConstant.USE_ASYNC && redisKey != null && redisKey.isAsync()) {
+            if (GlobalConstant.isUseAsync() && redisKey != null && redisKey.isAsync()) {
                 entityServiceProxy = new AsyncEntityServiceProxy(entityCacheUtils, asyncEntityUtils);
             } else {
                 entityServiceProxy = new EntityServiceProxy(entityCacheUtils);

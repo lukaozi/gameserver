@@ -84,7 +84,7 @@ public class MessageHelper {
         byte[] serialize = MessageHelper.serialize(packet);
         protoBufNetMessage.getBody().setBytes(serialize);
         NetMessageHead head = protoBufNetMessage.getHead();
-        head.setVersion(GlobalConstant.VERSION);
+        head.setVersion(GlobalConstant.getVERSION());
         Class<? extends AbstractPacket> packetClass = packet.getClass();
         PacketHelper packetHelper = SpringBeanManager.getInstance().getPacketHelper();
         int command = packetHelper.getCommand(packetClass);

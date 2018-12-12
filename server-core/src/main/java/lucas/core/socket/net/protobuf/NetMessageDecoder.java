@@ -20,12 +20,12 @@ public class NetMessageDecoder extends MessageToMessageDecoder<ByteBuf> {
     protected void decode(ChannelHandlerContext ctx, ByteBuf msg, List<Object> out) {
         short magicCode = msg.readShort();
         //协议有问题 关闭
-        if (magicCode != GlobalConstant.MAGIC_CODE) {
+        if (magicCode != GlobalConstant.getMagicCode()) {
             ctx.fireChannelInactive();
             return;
         }
         byte version = msg.readByte();
-        if (version != GlobalConstant.VERSION) {
+        if (version != GlobalConstant.getVERSION()) {
             ctx.fireChannelInactive();
             return;
         }
