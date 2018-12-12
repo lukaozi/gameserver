@@ -1,6 +1,5 @@
 package lucas.db.service.async.pool;
 
-import com.alibaba.druid.support.spring.stat.SpringStatUtils;
 import lucas.common.util.ApplicationContextUtils;
 import lucas.common.util.BeanUtils;
 import lucas.db.entity.AbstractEntity;
