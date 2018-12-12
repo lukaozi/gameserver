@@ -57,8 +57,12 @@ public class PlayerEntity extends BaseLongIdEntity implements RedisInterface {
 
     @Override
     public void deserialize() {
-        if (bag != null) {
-            setBag(FastJsonUtils.fromJson(bagJson, Bag.class));
+        if (bag == null) {
+            if (bagJson == null) {
+                bag = new Bag();
+            }else {
+                bag = FastJsonUtils.fromJson(bagJson, Bag.class);
+            }
         }
     }
 
