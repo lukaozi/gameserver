@@ -7,9 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="client" />
+        <module name="rpc-api" />
         <module name="server-common" />
-        <module name="server-core" />
         <module name="server-db" />
+        <module name="server-gate" />
+        <module name="server-team" />
         <module name="servercommon" />
         <module name="servercore" />
         <module name="serverdb" />
@@ -17,17 +19,18 @@
         <module name="servergamecode" />
         <module name="servernet" />
         <module name="team-server" />
-        <module name="team-server-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="friend-server" target="1.8" />
       <module name="friendserver" target="1.8" />
+      <module name="gateway" target="1.5" />
       <module name="rpc" target="1.8" />
       <module name="rpcserver" target="1.8" />
       <module name="server-executor" target="1.8" />
       <module name="server-gamecode" target="1.8" />
       <module name="server-net" target="1.5" />
+      <module name="team-server-api" target="8" />
       <module name="team-server-consumer" target="8" />
       <module name="transaction" target="1.8" />
     </bytecodeTargetLevel>

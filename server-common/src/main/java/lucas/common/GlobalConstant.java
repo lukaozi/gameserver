@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * 2018/11/8 12:02
  */
 @Component
-@PropertySource("classpath:server/server.properties")
+@PropertySource("classpath:server.properties")
 public class GlobalConstant {
 
     //魔法码

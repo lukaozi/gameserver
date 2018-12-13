@@ -10,10 +10,9 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>server-core</module>
+        <module>server-gate</module>
         <module>server-db</module>
         <module>server-common</module>
-        <module>rpc-server</module>
         <module>client</module>
     </modules>
 
@@ -90,7 +89,6 @@
                 </configuration>
             </plugin>
         </plugins>
-
     </build>
 
 </project>

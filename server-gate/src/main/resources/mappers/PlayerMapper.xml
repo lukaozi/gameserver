@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="lucas.gate.game.player.entity.PlayerMapper">
+
+    <!--批量插入-->
+    <insert id="insertEntity" parameterType="player">
+        insert into `playerentity` (userid,`name`,`account`) values (#{userId},#{name},#{account});
+    </insert>
+    <select id="getEntity" resultType="player" parameterType="id" >
+        select * from `playerentity` where userid=#{id};
+    </select>
+
+    <update id="updateEntityByMap" parameterType="map">
+        update `playerentity`
+        <trim prefix="SET" suffixOverrides=",">
+          <if test="name != null and name != ''">
+              `name` = #{name},
+          </if>
+        </trim>
+        where `userid`=#{id};
+    </update>
+
+    <delete id="deleteEntity" parameterType="id">
+        delete from `playerentity` where userid=#{id};
+    </delete>
+
+</mapper>

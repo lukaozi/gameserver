@@ -13,11 +13,15 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/rpc-api/pom.xml" />
+        <option value="$PROJECT_DIR$/server-team/pom.xml" />
+        <option value="$PROJECT_DIR$/server-db/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/rpc-server/pom.xml" />
+        <option value="$PROJECT_DIR$/rpc-server/team-server-api/pom.xml" />
         <option value="$PROJECT_DIR$/rpc/pom.xml" />
       </set>
     </option>
