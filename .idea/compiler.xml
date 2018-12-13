@@ -18,7 +18,6 @@
         <module name="serverexecutor" />
         <module name="servergamecode" />
         <module name="servernet" />
-        <module name="team-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -30,6 +29,7 @@
       <module name="server-executor" target="1.8" />
       <module name="server-gamecode" target="1.8" />
       <module name="server-net" target="1.5" />
+      <module name="team-server" target="8" />
       <module name="team-server-api" target="8" />
       <module name="team-server-consumer" target="8" />
       <module name="transaction" target="1.8" />

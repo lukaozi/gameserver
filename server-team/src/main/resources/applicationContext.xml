@@ -10,9 +10,11 @@
     <!-- provider's application name, used for tracing dependency relationship -->
     <dubbo:application name="rpc-server-provider"/>
     <!-- use multicast registry center to export service -->
-    <dubbo:registry address="127.0.0.1:2181" protocol="zookeeper"/>
+    <dubbo:registry address="127.0.0.1:2181" protocol="zookeeper" check="false"/>
     <!-- use dubbo protocol to export service on port 20880 -->
-    <dubbo:protocol name="dubbo" port="12332" threads="8"/>
+    <dubbo:protocol server="netty4" name="dubbo" dispatcher="all" threadpool="fixed"
+                    optimizer="lucas.rpcapi.dubbo.SerializationOptimizerImpl" serialization="kryo" port="12332"
+                    threads="8"/>
     <!-- declare the service interface to be exported -->
     <dubbo:service interface="lucas.rpcapi.serverteam.RpcTeamService" ref="teamService"/>
     <!-- service implementation, as same as regular local bean -->
