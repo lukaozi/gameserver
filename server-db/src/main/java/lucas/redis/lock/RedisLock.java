@@ -80,6 +80,7 @@ public class RedisLock {
         try (Jedis jedis = jedisHelper.getResource()) {
             String script = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
             Object result = jedis.eval(script, Collections.singletonList(lockKey), Collections.singletonList(lockRequestId));
+            lockRequestId = null;
             return RELEASE_SUCCESS.equals(result);
         } catch (Exception e) {
             logger.error("释放redis锁失败，redis key：" + lockKey);
