@@ -1,7 +1,7 @@
 package lucas.gate.game.player.service;
 
 import lucas.gate.game.player.entity.PlayerEntity;
-import lucas.db.service.EntityService;
+import lucas.mysql.service.EntityService;
 
 /**
  * @author lushengkao vip8

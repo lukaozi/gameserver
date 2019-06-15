@@ -2,7 +2,7 @@ package lucas.gate.game.player.service;
 
 import lucas.gate.game.player.Player;
 import lucas.gate.game.player.entity.PlayerEntity;
-import lucas.db.annnotation.EntityServiceAnnotation;
+import lucas.mysql.annnotation.EntityServiceAnnotation;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.ConcurrentHashMap;

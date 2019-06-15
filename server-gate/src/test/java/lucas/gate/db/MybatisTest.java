@@ -5,9 +5,9 @@ import lucas.gate.game.player.entity.PlayerEntity;
 import lucas.gate.game.player.entity.PlayerMapper;
 import lucas.gate.game.player.service.PlayerEntityService;
 import lucas.gate.game.player.service.PlayerManager;
-import lucas.db.redis.lock.RedisLock;
-import lucas.db.utils.idgenerator.IDGenerator;
-import lucas.db.utils.idgenerator.IDType;
+import lucas.redis.lock.RedisLock;
+import lucas.mysql.utils.idgenerator.IDGenerator;
+import lucas.mysql.utils.idgenerator.IDType;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -50,6 +50,7 @@ public class MybatisTest {
         PlayerEntity entity = entityService.getEntity(playerEntity.getId());
         entity.setName("猪猪");
         entityService.updateEntity(entity);
+        entityService.getEntity(entity.getId());
         PlayerEntity entity1 = entityService.getEntity(playerEntity.getId());
         System.out.println(entity1.getName());
     }

@@ -1,6 +1,6 @@
 package lucas.serverteam;
 
-import lucas.common.DubboServerStarter;
+import lucas.common.SpringStarter;
 
 /**
  * @author lushengkao vip8
@@ -9,7 +9,7 @@ import lucas.common.DubboServerStarter;
 public class Start {
 
     public static void main(String[] args) throws InterruptedException {
-        DubboServerStarter starter = new DubboServerStarter("applicationContext.xml");
+        SpringStarter starter = new SpringStarter("applicationContext.xml");
         starter.start();
     }
 }

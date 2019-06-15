@@ -3,13 +3,13 @@ package lucas.gate.game.player.entity;
 import lucas.common.util.FastJsonUtils;
 import lucas.gate.game.bag.model.Bag;
 import lucas.gate.game.player.Player;
-import lucas.db.annnotation.CacheMethod;
-import lucas.db.annnotation.DbMapper;
-import lucas.db.annnotation.EntitySave;
-import lucas.db.annnotation.CacheField;
-import lucas.db.entity.BaseLongIdEntity;
-import lucas.db.redis.RedisInterface;
-import lucas.db.redis.contant.RedisKey;
+import lucas.mysql.annnotation.CacheMethod;
+import lucas.mysql.annnotation.DbMapper;
+import lucas.mysql.annnotation.EntitySave;
+import lucas.mysql.annnotation.CacheField;
+import lucas.mysql.entity.BaseLongIdEntity;
+import lucas.redis.RedisInterface;
+import lucas.redis.contant.RedisKey;
 
 /**
  * @author lushengkao vip8
@@ -19,6 +19,9 @@ import lucas.db.redis.contant.RedisKey;
 @EntitySave
 @DbMapper(mapper = PlayerMapper.class)
 public class PlayerEntity extends BaseLongIdEntity implements RedisInterface {
+
+    public PlayerEntity() {
+    }
 
     public PlayerEntity(String account, long id) {
         this.account = account;

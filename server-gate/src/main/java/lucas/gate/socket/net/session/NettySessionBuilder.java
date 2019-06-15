@@ -2,8 +2,8 @@ package lucas.gate.socket.net.session;
 
 
 import io.netty.channel.Channel;
-import lucas.db.utils.idgenerator.IDGenerator;
-import lucas.db.utils.idgenerator.IDType;
+import lucas.mysql.utils.idgenerator.IDGenerator;
+import lucas.mysql.utils.idgenerator.IDType;
 import org.springframework.stereotype.Service;
 
 /**

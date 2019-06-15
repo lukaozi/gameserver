@@ -7,7 +7,7 @@
     <insert id="insertEntity" parameterType="player">
         insert into `playerentity` (userid,`name`,`account`) values (#{userId},#{name},#{account});
     </insert>
-    <select id="getEntity" resultType="player" parameterType="id" >
+    <select id="getEntity" resultType="player" parameterType="java.io.Serializable" >
         select * from `playerentity` where userid=#{id};
     </select>
 
@@ -21,7 +21,7 @@
         where `userid`=#{id};
     </update>
 
-    <delete id="deleteEntity" parameterType="id">
+    <delete id="deleteEntity" parameterType="player">
         delete from `playerentity` where userid=#{id};
     </delete>
 

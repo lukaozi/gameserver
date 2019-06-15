@@ -2,7 +2,7 @@ package lucas;
 
 
 import lucas.common.GlobalConstant;
-import lucas.db.utils.idgenerator.SnowFlakeIdWorker;
+import lucas.mysql.utils.idgenerator.SnowFlakeIdWorker;
 import org.junit.Test;
 
 /**

@@ -1,6 +1,6 @@
 package lucas.gate.game.player.entity;
 
-import lucas.db.mapper.IDBMapper;
+import lucas.mysql.mapper.IDBMapper;
 
 /**
  * @author lushengkao vip8

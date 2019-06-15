@@ -7,8 +7,8 @@
     <insert id="insertEntity" parameterType="player">
         insert into `playerentity` (userid,`name`,`account`) values (#{userId},#{name},#{account});
     </insert>
-    <select id="getEntity" resultType="player" parameterType="id" >
-        select * from `playerentity` where userid=#{id};
+    <select id="getEntity" resultType="player">
+        select * from `playerentity` where userid=#{?1};
     </select>
 
     <update id="updateEntityByMap" parameterType="map">
@@ -21,8 +21,8 @@
         where `userid`=#{id};
     </update>
 
-    <delete id="deleteEntity" parameterType="id">
-        delete from `playerentity` where userid=#{id};
+    <delete id="deleteEntity" parameterType="player">
+        delete from `playerentity` where userid=#{userId};
     </delete>
 
 </mapper>
