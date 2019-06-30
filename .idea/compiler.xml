@@ -6,18 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="client" />
-        <module name="rpc-api" />
         <module name="server-common" />
-        <module name="server-db" />
         <module name="server-gate" />
-        <module name="server-team" />
-        <module name="servercommon" />
-        <module name="servercore" />
-        <module name="serverdb" />
-        <module name="serverexecutor" />
         <module name="servergamecode" />
+        <module name="servercore" />
         <module name="servernet" />
+        <module name="serverexecutor" />
+        <module name="serverdb" />
+        <module name="rpc-api" />
+        <module name="server-db" />
+        <module name="server-team" />
+        <module name="client" />
+        <module name="servercommon" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

@@ -4,6 +4,8 @@ import lucas.rpcapi.serverteam.model.Team;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -65,5 +67,9 @@ public class TeamDataManager {
 
     public Object getTeamLockObject(long teamId) {
         return teamLocks[(int) (teamId % teamLocks.length)];
+    }
+
+    public List<Team> getAllTeam() {
+        return new LinkedList<>(teams.values());
     }
 }

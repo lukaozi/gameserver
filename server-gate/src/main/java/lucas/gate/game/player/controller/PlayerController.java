@@ -38,7 +38,6 @@ public class PlayerController {
         }
         player.setSession(session);
         session.setPlayerId(player.getPlayerId());
-        System.out.println(player.getName());
     }
 
     private Player createPlayer(String account,String name) {

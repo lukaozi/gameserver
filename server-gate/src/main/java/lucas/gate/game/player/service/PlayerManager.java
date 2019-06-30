@@ -2,7 +2,10 @@ package lucas.gate.game.player.service;
 
 import lucas.gate.game.player.Player;
 import lucas.gate.game.player.entity.PlayerEntity;
+import lucas.gate.socket.net.session.GameSession;
 import lucas.mysql.annnotation.EntityServiceAnnotation;
+import lucas.mysql.utils.idgenerator.IDGenerator;
+import lucas.mysql.utils.idgenerator.IDType;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -24,6 +27,15 @@ public class PlayerManager {
         return entity.getPlayer();
     }
 
+    public Player getPlayer(GameSession session) {
+        long playerId = session.getPlayerId();
+        Player player = getPlayer(playerId);
+        if (player != null) {
+            player.setSession(session);
+        }
+        return player;
+    }
+
     public boolean addAccount(String account,Long playerId) {
         Long oldAccount = account2Id.putIfAbsent(account, playerId);
         if (oldAccount != null) {
@@ -40,8 +52,7 @@ public class PlayerManager {
         return account2Id.get(account);
     }
 
-    long id = 100;
     public long createPlayerId() {
-        return ++id;
+        return IDGenerator.createId(IDType.PLAYER_ID);
     }
 }

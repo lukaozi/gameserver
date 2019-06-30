@@ -8,6 +8,8 @@ import lucas.rpcapi.serverteam.model.TeamPlayer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author lushengkao vip8
  * 2018/12/7 17:10
@@ -43,6 +45,11 @@ public class TeamServiceImpl implements RpcTeamService {
         }finally {
             lock.unLock();
         }
+    }
+
+    @Override
+    public List<Team> teamList() {
+        return teamDataManager.getAllTeam();
     }
 
     @Override

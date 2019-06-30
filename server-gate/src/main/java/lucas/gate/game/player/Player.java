@@ -22,7 +22,7 @@ public class Player {
     }
 
     public long getPlayerId() {
-        return session.getPlayerId();
+        return entity.getId();
     }
 
     public GameSession getSession() {

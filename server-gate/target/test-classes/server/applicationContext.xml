@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:annotation-config/>
+    <context:component-scan base-package="lucas"/>
+
+    <context:property-placeholder location="classpath:server/*.properties"/>
+
+    <bean class="lucas.common.util.ApplicationContextUtils"/>
+
+    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" scope="prototype">
+        <constructor-arg ref="sqlSessionFactory"/>
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dateSource"/>
+        <property name="configLocation" value="classpath:server/mybatis-config.xml"/>
+    </bean>
+
+    <bean id="dateSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${server_db_driver}"/>
+        <property name="url" value="${server_jdbc_url}"/>
+        <property name="username" value="${server_jdbc_user}"/>
+        <property name="password" value="${server_jdbc_password}"/>
+    </bean>
+
+    <!--redis客户端设置-->
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxIdle" value="${redis.maxIdle}"/>
+        <property name="testWhileIdle" value="${redis.testWhileIdle}"/>
+        <property name="timeBetweenEvictionRunsMillis" value="${redis.timeBetweenEvictionRunsMillis}"/>
+        <property name="numTestsPerEvictionRun" value="${redis.numTestsPerEvictionRun}"/>
+        <property name="minEvictableIdleTimeMillis" value="${redis.minEvictableIdleTimeMillis}"/>
+    </bean>
+
+    <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+        <constructor-arg index="0" ref="jedisPoolConfig"/>
+        <constructor-arg index="1" type="java.lang.String" value="${redis.host}"/>
+        <constructor-arg index="2" type="int" value="${redis.port}"/>
+        <constructor-arg index="3" type="int" value="${redis.timeout}"/>
+        <constructor-arg index="4" type="java.lang.String" value="${redis.password}"/>
+    </bean>
+</beans>

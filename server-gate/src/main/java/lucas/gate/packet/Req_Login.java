@@ -29,4 +29,8 @@ public class Req_Login implements AbstractPacket {
         this.account = account;
     }
 
+    public Req_Login(String account, String name) {
+        this.account = account;
+        this.name = name;
+    }
 }

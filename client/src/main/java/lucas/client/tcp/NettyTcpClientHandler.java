@@ -16,7 +16,7 @@ import lucas.gate.socket.net.protobuf.NetMessageEncoder;
  */
 public class NettyTcpClientHandler extends ChannelInitializer {
 
-    protected void initChannel(Channel channel) throws Exception {
+    protected void initChannel(Channel channel) {
         ChannelPipeline pipeline = channel.pipeline();
         pipeline.addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE,2,4,0,0))
                 .addLast(new NetMessageDecoder())

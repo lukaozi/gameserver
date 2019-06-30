@@ -6,7 +6,7 @@ import lucas.gate.game.player.Player;
 import lucas.gate.game.player.service.PlayerManager;
 import lucas.gate.game.rpc.consumer.team.service.TeamService;
 import lucas.gate.packet.Req_CreateTeam;
-import lucas.gate.socket.bootstarp.manager.SpringServiceManager;
+import lucas.gate.packet.Req_TeamList;
 import lucas.gate.socket.net.session.GameSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +21,13 @@ public class TeamController {
 
     private TeamService teamService;
 
+    private PlayerManager playerManager;
+
+    @Autowired
+    public void setPlayerManager(PlayerManager playerManager) {
+        this.playerManager = playerManager;
+    }
+
     @Autowired
     public void setTeamService(TeamService teamService) {
         this.teamService = teamService;
@@ -28,12 +35,15 @@ public class TeamController {
 
     @GameRequest
     public void createTeam(GameSession session, Req_CreateTeam req) {
-        long playerId = session.getPlayerId();
-        PlayerManager playerManager = SpringServiceManager.getInstance().getPlayerManager();
-        Player player = playerManager.getPlayer(playerId);
-        if (player == null) {
-            return;
-        }
+        Player player = playerManager.getPlayer(session);
+        if (player == null) return;
         teamService.createTeam(player);
+    }
+
+    @GameRequest
+    public void createTeam(GameSession session, Req_TeamList req) {
+        Player player = playerManager.getPlayer(session);
+        if (player == null) return;
+        teamService.listTeams(player);
     }
 }

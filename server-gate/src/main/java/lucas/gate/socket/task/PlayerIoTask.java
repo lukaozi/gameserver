@@ -35,7 +35,7 @@ public class PlayerIoTask implements Runnable {
             PacketHandlerAdapter adapter = handlerAdapters.get(packet.getClass());
             Object bean = adapter.getBean();
             Method method = adapter.getMethod();
-            method.invoke(bean,gameSession,packet);
+            method.invoke(bean, gameSession, packet);
         } catch (Exception e) {
             e.printStackTrace();
         }

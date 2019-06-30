@@ -3,12 +3,19 @@ package lucas.gate.game.rpc.consumer.team.service;
 import com.alibaba.dubbo.config.ApplicationConfig;
 import com.alibaba.dubbo.config.ReferenceConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
+import com.sun.istack.internal.NotNull;
 import lucas.gate.game.player.Player;
+import lucas.gate.packet.Res_TeamList;
+import lucas.gate.socket.net.session.PacketSender;
 import lucas.mysql.utils.idgenerator.IDGenerator;
 import lucas.mysql.utils.idgenerator.IDType;
 import lucas.rpcapi.serverteam.RpcTeamService;
+import lucas.rpcapi.serverteam.model.Team;
 import lucas.rpcapi.serverteam.model.TeamPlayer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 
 /**
@@ -18,6 +25,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TeamService {
 
+    @Autowired
     private RpcTeamService rpcService;
 
     private ReferenceConfig<RpcTeamService> referenceConfig;
@@ -33,6 +41,7 @@ public class TeamService {
         registry.setProtocol("zookeeper");
         referenceConfig.setRegistry(registry);
         referenceConfig.setInterface(RpcTeamService.class);
+        referenceConfig.setProtocol("dubbo");
         this.rpcService = referenceConfig.get();
     }
 
@@ -55,5 +64,11 @@ public class TeamService {
         teamPlayer.setPlayerId(player.getPlayerId());
         teamPlayer.setTeamId(player.getTeamId());
         return teamPlayer;
+    }
+
+    public void listTeams(Player player) {
+        List<Team> teams = rpcService.teamList();
+        PacketSender.send(player,new Res_TeamList(teams));
+        System.out.println("所有的队伍信息 ======" + teams);
     }
 }

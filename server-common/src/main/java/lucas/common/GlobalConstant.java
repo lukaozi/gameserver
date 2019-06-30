@@ -24,7 +24,7 @@ public class GlobalConstant {
 
     //是否启动redis缓存 同步缓存机制和异步缓存机制
     @Value("${server.use_cache}")
-    private static boolean USE_CACHE = true;
+    private static boolean USE_CACHE = false;
 
     //机器编码 1 ~ 1023 10bit作为机器编码
     @Value("${server.no}")

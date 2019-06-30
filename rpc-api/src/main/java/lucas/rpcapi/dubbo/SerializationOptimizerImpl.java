@@ -16,7 +16,7 @@ public class SerializationOptimizerImpl implements SerializationOptimizer {
 
     @Override
     public Collection<Class> getSerializableClasses() {
-        List<Class> classes = new LinkedList<Class>();
+        List<Class> classes = new LinkedList<>();
         classes.add(TeamPlayer.class);
         return classes;
     }
