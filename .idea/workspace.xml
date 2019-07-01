@@ -1,209 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/dubbo/LogicLoadBalance.java" line="14" />
+    <bookmark url="file://$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/dubbo/LogicLoadBalance.java" line="16" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e10ebbbe-8d37-4108-b940-3dc0fef4f85d" name="Default Changelist" comment="z组队服务">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/test/java/lucas/client/teamtest/TeamTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/target/classes/lucas/client/tcp/NettyTcpClient.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/target/classes/lucas/client/tcp/NettyTcpClientHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/target/test-classes/lucas/client/teamtest/TeamTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-api/target/classes/lucas/rpcapi/dubbo/LogicLoadBalance.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-api/target/classes/lucas/rpcapi/dubbo/SerializationOptimizerImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-api/target/classes/lucas/rpcapi/serverteam/RpcTeamService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-api/target/classes/lucas/rpcapi/serverteam/TeamDataManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-api/target/classes/lucas/rpcapi/serverteam/model/Team$builder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-api/target/classes/lucas/rpcapi/serverteam/model/Team.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rpc-api/target/classes/lucas/rpcapi/serverteam/model/TeamPlayer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/GlobalConstant.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/SpringStarter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/eventbus/EventBus.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/eventbus/IEvent.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/eventbus/Subscribe.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/eventbus/SubscribeRegister.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/eventbus/Subscriber.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/log/Loggers.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/promise/AbstractFuture$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/promise/AbstractFuture$SuccessSignal.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/promise/AbstractFuture.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/promise/CancelException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/promise/CauseHolder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/promise/EventListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/promise/ITaskFuture.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/promise/ITaskFutureListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/service/IService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/service/Reloable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/service/ServiceName.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/util/ApplicationContextUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/util/BeanUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/util/EnhanceUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/util/FastJsonUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/util/LinkedLock.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/util/NamedThreadFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/util/ObjectLock.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/util/SQLFileStringUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/util/SessionUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/util/ThreadPoolUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/classes/lucas/common/util/TimeUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/maven-status/maven-compiler-plugin/compile/default-cli/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/maven-status/maven-compiler-plugin/compile/default-cli/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/test-classes/lucas/common/EventTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/test-classes/lucas/common/HelloEvent.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-common/target/test-classes/lucas/common/Test.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mongo/service/MongoService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/EntityServiceBeanPostProcessor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/annnotation/AsyncEntityOperation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/annnotation/CacheField.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/annnotation/CacheMethod.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/annnotation/CacheOperation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/annnotation/DbMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/annnotation/EntitySave.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/annnotation/EntityServiceAnnotation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/entity/AbstractEntity.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/entity/BaseIntegerIdEntity.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/entity/BaseLongIdEntity.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/entity/BaseStringIdEntity.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/entity/IEntity.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/enums/DbServiceName.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/enums/OperationEnum.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/mapper/IDBMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/service/AsyncEntityUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/service/EntityCacheUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/service/EntityService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/service/EntityUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/service/IEntityService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/service/async/pool/AsyncSaveDbHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/service/async/pool/AsyncSaveTask$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/service/async/pool/AsyncSaveTask.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/service/config/DBConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/service/proxy/AsyncEntityServiceProxy$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/service/proxy/AsyncEntityServiceProxy.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/service/proxy/AsyncEntityWrapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/service/proxy/EntityProxy.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/service/proxy/EntityProxyFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/service/proxy/EntityServiceProxy$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/service/proxy/EntityServiceProxy.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/service/proxy/EntityServiceProxyFactory.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/transaction/TransactionLockInterface.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/transaction/TransactionReadLock.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/transaction/TransactionWriteLock.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/utils/idgenerator/IDGenerator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/utils/idgenerator/IDType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/mysql/utils/idgenerator/SnowFlakeIdWorker.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/redis/RedisInterface.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/redis/contant/RedisConstant.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/redis/contant/RedisKey.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/redis/lock/RedisLock.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/redis/service/JedisHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/classes/lucas/redis/service/RedisService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-db/target/test-classes/lucas/SnowFlakeIdWorkerTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/packet/Req_TeamList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/packet/Res_TeamList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/logback.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/game/anno/GameController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/game/anno/GameRequest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/game/bag/model/Bag.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/game/player/Player.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/game/player/controller/PlayerController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/game/player/entity/PlayerEntity.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/game/player/entity/PlayerMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/game/player/service/PlayerEntityService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/game/player/service/PlayerManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/game/player/service/PlayerService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/game/rpc/consumer/team/controller/TeamController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/game/rpc/consumer/team/service/TeamService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/packet/Req_CreateTeam.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/packet/Req_Login.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/packet/Req_TeamList.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/packet/Res_TeamList.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/packet/packethandler/AbstractPacket.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/packet/packethandler/PacketHandlerAdapter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/packet/packethandler/PacketHandlerRegister.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/packet/packethandler/PacketHandlerService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/packet/packethandler/PacketHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/packet/packethandler/PacketType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/bootstarp/GameServer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/bootstarp/GameServerRunTime.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/bootstarp/manager/GlobalManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/bootstarp/manager/SpringBeanManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/bootstarp/manager/SpringServiceManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/channelHandler/DispatcherChannelHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/channelHandler/GamePacketHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/dispatcher/GamePacketDispatcher.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/dispatcher/IDispatcher.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/executors/ArrayExecutor.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/net/LocalNetService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/net/json/JsonNetMessage.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/net/message/AbstractNetMessage.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/net/message/INetMessage.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/net/message/MessageException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/net/message/MessageRegistry.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/net/message/NetMessageBody.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/net/message/NetMessageHead.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/net/protobuf/MessageHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/net/protobuf/NetMessageDecoder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/net/protobuf/NetMessageEncoder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/net/server/IServerService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/net/server/NettyTcpSocketServerService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/net/server/channelhandler/ProtoBufTcpChannelInitializer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/net/session/GameSession.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/net/session/ISession.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/net/session/ISessionBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/net/session/NettySessionBuilder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/net/session/NettySessionManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/net/session/PacketSender.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/net/session/SessionContant.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/socket/task/PlayerIoTask.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/mappers/PlayerMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/server.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/server/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/server/jdbc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/server/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/classes/server/redis.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/test-classes/lucas/gate/db/MybatisTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/test-classes/mappers/PlayerMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/test-classes/server/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/test-classes/server/jdbc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/test-classes/server/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/test-classes/server/redis.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-gate/target/test-classes/server/server.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-team/target/classes/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-team/target/classes/lucas/serverteam/TeamServerStart.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-team/target/classes/lucas/serverteam/provider/team/TeamProviderRegistry.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-team/target/classes/lucas/serverteam/provider/team/TeamServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server-team/target/classes/server.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ce5135a8-0fd0-4046-a596-568434bda076.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ce5135a8-0fd0-4046-a596-568434bda076.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gameserver.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gameserver.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/lucas/client/tcp/NettyTcpClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/lucas/client/tcp/NettyTcpClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/test/java/lucas/client/TestClient/TestClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/test/java/lucas/client/TestClient/TestClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameserver.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rpc-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/dubbo/LogicLoadBalance.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/dubbo/LogicLoadBalance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/dubbo/SerializationOptimizerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/dubbo/SerializationOptimizerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/serverteam/RpcTeamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/serverteam/RpcTeamService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/serverteam/TeamDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/serverteam/TeamDataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/serverteam/model/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/serverteam/model/Team.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/serverteam/model/TeamPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/serverteam/model/TeamPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server-common/src/main/java/lucas/common/GlobalConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-common/src/main/java/lucas/common/GlobalConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server-db/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server-db/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server-db/src/main/java/lucas/mongo/service/MongoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-db/src/main/java/lucas/mongo/service/MongoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/game/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/game/player/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/game/player/controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/game/player/controller/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/game/player/service/PlayerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/game/player/service/PlayerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/game/rpc/consumer/team/controller/TeamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/game/rpc/consumer/team/controller/TeamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/game/rpc/consumer/team/service/TeamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/game/rpc/consumer/team/service/TeamService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/packet/Req_Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/packet/Req_Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/packet/packethandler/PacketType.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/packet/packethandler/PacketType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/socket/task/PlayerIoTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/socket/task/PlayerIoTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server-gate/src/main/resources/server/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server-gate/src/main/resources/server/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server-team/server-team.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server-team/src/main/java/lucas/serverteam/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-team/src/main/java/lucas/serverteam/TeamServerStart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server-team/src/main/java/lucas/serverteam/provider/team/TeamServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server-team/src/main/java/lucas/serverteam/provider/team/TeamServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc-api/target/classes/lucas/rpcapi/dubbo/LogicLoadBalance.class" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-api/target/classes/lucas/rpcapi/dubbo/LogicLoadBalance.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rpc-api/target/classes/lucas/rpcapi/dubbo/SerializationOptimizerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/rpc-api/target/classes/lucas/rpcapi/dubbo/SerializationOptimizerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-gate/src/main/resources/server/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server-gate/src/main/resources/server/jdbc.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/game/rpc/consumer/team/service/TeamService.class" beforeDir="false" afterPath="$PROJECT_DIR$/server-gate/target/classes/lucas/gate/game/rpc/consumer/team/service/TeamService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-gate/target/classes/server/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server-gate/target/classes/server/jdbc.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server-team/src/main/resources/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server-team/src/main/resources/applicationContext.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-team/target/classes/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server-team/target/classes/applicationContext.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server-team/target/classes/lucas/serverteam/provider/team/TeamProviderRegistry.class" beforeDir="false" afterPath="$PROJECT_DIR$/server-team/target/classes/lucas/serverteam/provider/team/TeamProviderRegistry.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -288,107 +103,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/socket/bootstarp/GameServer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server-gate/src/main/resources/server/applicationContext.xml">
+        <entry file="file://$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/socket/net/server/NettyTcpSocketServerService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="34" column="22" lean-forward="true" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server-team/src/main/java/lucas/serverteam/TeamServerStart.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_202/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/game/player/service/PlayerManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/socket/net/session/GameSession.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-              <folding>
-                <element signature="e#1976#1977#0" expanded="true" />
-                <element signature="e#2007#2008#0" expanded="true" />
-                <element signature="e#2053#2054#0" expanded="true" />
-                <element signature="e#2093#2094#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/socket/net/session/PacketSender.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/packet/packethandler/PacketHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
-              <folding>
-                <element signature="e#874#875#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/packet/packethandler/PacketType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/packet/Res_TeamList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-826">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -411,9 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>jun</find>
-      <find>project</find>
-      <find>java</find>
       <find>javassist</find>
       <find>5.1.2</find>
       <find>3.10.6</find>
@@ -441,6 +157,9 @@
       <find>netty4</find>
       <find>mongodb</find>
       <find>dubbo:application</find>
+      <find>configcenter</find>
+      <find>metadata-report</find>
+      <find>2.7</find>
     </findStrings>
     <dirStrings>
       <dir>D:\gameserver</dir>
@@ -452,11 +171,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/server-team/pom.xml" />
-        <option value="$PROJECT_DIR$/server-gate/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/server-team/src/main/java/lucas/serverteam/provider/team/TeamProviderRegistry.java" />
-        <option value="$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/dubbo/LogicLoadBalance.java" />
         <option value="$PROJECT_DIR$/server-team/src/main/java/lucas/serverteam/ServerStarter.java" />
         <option value="$PROJECT_DIR$/server-common/src/main/java/lucas/common/ServerStarter.java" />
         <option value="$PROJECT_DIR$/server-db/src/test/java/lucas/SnowFlakeIdWorkerTest.java" />
@@ -493,9 +209,6 @@
         <option value="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/game/player/Player.java" />
         <option value="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/game/player/controller/PlayerController.java" />
         <option value="$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/serverteam/model/TeamPlayer.java" />
-        <option value="$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/dubbo/SerializationOptimizerImpl.java" />
-        <option value="$PROJECT_DIR$/server-team/src/main/resources/applicationContext.xml" />
-        <option value="$PROJECT_DIR$/rpc-api/pom.xml" />
         <option value="$PROJECT_DIR$/server-team/src/main/java/lucas/serverteam/Start.java" />
         <option value="$PROJECT_DIR$/server-team/src/main/java/lucas/serverteam/TeamServerStart.java" />
         <option value="$PROJECT_DIR$/client/src/test/java/lucas/client/teamtest/TeamTest.java" />
@@ -503,6 +216,12 @@
         <option value="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/game/player/service/PlayerManager.java" />
         <option value="$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/game/rpc/consumer/team/service/TeamService.java" />
         <option value="$PROJECT_DIR$/server-gate/src/main/resources/server/applicationContext.xml" />
+        <option value="$PROJECT_DIR$/server-gate/src/main/resources/server/jdbc.properties" />
+        <option value="$PROJECT_DIR$/rpc-api/pom.xml" />
+        <option value="$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/dubbo/LogicLoadBalance.java" />
+        <option value="$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/dubbo/SerializationOptimizerImpl.java" />
+        <option value="$PROJECT_DIR$/server-team/src/main/resources/applicationContext.xml" />
+        <option value="$PROJECT_DIR$/readme.md" />
       </list>
     </option>
   </component>
@@ -551,90 +270,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gameserver" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.alibaba:dubbo:2.6.5" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.alibaba:dubbo:2.6.5" type="70bed36:NamedLibraryElementNode" />
-              <item name="dubbo-2.6.5.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.alibaba:dubbo:2.6.5" type="70bed36:NamedLibraryElementNode" />
-              <item name="dubbo-2.6.5.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.alibaba:dubbo:2.6.5" type="70bed36:NamedLibraryElementNode" />
-              <item name="dubbo-2.6.5.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="alibaba" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.alibaba:dubbo:2.6.5" type="70bed36:NamedLibraryElementNode" />
-              <item name="dubbo-2.6.5.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="alibaba" type="462c0819:PsiDirectoryNode" />
-              <item name="dubbo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.alibaba:dubbo:2.6.5" type="70bed36:NamedLibraryElementNode" />
-              <item name="dubbo-2.6.5.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="alibaba" type="462c0819:PsiDirectoryNode" />
-              <item name="dubbo" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.alibaba:dubbo:2.6.5" type="70bed36:NamedLibraryElementNode" />
-              <item name="dubbo-2.6.5.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="alibaba" type="462c0819:PsiDirectoryNode" />
-              <item name="dubbo" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="serialize" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.alibaba:dubbo:2.6.5" type="70bed36:NamedLibraryElementNode" />
-              <item name="dubbo-2.6.5.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="alibaba" type="462c0819:PsiDirectoryNode" />
-              <item name="dubbo" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="serialize" type="462c0819:PsiDirectoryNode" />
-              <item name="kryo" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Changed Files'; set:Changed Files; ALL; class com.intellij.packageDependencies.ChangeListScope">
           <expand>
@@ -691,6 +326,125 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gameserver" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gameserver" type="462c0819:PsiDirectoryNode" />
+              <item name="server-gate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gameserver" type="462c0819:PsiDirectoryNode" />
+              <item name="server-gate" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gameserver" type="462c0819:PsiDirectoryNode" />
+              <item name="server-gate" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gameserver" type="462c0819:PsiDirectoryNode" />
+              <item name="server-gate" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gameserver" type="462c0819:PsiDirectoryNode" />
+              <item name="server-gate" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="lucas" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gameserver" type="462c0819:PsiDirectoryNode" />
+              <item name="server-gate" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="lucas" type="462c0819:PsiDirectoryNode" />
+              <item name="gate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gameserver" type="462c0819:PsiDirectoryNode" />
+              <item name="server-gate" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="lucas" type="462c0819:PsiDirectoryNode" />
+              <item name="gate" type="462c0819:PsiDirectoryNode" />
+              <item name="socket" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gameserver" type="462c0819:PsiDirectoryNode" />
+              <item name="server-gate" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="lucas" type="462c0819:PsiDirectoryNode" />
+              <item name="gate" type="462c0819:PsiDirectoryNode" />
+              <item name="socket" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gameserver" type="462c0819:PsiDirectoryNode" />
+              <item name="server-gate" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="lucas" type="462c0819:PsiDirectoryNode" />
+              <item name="gate" type="462c0819:PsiDirectoryNode" />
+              <item name="socket" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gameserver" type="462c0819:PsiDirectoryNode" />
+              <item name="server-team" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gameserver" type="462c0819:PsiDirectoryNode" />
+              <item name="server-team" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gameserver" type="462c0819:PsiDirectoryNode" />
+              <item name="server-team" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gameserver" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gameserver" type="462c0819:PsiDirectoryNode" />
+              <item name="server-team" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -700,7 +454,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../kcp/kcp-netty/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../dubbo/dubbo-samples/pom.xml" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -744,7 +498,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.GameServer">
+  <component name="RunManager" selected="JUnit.TeamTest.request">
     <configuration name="GameServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="lucas.gate.socket.bootstarp.GameServer" />
       <module name="server-gate" />
@@ -784,13 +538,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TeamTest.request" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lucas.client.teamtest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="lucas.client.teamtest" />
+      <option name="MAIN_CLASS_NAME" value="lucas.client.teamtest.TeamTest" />
+      <option name="METHOD_NAME" value="request" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.MongoService" />
       <item itemvalue="Application.GameServer" />
       <item itemvalue="Application.TeamServerStart" />
+      <item itemvalue="JUnit.TeamTest.request" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TeamTest.request" />
         <item itemvalue="Application.GameServer" />
         <item itemvalue="Application.TeamServerStart" />
         <item itemvalue="Application.MongoService" />
@@ -900,14 +672,8 @@
       <workItem from="1561388118664" duration="34000" />
       <workItem from="1561533522526" duration="1259000" />
       <workItem from="1561906147283" duration="8681000" />
-      <workItem from="1561915907020" duration="417000" />
-    </task>
-    <task id="LOCAL-00059" summary="entity service">
-      <created>1542724498290</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1542724498290</updated>
+      <workItem from="1561915907020" duration="663000" />
+      <workItem from="1561947106392" duration="8560000" />
     </task>
     <task id="LOCAL-00060" summary="entity service">
       <created>1542724712667</created>
@@ -1245,31 +1011,17 @@
       <option name="project" value="LOCAL" />
       <updated>1560584273825</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="z组队服务">
+      <created>1561916380983</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1561916380983</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TeamTest_request - 2019.07.01 at 01h 12m 23s.xml">
-      <configuration name="TeamTest.request" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TeamTest_request - 2019.07.01 at 01h 14m 48s.xml">
-      <configuration name="TeamTest.request" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TeamTest_request - 2019.07.01 at 01h 16m 50s.xml">
-      <configuration name="TeamTest.request" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TeamTest_request - 2019.07.01 at 01h 17m 24s.xml">
-      <configuration name="TeamTest.request" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TeamTest_request - 2019.07.01 at 01h 18m 14s.xml">
-      <configuration name="TeamTest.request" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TeamTest_request - 2019.07.01 at 01h 20m 11s.xml">
-      <configuration name="TeamTest.request" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TeamTest_request - 2019.07.01 at 01h 21m 09s.xml">
-      <configuration name="TeamTest.request" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TeamTest_request - 2019.07.01 at 01h 24m 10s.xml">
       <configuration name="TeamTest.request" configurationId="JUnit" />
     </history-entry>
@@ -1279,9 +1031,30 @@
     <history-entry file="TeamTest_request - 2019.07.01 at 01h 25m 40s.xml">
       <configuration name="TeamTest.request" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TeamTest_request - 2019.07.01 at 14h 19m 35s.xml">
+      <configuration name="TeamTest.request" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TeamTest_request - 2019.07.01 at 14h 22m 31s.xml">
+      <configuration name="TeamTest.request" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TeamTest_request - 2019.07.01 at 14h 23m 30s.xml">
+      <configuration name="TeamTest.request" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TeamTest_request - 2019.07.01 at 14h 25m 04s.xml">
+      <configuration name="TeamTest.request" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TeamTest_request - 2019.07.01 at 14h 43m 28s.xml">
+      <configuration name="TeamTest.request" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TeamTest_request - 2019.07.01 at 14h 44m 09s.xml">
+      <configuration name="TeamTest.request" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TeamTest_request - 2019.07.01 at 16h 24m 22s.xml">
+      <configuration name="TeamTest.request" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="512788000" />
+    <option name="totallyTimeSpent" value="521594000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1295,7 +1068,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49787235" visible="true" weight="0.2935657" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49787235" visible="true" weight="0.24798928" />
       <window_info id="Designer" order="1" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Favorites" order="3" sideWeight="0.50212765" side_tool="true" weight="0.23659517" />
@@ -1304,16 +1077,16 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.54815865" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.5084986" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4490085" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.51983005" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32561308" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3753541" />
       <window_info anchor="bottom" id="Spring" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3243626" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32577905" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.30169973" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.38243628" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.407932" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="15" weight="0.48626372" />
@@ -1454,64 +1227,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/packet/packethandler/AbstractPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/game/anno/GameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/main/java/lucas/client/tcp/NettyTcpClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="54" column="19" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server-gate/src/main/resources/server/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="50" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server-gate/src/main/resources/server/mybatis-config.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server-gate/src/main/resources/logback.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server-gate/src/main/resources/mappers/PlayerMapper.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/packet/Req_CreateTeam.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="23" lean-forward="true" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server-db/src/main/java/lucas/mysql/utils/idgenerator/IDGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server-db/src/main/java/lucas/mysql/utils/idgenerator/SnowFlakeIdWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/test/java/lucas/client/TestClient/TestClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -1594,18 +1309,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server-gate/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/server-gate/src/main/resources/server.properties">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/dubbo/LogicLoadBalance.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/dubbo/2.6.5/dubbo-2.6.5-sources.jar!/com/alibaba/dubbo/config/ReferenceConfig.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1636,13 +1341,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/dubbo/SerializationOptimizerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="14" column="33" lean-forward="true" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/serverteam/model/Team.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -1650,22 +1348,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server-team/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-47" />
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/dubbo/2.6.5/dubbo-2.6.5-sources.jar!/com/alibaba/dubbo/common/serialize/kryo/utils/KryoUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rpc-api/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="85" column="21" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1683,25 +1369,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
           <caret line="906" column="8" selection-start-line="906" selection-start-column="8" selection-end-line="906" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server-team/src/main/resources/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/test/java/lucas/client/teamtest/TeamTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="46" column="14" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1474#1475#0" expanded="true" />
-            <element signature="e#1538#1539#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1750,13 +1417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/socket/task/PlayerIoTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/game/rpc/consumer/team/controller/TeamController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="589">
@@ -1764,6 +1424,13 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/socket/bootstarp/GameServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -1831,24 +1498,145 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/socket/bootstarp/GameServer.java">
+    <entry file="file://$PROJECT_DIR$/server-team/src/main/java/lucas/serverteam/provider/team/TeamProviderRegistry.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+        <state relative-caret-position="247">
+          <caret line="57" column="21" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/dubbo/dubbo/2.7.0/dubbo-2.7.0.jar!/META-INF/dubbo.xsd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="1370" column="4" selection-start-line="1370" selection-start-column="4" selection-end-line="1370" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server-common/src/main/java/lucas/common/SpringStarter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+          <folding>
+            <element signature="e#585#586#0" expanded="true" />
+            <element signature="e#653#654#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server-team/src/main/java/lucas/serverteam/TeamServerStart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+        <state relative-caret-position="209">
+          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
         </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.1.12/druid-1.1.12-sources.jar!/com/alibaba/druid/pool/DruidAbstractDataSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="1639" column="36" selection-start-line="1639" selection-start-column="36" selection-end-line="1639" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server-db/src/main/java/lucas/mysql/service/config/DBConfig.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server-gate/src/main/resources/server/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/socket/task/PlayerIoTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="37" column="19" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server-team/src/main/resources/server.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server-team/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server-gate/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-85" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server-gate/src/main/resources/server/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="34" column="22" lean-forward="true" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+        <state relative-caret-position="357">
+          <caret line="42" column="72" selection-start-line="42" selection-start-column="72" selection-end-line="42" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/dubbo/LogicLoadBalance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc-api/src/main/java/lucas/rpcapi/dubbo/SerializationOptimizerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rpc-api/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-158">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server-team/src/main/resources/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="77" lean-forward="true" selection-start-line="12" selection-start-column="77" selection-end-line="12" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="171">
+            <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/main/java/lucas/client/tcp/NettyTcpClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-57">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/test/java/lucas/client/teamtest/TeamTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="33" column="30" lean-forward="true" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server-gate/src/main/java/lucas/gate/socket/net/server/NettyTcpSocketServerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-826">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1905,11 +1693,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>server-team</last-edited>
+          <last-edited>rpc-api</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.52873564" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
