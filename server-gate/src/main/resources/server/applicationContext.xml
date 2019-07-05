@@ -50,7 +50,7 @@
     <dubbo:registry address="127.0.0.1:2181" protocol="zookeeper" check="false"/>
     <dubbo:protocol name="dubbo" optimizer="lucas.rpcapi.dubbo.SerializationOptimizerImpl" serialization="kryo"/>
     <!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
-    <dubbo:reference id="remoteTeamService" interface="lucas.rpcapi.serverteam.RpcTeamService" />
+    <dubbo:reference id="remoteTeamService" interface="lucas.rpcapi.serverteam.RpcTeamService" check="false" />
 
 
 
