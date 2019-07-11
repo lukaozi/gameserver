@@ -28,8 +28,6 @@ gameserver
 
 ### 技术选型
 
-#### 后端技术
-
 技术 | 说明 | 官网
 ----|----|----
 Spring | 容器+MVC框架 | [https://spring.io/projects/spring-framework](https://spring.io/projects/spring-framework)
@@ -47,12 +45,9 @@ ProtoStuff | RunTime Protobuf |
 
 ##### 系统架构图
 
-![系统架构图](doc/jiagou.png)
+![系统架构图](doc/jiagou2.png)
 
 
-#### 开发进度
-
-等待完成
 
 ## 环境搭建
 等待完成
@@ -67,18 +62,36 @@ Redis | 4.x | https://redis.io/download
 MongoDb | 3.2 | https://www.mongodb.com/download-center
 nginx | 1.10 | http://nginx.org/en/download.html
 
-整合ELK实现日志收集](https://mp.weixin.qq.com/s/ll_A6ddBaU99LSYmKdttYw)；
-
 ## 项目相关文档
 
 等待开发
 
-## 参考资料
-- [Spring实战（第4版）](https://book.douban.com/subject/26767354/)
-- [Spring Data实战](https://book.douban.com/subject/25975186/)
-- [MyBatis从入门到精通](https://book.douban.com/subject/27074809/)
-- [深入浅出MySQL](https://book.douban.com/subject/25817684/)
-- [循序渐进Linux（第2版）](https://book.douban.com/subject/26758194/)
-- [MongoDB实战(第二版)](https://book.douban.com/subject/27061123/)
-- [Pro Git](https://git-scm.com/book/zh/v2)
+## java游戏服务器学习系列
+    
+标题 | 链接
+----|----
+网络基本功 | https://wizardforcel.gitbooks.io/network-basic/content/index.html
+moba游戏的网络延迟 |  https://www.zhihu.com/question/36258781
+tcp加速技术 | http://www.cnhalo.net/2016/03/13/tcp-accelerate-report/
+从王者荣耀聊聊游戏的帧同步 | https://mp.weixin.qq.com/s/5atfuUNiIxYFv5y_wSVK1w
+腾讯如何打造一款实时对战手游 | https://mp.weixin.qq.com/s?__biz=MzUxOTMyMzE2Mg==&mid=2247493343&amp;idx=1&amp;sn=d0e5ca2f3d608bbc26b75b70b303b0ec&source=41#wechat_redirect
+Java魔法类：Unsafe应用解析 | https://tech.meituan.com/2019/02/14/talk-about-java-magic-class-unsafe.html
+netty源码系列 | https://www.jianshu.com/u/4fdc8c2315e8
+jemalloc内存管理机制 | https://www.jianshu.com/p/f1988cc08dfd
+linux内存分配小结 | https://blog.csdn.net/gfgdsg/article/details/42709943
+ReentrantLock-lock方法 | https://blog.csdn.net/u012881904/article/details/51051138
+IO模式和IO多路复用 | https://www.cnblogs.com/zingp/p/6863170.html
+深入理解java内存模型|http://www.importnew.com/10589.html
+聊聊java并发 | http://ifeve.com/talk-concurrency/
+Java中synchronized的实现原理与应用 | https://blog.csdn.net/u012465296/article/details/53022317
+java热更新原理实践 | https://blog.csdn.net/GV7lZB0y87u7C/article/details/79860776 
+java aqs详解 | https://www.cnblogs.com/waterystone/p/4920797.html
+彻底理解Java的Future模式 | https://www.cnblogs.com/cz123/p/7693064.html
+java hashmap全解析 |https://javadoop.com/post/hashmap#toc0
+jdk动态代理实现 | https://rejoy.iteye.com/blog/1627405
+protostuff 文档 | https://protostuff.github.io/docs/protostuff-runtime/delegate/
+Dubbo架构设计详解 | http://shiyanjun.cn/archives/325.html
+用redis构建分布式锁 | http://ifeve.com/redis-lock/
+云风的blog | https://blog.codingnow.com/
 
+###持续更新
