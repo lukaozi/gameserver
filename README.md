@@ -67,8 +67,6 @@ Redis | 4.x | https://redis.io/download
 MongoDb | 3.2 | https://www.mongodb.com/download-center
 nginx | 1.10 | http://nginx.org/en/download.html
 
-整合ELK实现日志收集](https://mp.weixin.qq.com/s/ll_A6ddBaU99LSYmKdttYw)；
-
 ## 项目相关文档
 
 等待开发
@@ -80,5 +78,3 @@ nginx | 1.10 | http://nginx.org/en/download.html
 - [深入浅出MySQL](https://book.douban.com/subject/25817684/)
 - [循序渐进Linux（第2版）](https://book.douban.com/subject/26758194/)
 - [MongoDB实战(第二版)](https://book.douban.com/subject/27061123/)
-- [Pro Git](https://git-scm.com/book/zh/v2)
-
