@@ -47,7 +47,7 @@ ProtoStuff | RunTime Protobuf |
 
 ##### 系统架构图
 
-![系统架构图](doc/jiagou.png)
+![系统架构图](doc/jiagou2.png)
 
 
 #### 开发进度
